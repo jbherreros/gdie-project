@@ -1,0 +1,64 @@
+body{
+    background-color:dodgerblue;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    justify-content: center;
+}
+
+header{
+    padding-top: 10px;
+    font-size: 50px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+video{
+    padding-top: 20px;
+    width: 100%;
+}
+
+.video-c{
+    width: 100%;
+    max-width: 900px;
+    position: relative;
+    overflow: hidden;
+}
+.video-c:hover .controls{
+    transform: translateY(-13%);
+}
+
+.controls{
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color:beige;
+    opacity: 70%;
+    transform: translateY(87%);
+    transition: all 0.6s;
+}
+
+.play-btn{
+    font-size: 25px;
+    color:darkblue;
+    background: transparent;
+    border: 0;
+    outline: 0;
+}
+
+.volume-btn{
+    font-size: 25px;
+    text-align: right;
+    color:darkblue;
+    background: transparent;
+    border: 0;
+    outline: 0; 
+}
+
+footer{
+    padding-top: 20px;
+    font-size: 15px;
+}
