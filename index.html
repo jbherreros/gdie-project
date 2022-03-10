@@ -5,27 +5,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css"> <!-- Hoja de estilos -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"> <!-- Iconos Bootstrap-->
-    <link rel="icon" href="/resources/favicon.png"> <!-- Icono web -->
-    <title>Primera práctica</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> <!-- Bootstrap framework -->
+    <link rel="stylesheet" href="css/style.css"> <!-- Hoja de estilos -->
+    <link rel="icon" href="/resources/nba-icon.ico"> <!-- Icono web -->
+    <title>TOP 10 PLAYS</title>
 </head>
 
 <body>
     <header>
-    My video
+    NBA TOP 10
     </header>
 
     <main>
         <div class="container">
             <div class="video-c">
-                <video id="video" poster="resources/mallorca-poster.jpg"> <!--autoplay: para iniciar el video automáticamente-->
-                    <source src="resources/mallorca-video.mp4" type="video/mp4"/>
+                <video id="video" poster="resources/poster.jpg"> <!--autoplay: para iniciar el video automáticamente-->
+                    <source src="resources/top10-video.mp4" type="video/mp4"/>
                     Your browser does not support the current video format
                 </video>
                 <div class="controls">
                     <button class="play-btn" id="play-btn"><i class="bi-play-fill"></i></button>
+                    <a id="current-time" style="margin-top: 8px;">0:00</a>&nbsp;
+                    <input id="time-slider" type="range" min="0" max="1" value="0.5" step="0.0001">
+                    &nbsp;<a id="duration" style="margin-top: 8px;"></a>
                     <button class="volume-btn" id="volume-btn"><i class="bi-volume-up-fill"></i></button>
+                    <input id="volume-slider" type="range" min="0" max="1" value="0.5" step="0.01">
+                    &nbsp;&nbsp;
                 </div>
             </div>
         </div>

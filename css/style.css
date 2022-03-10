@@ -1,6 +1,6 @@
 body{
-    background-color:dodgerblue;
-    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("/resources/nba-icon.ico");
+    color:black;
     text-align: center;
     justify-content: center;
 }
@@ -27,7 +27,7 @@ video{
     overflow: hidden;
 }
 .video-c:hover .controls{
-    transform: translateY(-13%);
+    transform: translateY(0%);
 }
 
 .controls{
@@ -35,15 +35,16 @@ video{
     position: absolute;
     bottom: 0;
     width: 100%;
-    background-color:beige;
-    opacity: 70%;
-    transform: translateY(87%);
+    background-color:black;
+    color:white;
+    opacity: 100%;
+    transform: translateY(84%);
     transition: all 0.6s;
 }
 
 .play-btn{
     font-size: 25px;
-    color:darkblue;
+    color:white;
     background: transparent;
     border: 0;
     outline: 0;
@@ -51,11 +52,19 @@ video{
 
 .volume-btn{
     font-size: 25px;
-    text-align: right;
-    color:darkblue;
+    color: white;
     background: transparent;
     border: 0;
     outline: 0; 
+}
+
+input[id="time-slider"] {
+    width: 75%;
+}
+
+input[id="volume-slider"] {
+    width: 20%;
+    max-width: 100px;
 }
 
 footer{
