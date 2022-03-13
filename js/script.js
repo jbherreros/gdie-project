@@ -5,13 +5,21 @@ const playBtn = document.getElementById('play-btn');
 const volumeBtn = document.getElementById('volume-btn');
 const volumeSlider = document.getElementById('volume-slider'); // Volume bar
 const timeSlider = document.getElementById('time-slider'); // Time bar
-var moving = false;
+var movingTimeSlider = false;
 
-myVideo.addEventListener('click', playPause);
+myVideo.addEventListener('dblclick', playPause);
+myVideo.addEventListener('ended', videoLoad)
 playBtn.addEventListener('click', playPause);
 volumeBtn.addEventListener('click', muteUnMuteAudio);
 volumeSlider.addEventListener('change', adjustAudio);
 timeSlider.addEventListener('change', reproduceMinute);
+timeSlider.addEventListener('mousedown', mouseDownF);
+timeSlider.addEventListener('mouseup', mouseUpF)
+
+function videoLoad(){
+    myVideo.load();
+    playBtn.innerHTML='<i class="bi-play-fill"></i>';
+}
 
 function getCurrentTime(){
     let min =Math.trunc(myVideo.currentTime / 60);
@@ -62,6 +70,16 @@ function reproduceMinute(){
     if(!myVideo.paused) myVideo.play();
 }
 
+function mouseDownF(){
+    console.log("pressing down");
+    movingTimeSlider = true;
+}
+
+function mouseUpF(){
+    console.log("releasing");
+    movingTimeSlider = false;
+}
+
 myVideo.ontimeupdate = function() {
     // Actualizamos current time
     getCurrentTime();
@@ -70,7 +88,8 @@ myVideo.ontimeupdate = function() {
     
     // poner valores en los atributos del input range 
     // para usar como barra de progreso
-    timeSlider.setAttribute("max", max);
-    timeSlider.value = posicion;
-    
+    if(!movingTimeSlider){
+        timeSlider.setAttribute("max", max);
+        timeSlider.value = posicion;
+    }
 };
