@@ -5,6 +5,7 @@ const playBtn = document.getElementById('play-btn');
 const volumeBtn = document.getElementById('volume-btn');
 const volumeSlider = document.getElementById('volume-slider'); // Volume bar
 const timeSlider = document.getElementById('time-slider'); // Time bar
+const fullScreenBtn = document.getElementById('full-screen-btn'); // Full screen
 var movingTimeSlider = false;
 
 myVideo.addEventListener('dblclick', playPause);
@@ -14,11 +15,16 @@ volumeBtn.addEventListener('click', muteUnMuteAudio);
 volumeSlider.addEventListener('change', adjustAudio);
 timeSlider.addEventListener('change', reproduceMinute);
 timeSlider.addEventListener('mousedown', mouseDownF);
-timeSlider.addEventListener('mouseup', mouseUpF)
+timeSlider.addEventListener('mouseup', mouseUpF);
+fullScreenBtn.addEventListener('click', fullScreen);
 
 function videoLoad(){
     myVideo.load();
     playBtn.innerHTML='<i class="bi-play-fill"></i>';
+}
+
+function fullScreen(){
+    console.log("porque")
 }
 
 function getCurrentTime(){

@@ -22,14 +22,15 @@
             <div class="video-c">
                 <div class="up-controls">
                     <button class="settings-btn" id="settings-btn"><i class="bi-gear-wide-connected"></i></button>
-                    <button class="full-screen-btn" id="full-screen-btn"><i class="bi-fullscreen"></i></button>
-                    
+                    <button class="full-screen-btn" id="full-screen-btn"><i class="bi-fullscreen"></i></button> 
                 </div>
-                <video id="video" poster="resources/poster.jpg"> <!--autoplay: para iniciar el video automáticamente-->
+
+                <video id="video" > <!--autoplay: para iniciar el video automáticamente-->
                     <source src="resources/top10-video.mp4" type="video/mp4"/>
                     Your browser does not support the current video format
                 </video>
-                <div class="controls">
+
+                <div class="down-controls">
                     <button class="play-btn" id="play-btn"><i class="bi-play-fill"></i></button>
                     <a id="current-time" style="margin-top: 8px;">0:00</a>&nbsp;&nbsp;
                     <input id="time-slider" type="range" min="0" max="1" value="0" step="0.0001">

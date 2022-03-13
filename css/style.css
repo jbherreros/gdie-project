@@ -11,7 +11,7 @@ header{
     font-size: 80px;
     margin-top: 10px;
     font-family: fantasy;
-    -webkit-text-stroke: 4px black;
+    -webkit-text-stroke: 3px black;
     color: white;
 }
 
@@ -31,7 +31,7 @@ video{
     overflow: hidden;
 }
 
-.video-c:hover .controls{
+.video-c:hover .down-controls{
     transform: translateY(0%);
 }
 
@@ -39,7 +39,7 @@ video{
     transform: translateY(110%);
 }
 
-.controls{
+.down-controls{
     margin-left: 1.5%;
     margin-bottom: 16px;
     display:flex;
