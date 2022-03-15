@@ -44,6 +44,8 @@ function playPause(){
         myVideo.pause();
         playBtn.innerHTML='<i class="bi-play-fill"></i>';
     }
+
+    //myVideo.requestFullscreen();
 }
 
 function muteUnMuteAudio(){
@@ -83,7 +85,7 @@ function mouseUpF(){
 }
 
 function fullScreen(){
-    fullScreenBtn.innerHTML = "hoooooola";
+    console.log("funciona fullscreen");
 }
 
 myVideo.ontimeupdate = function() {
