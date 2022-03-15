@@ -23,10 +23,6 @@ function videoLoad(){
     playBtn.innerHTML='<i class="bi-play-fill"></i>';
 }
 
-function fullScreen(){
-    console.log("porque")
-}
-
 function getCurrentTime(){
     let min =Math.trunc(myVideo.currentTime / 60);
     let sec= Math.trunc(myVideo.currentTime % 60);
@@ -84,6 +80,10 @@ function mouseDownF(){
 function mouseUpF(){
     console.log("releasing");
     movingTimeSlider = false;
+}
+
+function fullScreen(){
+    fullScreenBtn.innerHTML = "hoooooola";
 }
 
 myVideo.ontimeupdate = function() {
