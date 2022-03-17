@@ -8,6 +8,7 @@ const timeSlider = document.getElementById('time-slider'); // Time bar
 const fullScreenBtn = document.getElementById('full-screen-btn'); // Full screen
 var movingTimeSlider = false;
 
+
 myVideo.addEventListener('dblclick', playPause);
 myVideo.addEventListener('ended', videoLoad)
 playBtn.addEventListener('click', playPause);
@@ -17,6 +18,7 @@ timeSlider.addEventListener('change', reproduceMinute);
 timeSlider.addEventListener('mousedown', mouseDownF);
 timeSlider.addEventListener('mouseup', mouseUpF);
 fullScreenBtn.addEventListener('click', fullScreen);
+
 
 function videoLoad(){
     myVideo.load();
@@ -34,6 +36,7 @@ function getCurrentTime(){
 }
 
 function playPause(){
+    console.log("playpause")
     var time= Math.trunc(myVideo.duration / 60)+ ":"+ Math.trunc(myVideo.duration % 60);
     duration.innerHTML= time;
     
@@ -44,8 +47,6 @@ function playPause(){
         myVideo.pause();
         playBtn.innerHTML='<i class="bi-play-fill"></i>';
     }
-
-    //myVideo.requestFullscreen();
 }
 
 function muteUnMuteAudio(){
@@ -86,6 +87,8 @@ function mouseUpF(){
 
 function fullScreen(){
     console.log("funciona fullscreen");
+    alert("hola");
+    myVideo.requestFullscreen();
 }
 
 myVideo.ontimeupdate = function() {
