@@ -67,10 +67,16 @@ video{
     background-color:black;
     color:white;
     opacity: 0;
-    border-radius: 11px;
     margin-bottom: 50%;
+    border-radius: 11px;
     transition: all 1s;
     transition-delay: 0.5s;
+}
+
+@media screen and (max-width: 767px) {
+    .up-controls{
+        margin-bottom: 47.5%;
+    }
 }
 
 .play-btn{

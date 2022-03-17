@@ -6,8 +6,8 @@ const volumeBtn = document.getElementById('volume-btn');
 const volumeSlider = document.getElementById('volume-slider'); // Volume bar
 const timeSlider = document.getElementById('time-slider'); // Time bar
 const fullScreenBtn = document.getElementById('full-screen-btn'); // Full screen
+const settingsBtn = document.getElementById('settings-btn'); // Settings
 var movingTimeSlider = false;
-
 
 myVideo.addEventListener('dblclick', playPause);
 myVideo.addEventListener('ended', videoLoad)
@@ -18,7 +18,7 @@ timeSlider.addEventListener('change', reproduceMinute);
 timeSlider.addEventListener('mousedown', mouseDownF);
 timeSlider.addEventListener('mouseup', mouseUpF);
 fullScreenBtn.addEventListener('click', fullScreen);
-
+settingsBtn.addEventListener('click', settings)
 
 function videoLoad(){
     myVideo.load();
@@ -87,8 +87,11 @@ function mouseUpF(){
 
 function fullScreen(){
     console.log("funciona fullscreen");
-    alert("hola");
     myVideo.requestFullscreen();
+}
+
+function settings(){
+    console.log("settings");
 }
 
 myVideo.ontimeupdate = function() {

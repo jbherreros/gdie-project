@@ -1,0 +1,22 @@
+WEBVTT FILE
+
+chapter-1
+00:00:00.000 --> 00:00:10.000
+{
+"title": "First play",
+"description": "This first play is played by .. "
+}
+
+chapter-2
+00:00:10.000 --> 00:00:20.000
+{
+"title": "Second play",
+"description": "This second play is played by .. "
+}
+
+chapter-3
+00:00:15.000 --> 00:00:30.000
+{
+"title": "Third play",
+"description": "This third play is played by .. "
+}
