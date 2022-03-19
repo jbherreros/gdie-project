@@ -18,29 +18,45 @@
     </header>
 
     <main>
-        <div class="container">
-            <div class="video-c">
-                <video id="video">
-                    <source src="resources/top10-video.mp4" type="video/mp4" />
-                    Your browser does not support the current video format
-                    <track label="plays" kind="chapters" srclang="es" src="/resources/plays.vtt" default>
-                </video>
+        <div class="row">
+            <div class="container">
+                <div class="video-c">
+                    <video id="video">
+                        <source src="resources/top10-video.mp4" type="video/mp4" />
+                        Your browser does not support the current video format
+                        <track label="plays" kind="chapters" srclang="es" src="/resources/plays.vtt" default>
+                    </video>
 
-                <div class="up-controls">
-                    <button class="settings-btn" id="settings-btn"><i class="bi-gear-wide-connected"></i></button>
-                    <button class="full-screen-btn" id="full-screen-btn"><i class="bi-fullscreen"></i></button> 
-                </div>
+                    <div class="up-controls">
+                        <button class="settings-btn" id="settings-btn"><i class="bi-gear-wide-connected"></i></button>
+                        <button class="full-screen-btn" id="full-screen-btn"><i class="bi-fullscreen"></i></button> 
+                    </div>
 
-                <div class="down-controls">
-                    <button class="play-btn" id="play-btn"><i class="bi-play-fill"></i></button>
-                    <a id="current-time" style="margin-top: 8px;">0:00</a>&nbsp;&nbsp;
-                    <input id="time-slider" type="range" min="0" max="1" value="0" step="0.0001">
-                    &nbsp;&nbsp;<a id="duration" style="margin-top: 8px;"></a>
-                    <button class="volume-btn" id="volume-btn"><i class="bi-volume-up-fill"></i></button>
-                    <input id="volume-slider" type="range" min="0" max="1" value="1" step="0.01">
-                    &nbsp;&nbsp;
+                    <div class="down-controls">
+                        <button class="play-btn" id="play-btn"><i class="bi-play-fill"></i></button>
+                        <a id="current-time" style="margin-top: 8px;">0:00</a>&nbsp;&nbsp;
+                        <input id="time-slider" type="range" min="0" max="1" value="0" step="0.0001">
+                        &nbsp;&nbsp;<a id="duration" style="margin-top: 8px;"></a>
+                        <button class="volume-btn" id="volume-btn"><i class="bi-volume-up-fill"></i></button>
+                        <input id="volume-slider" type="range" min="0" max="1" value="1" step="0.01">
+                        &nbsp;&nbsp;
+                    </div>
                 </div>
             </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-3"></div>
+            <div class="scoreboard col-xl-6 border border-dark rounded">
+                        <img class="img-ateam" src="resources/cleveland.png" height="55px"/>
+                        <a class="a-team">KNICKS</a>
+                        <a class="a-score">83</a>
+                        -
+                        <a class="b-score">81</a>
+                        <a class="a-team">CLEVELAND</a>
+                        <img class="img-ateam" src="resources/cleveland.png" height="55px"/>
+            </div>
+            <div class="col-xl-3"></div>
         </div>
     </main>
 

@@ -8,7 +8,7 @@ body{
 }
 
 header{
-    font-size: 450%;
+    font-size: 410%;
     margin-top: 10px;
     font-family: fantasy;
     -webkit-text-stroke: 3px black;
@@ -73,11 +73,12 @@ video{
     transition-delay: 0.5s;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 499px) {
     .up-controls{
         margin-bottom: 47.5%;
     }
 }
+
 
 .play-btn{
     font-size: 25px;
@@ -122,6 +123,18 @@ input[id="time-slider"] {
 input[id="volume-slider"] {
     width: 20%;
     max-width: 100px;
+}
+
+.scoreboard{
+    margin-top: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 109%;
+    background-color:beige;
+    color: black;    
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+
+
 }
 
 footer{
