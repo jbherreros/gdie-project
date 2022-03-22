@@ -12,7 +12,7 @@
     <title>TOP 10 PLAYS</title>
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
     <header class="p-3 bg-dark text-white">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -22,7 +22,7 @@
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <li><a href="#" class="nav-link px-2 text-white">Home</a></li>
-                    <li><a href="#" class="nav-link px-2 text-secondary">Admin</a></li>
+                    <li><a href="admin.html" class="nav-link px-2 text-secondary">Admin</a></li>
                 </ul>
             </div>
         </div>
@@ -40,12 +40,12 @@
                             Your browser does not support the current video format
                             <track label="plays" kind="chapters" srclang="es" src="/resources/plays.vtt" default>
                         </video>
-
+                    
                         <div class="up-controls">
                             <button class="settings-btn" id="settings-btn"><i class="bi-gear-wide-connected"></i></button>
                             <button class="full-screen-btn" id="full-screen-btn"><i class="bi-fullscreen"></i></button> 
                         </div>
-
+                    
                         <div class="down-controls">
                             <button class="play-btn" id="play-btn"><i class="bi-play-fill"></i></button>
                             <a id="current-time" style="margin-top: 8px;">0:00</a>&nbsp;&nbsp;
@@ -90,7 +90,7 @@
         </div>
     </main>
 
-    <footer class="text-center text-white bg-dark">
+    <footer class="text-center text-white bg-dark mt-auto">
         <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
             by: Juan Carlos Bujosa & Guillermo Torrens
         </div>

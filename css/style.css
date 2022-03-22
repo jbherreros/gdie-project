@@ -18,7 +18,7 @@ header{
 */
 
 header{
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 /*
@@ -81,7 +81,19 @@ video{
     transition-delay: 0.5s;
 }
 
-@media screen and (max-width: 499px) {
+@media screen and (max-width: 500px) {
+    .up-controls{
+        margin-bottom: 44%;
+    }
+}
+
+@media screen and (max-width: 567px) and (min-width: 501px){
+    .up-controls{
+        margin-bottom: 46.5%;
+    }
+}
+
+@media screen and (max-width: 767px) and (min-width: 568px) {
     .up-controls{
         margin-bottom: 47.5%;
     }
@@ -141,9 +153,12 @@ input[id="volume-slider"] {
     background-color:beige;
     color: black;    
     font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 10px;
 }
 
 footer{
-    margin-top: 10px;
-    padding-top: 20px;    font-size: 15px;
+    padding-top: 8px;  
+    font-size: 15px;
+    width: 100%;
+    bottom: 0;
 }
