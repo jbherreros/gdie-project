@@ -10,7 +10,7 @@ const settingsBtn = document.getElementById('settings-btn'); // Settings
 var movingTimeSlider = false;
 
 myVideo.addEventListener('dblclick', playPause);
-myVideo.addEventListener('ended', videoLoad)
+myVideo.addEventListener('ended', videoLoad);
 playBtn.addEventListener('click', playPause);
 volumeBtn.addEventListener('click', muteUnMuteAudio);
 volumeSlider.addEventListener('change', adjustAudio);
@@ -18,7 +18,7 @@ timeSlider.addEventListener('change', reproduceMinute);
 timeSlider.addEventListener('mousedown', mouseDownF);
 timeSlider.addEventListener('mouseup', mouseUpF);
 fullScreenBtn.addEventListener('click', fullScreen);
-settingsBtn.addEventListener('click', settings)
+settingsBtn.addEventListener('click', settings);
 
 function videoLoad(){
     myVideo.load();

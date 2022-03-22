@@ -1,3 +1,8 @@
+@font-face {
+    font-family: dsDigi;
+    src: url(../resources/DS-DIGI.ttf);
+}
+
 body{
     background-image: url("../resources/background.jpg");
     background-size: 100%;
