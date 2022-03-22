@@ -1,3 +1,8 @@
+@font-face {
+    font-family: dsDigi;
+    src: url(../resources/DS-DIGI.ttf);
+}
+
 body{
     background-image: url("../resources/background.jpg");
     background-size: 100%;
@@ -134,6 +139,7 @@ input[id="volume-slider"] {
 }
 
 .scoreboard{
+    /*
     margin-top: 5px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -141,8 +147,11 @@ input[id="volume-slider"] {
     background-color:beige;
     color: black;    
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-
-
+    */
+    margin-top: 5px;
+    padding-bottom: 10px;
+    background-color:black;
+    color: white;
 }
 
 footer{

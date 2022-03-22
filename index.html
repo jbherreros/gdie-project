@@ -38,7 +38,7 @@
                         <video id="video">
                             <source src="resources/top10-video.mp4" type="video/mp4" />
                             Your browser does not support the current video format
-                            <track label="plays" kind="chapters" srclang="es" src="/resources/plays.vtt" default>
+                            <track label="plays" kind="chapters" srclang="es" src="resources/plays.vtt" default>
                         </video>
 
                         <div class="up-controls">
@@ -74,18 +74,30 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xl-3"></div>
-                <div class="scoreboard col-xl-6 border border-dark rounded">
-                            <img class="img-ateam" src="resources/cleveland.png" height="55px"/>
-                            <a class="a-team">KNICKS</a>
-                            <a class="a-score">83</a>
-                            -
-                            <a class="b-score">81</a>
-                            <a class="a-team">CLEVELAND</a>
-                            <img class="img-ateam" src="resources/cleveland.png" height="55px"/>
+            <div class="scoreboard col-xl-12 border border-2 border-white">
+                <div class="row">
+                    <div class="col-4">
+                        <p class="h5 fw-bold">VISITOR</p>
+                        <img width="50" height="50" src="resources/cleveland.png" class="img-fluid" alt="...">
+                        <p>Cleveland Cavaliers</p>
+                    </div>
+                    <div class="col-4 border border-2 border-top-0 border-white">
+                        <div class="row" style="font-family: dsDigi; padding: 20px;">
+                            <div class="col-6">
+                                <p class="h1" style="color: red;">100</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="h1" style="color: red;">100</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <p class="h5 fw-bold">HOME</p>
+                        <img width="100" height="100" src="resources/knicks.png" class="img-fluid" alt="...">
+                        <p>New York Knicks</p>
+                    </div>
+                    <p>Hola</p>
                 </div>
-                <div class="col-xl-3"></div>
             </div>
         </div>
     </main>
@@ -95,9 +107,8 @@
             by: Juan Carlos Bujosa & Guillermo Torrens
         </div>
     </footer>
+    <script src="js/videoControls.js"></script>
+    <script src="js/tracks.js"></script>
 </body>
-
-<script src="js/videoControls.js"></script>
-<script src="js/tracks.js"></script>
 
 </html>
