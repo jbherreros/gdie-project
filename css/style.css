@@ -155,8 +155,8 @@ input[id="volume-slider"] {
     padding-top: 10px;
     padding-bottom: 10px;
     font-size: 109%;
-    background-color:beige;
-    color: black;    
+    background-color:black;
+    color: white;    
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     margin-bottom: 10px;
 }
