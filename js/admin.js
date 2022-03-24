@@ -7,6 +7,7 @@ const saveBtn = document.getElementById('save-btn'); // Save button
 const form = document.getElementById('form');
 const getTime = document.getElementById('get-time');
 const testBtn = document.getElementById('test-btn');
+const videoTest = document.getElementById('video-t')
 
 startTimeBtn.addEventListener('click', startTime);
 endTimeBtn.addEventListener('click', endTime);
@@ -30,10 +31,11 @@ function clearForm(){
 }
 
 function test(){
-    console.log(startValue.value + "" + endValue.value)
+    console.log(startValue.value + " " + endValue.value)
     if(startValue.value < endValue.value){
-        myVideo.src="resources/top10-video.mp4#t="+startValue.value+","+endValue.value;
-        myVideo.play();
+        console.log("resources/top10-video.mp4#t="+startValue.value+","+endValue.value+"")
+        videoTest.src="resources/top10-video.mp4#t="+startValue.value+","+endValue.value;
+        videoTest.play();
     } else {
         alert("Los valores entrados no son correctos!");
     }
