@@ -136,9 +136,8 @@ input[id="volume-slider"] {
 
 .scoreboard{
     margin-top: 5px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    font-size: 109%;
+    /*padding-bottom: 10px;*/
+    font-size: 115%;
     background-color:black;
     color: white;    
     font-family:Verdana, Geneva, Tahoma, sans-serif;
