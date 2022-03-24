@@ -1,22 +1,251 @@
 WEBVTT FILE
 
 chapter-1
-00:00:00.000 --> 00:00:10.000
+00:00:00.000 --> 00:00:16.000
 {
-"title": "First play",
-"description": "This first play is played by .. "
+"player": {
+	"name": "Kawhi Leonard",
+	"height": 2.01,
+	"weight": 102,
+	"number": 2,
+	"points": 31,
+	"rebounds": 7,
+	"assists": 3,
+	"steals": 2,
+	"team": "Los Ángeles Clippers"
+},
+"scoreboard": {
+	"home_team": "Los Ángeles Clippers",
+	"visitor_team" "Utah Jazz",
+	"home_points": 118,
+	"visitor_points": 104,
+	"date": "06-14-2021",
+	"type": "Playoffs 2021",
+	"game_url": "https://espndeportes.espn.com/basquetbol/nba/duelo?juegoId=401333061"
+}
 }
 
 chapter-2
-00:00:10.000 --> 00:00:20.000
+00:00:16.000 --> 00:00:46.000
 {
-"title": "Second play",
-"description": "This second play is played by .. "
+"player": {
+	"name": "Kevin Durant",
+	"height": 2.08,
+	"weight": 108,
+	"number": 7,
+	"points": 23,
+	"rebounds": 8,
+	"assists": 13,
+	"steals": 0,
+	"team": "Brooklyn Nets"
+},
+"scoreboard": {
+	"home_team": "Brooklyn Nets",
+	"visitor_team" "Cleveland Cavaliers",
+	"home_points": 123,
+	"visitor_points": 109,
+	"date": "05-17-2021",
+	"type": "Regular Season 2020/2021",
+	"game_url": "https://www.espn.co.uk/nba/game/_/gameId/401307881"
+}
 }
 
 chapter-3
-00:00:15.000 --> 00:00:30.000
+00:00:46.000 --> 00:01:09.000
 {
-"title": "Third play",
-"description": "This third play is played by .. "
+"player": {
+	"name": "Miles Bridges",
+	"height": 1.98,
+	"weight": 102,
+	"number": 0,
+	"points": 23,
+	"rebounds": 7,
+	"assists": 2,
+	"steals": 1,
+	"team": "Charlotte Hornets"
+},
+"scoreboard": {
+	"home_team": "Charlotte Hornets",
+	"visitor_team" "Atlanta Hawks",
+	"home_points": 101,
+	"visitor_points": 105,
+	"date": "04-11-2021",
+	"type": "Regular Season 2020/2021",
+	"game_url": "https://espndeportes.espn.com/basquetbol/nba/juego/_/juegoId/401307599"
+}
+}
+
+chapter-4
+00:01:09.000 --> 00:01:24.000
+{
+"player": {
+	"name": "Luka Doncic",
+	"height": 2.01,
+	"weight": 104,
+	"number": 77,
+	"points": 29,
+	"rebounds": 5,
+	"assists": 9,
+	"steals": 2,
+	"team": "Dallas Mavericks"
+},
+"scoreboard": {
+	"home_team": "Memphis Grizzlies",
+	"visitor_team" "Dallas Mavericks",
+	"home_points": 113,
+	"visitor_points": 114,
+	"date": "11-14-2021",
+	"type": "Regular Season 2020/2021",
+	"game_url": "https://espndeportes.espn.com/basquetbol/nba/juego/_/juegoId/401307633"
+}
+}
+
+chapter-5
+00:01:24.000 --> 00:01:59.000
+{
+"player": {
+	"name": "Stephen Curry",
+	"height": 1.88,
+	"weight": 83,
+	"number": 30,
+	"points": 22,
+	"rebounds": 3,
+	"assists": 3,
+	"steals": 1,
+	"team": "Golden State Warriors"
+},
+"scoreboard": {
+	"home_team": "New York Knicks",
+	"visitor_team" "Golden State Warriors",
+	"home_points": 96,
+	"visitor_points": 105,
+	"date": "12-15-2021",
+	"type": "Regular Season 2021/2022",
+	"game_url": "https://espndeportes.espn.com/basquetbol/nba/juego/_/juegoId/401360238"
+}
+}
+
+chapter-6
+00:01:59.000 --> 00:02:36.000
+{
+"player": {
+	"name": "Davonte Graham",
+	"height": 1.85,
+	"weight": 88,
+	"number": 4,
+	"points": 15,
+	"rebounds": 4,
+	"assists": 8,
+	"steals": 1,
+	"team": "New Orleans Pelicans"
+},
+"scoreboard": {
+	"home_team": "Oklahoma City Thunder",
+	"visitor_team" "New Orleans Pelicans",
+	"home_points": 110,
+	"visitor_points": 113,
+	"date": "12-15-2021",
+	"type": "Regular Season 2021/2022",
+	"game_url": "https://espndeportes.espn.com/basquetbol/nba/ficha?juegoId=401360246"
+}
+}
+
+chapter-7
+00:02:36.000 --> 00:02:50.000
+{
+"player": {
+	"name": "Anthony Edwards",
+	"height": 1.93,
+	"weight": 102,
+	"number": 1,
+	"points": 7,
+	"rebounds": 3,
+	"assists": 4,
+	"steals": 2,
+	"team": "Minnesota Timberwolves"
+},
+"scoreboard": {
+	"home_team": "Minnesota Timberwolves",
+	"visitor_team" "Toronto Raptors",
+	"home_points": 81,
+	"visitor_points": 86,
+	"date": "02-20-2021",
+	"type": "Regular Season 2020/2021",
+	"game_url": "https://espndeportes.espn.com/basquetbol/nba/ficha?juegoId=401267614"
+}
+}
+
+chapter-8
+00:02:50.000 --> 00:03:08.000
+{
+"player": {
+	"name": "Giannis Antetokounmpo",
+	"height": 2.11,
+	"weight": 109,
+	"number": 34,
+	"points": 26,
+	"rebounds": 14,
+	"assists": 8,
+	"steals": 3,
+	"team": "Milwaukee Bucks"
+},
+"scoreboard": {
+	"home_team": "Milwaukee Bucks",
+	"visitor_team" "Phoenix Suns",
+	"home_points": 109,
+	"visitor_points": 103,
+	"date": "07-15-2021",
+	"type": "Playoffs 2021",
+	"game_url": "https://www.espn.ph/nba/game/_/gameId/401344138"
+}
+}
+
+chapter-9
+00:03:08.000 --> 00:03:25.000
+{
+"player": {
+	"name": "Deandre Ayton",
+	"height": 2.11,
+	"weight": 113,
+	"number": 22,
+	"points": 24,
+	"rebounds": 14,
+	"assists": 1,
+	"steals": 1,
+	"team": "Phoenix Suns"
+},
+"scoreboard": {
+	"home_team": "Phoenix Suns",
+	"visitor_team" "Los Ángeles Clippers",
+	"home_points": 104,
+	"visitor_points": 103,
+	"date": "06-22-2021",
+	"type": "Playoffs 2021",
+	"game_url": "https://espndeportes.espn.com/basquetbol/nba/juego/_/juegoId/401337334"
+}
+}
+
+chapter-10
+00:03:25.000 --> 00:03:51.000
+{
+"player": {
+	"name": "Giannis Antetokounmpo",
+	"height": 2.11,
+	"weight": 109,
+	"number": 34,
+	"points": 32,
+	"rebounds": 9,
+	"assists": 6,
+	"steals": 0,
+	"team": "Milwaukee Bucks"
+},
+"scoreboard": {
+	"home_team": "Phoenix Suns",
+	"visitor_team" "Milwaukee Bucks",
+	"home_points": 119,
+	"visitor_points": 123,
+	"date": "07-17-2021",
+	"type": "Playoffs 2021",
+	"game_url": "https://espndeportes.espn.com/basquetbol/nba/juego/_/juegoId/401344139"
+}
 }
