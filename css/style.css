@@ -4,34 +4,17 @@
 }
 
 body{
-    background-image: url("../resources/background.jpg");
+    /*background-image: url("../resources/background.jpg");*/
     background-size: 100%;
     background-repeat: repeat;
     color:black;
-    text-align: center;
+
     justify-content: center;
 }
-
-/*
-header{
-    font-size: 410%;
-    margin-top: 10px;
-    font-family: fantasy;
-    -webkit-text-stroke: 3px black;
-    color: white;
-}
-*/
 
 header{
     margin-bottom: 15px;
 }
-
-/*
-.container{
-    display: flex;
-    justify-content: center;
-}
-*/
 
 video{
     width: 100%;
@@ -42,6 +25,7 @@ video{
     /*max-width: 800px;*/
     position: relative;
     overflow: hidden;
+    border-radius: 5px;
 }
 
 .video-c:hover .down-controls{
@@ -158,10 +142,45 @@ input[id="volume-slider"] {
     color: white;    
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     margin-bottom: 10px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+#form{
+    color:white;
+    margin-top: 10px;
+    display: none;
+}
+
+.list-group{
+    text-align: center;
+}
+
+.get-time{
+    text-align: left;
+    color: white;
+
+}
+
+.time-control{
+    margin-top: 14px;
+    text-align: center;
+}
+
+.padding{
+    padding-top: 2px;
+}
+
+.video-t{
+    margin-top: 10px;
+}
+
+#video-test{
+    border-radius: 3px;
 }
 
 footer{
-    padding-top: 8px;  
+    padding-top: 10px;  
     font-size: 15px;
     width: 100%;
     bottom: 0;

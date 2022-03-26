@@ -30,7 +30,7 @@
     <main>
         <div class="container">
             <div class="row">
-                <div class="col-lg-2"></div>
+               <!-- <div class="col-lg-1"></div>-->
                 <div class="col-lg-8">
                     <div class="video-c">
                         <video id="video">
@@ -55,10 +55,144 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2"></div>
+
+                <div class="col-md-4 ">
+                    <div id="get-time" class="get-time shadow-lg p-4 mb-2 bg-dark rounded">
+                        <h6>Selecciona el minuto de inicio:</h6>
+                        <div class="row">
+                            <div class="input-group mb-2">
+                                <input type="text" id="s-time-value" class="form-control" placeholder="0.0000">
+                                <button class="btn btn-primary" type="button" id="s-time">Inicio</button>
+                            </div>
+                            <div class="input-group mb-1">
+                                <input type="text" id="e-time-value" class="form-control" placeholder="0.0000">
+                                <button class="btn btn-primary" type="button" id="e-time" style="width: 64px;">Final</button>
+                            </div>
+                        </div>
+                        <div class="time-control">
+                            <button class="btn btn-danger" type="button" id="clear-btn">Borrar</button>
+                            <button class="btn btn-success" type="button" id="save-btn">Guardar</button>
+                            <button class="btn btn-primary" type="button" id="test-btn">Test</button>
+                        </div>
+                    </div>
+
+                    <div class="video-t">
+                        <video id="video-test" poster="/resources/testing.png">
+                            <source src="resources/top10-video.mp4" type="video/mp4" />
+                            Your browser does not support the current video format
+                        </video>
+                    </div>
+                </div>
             </div>
+
+            <!-- Formulario -->
             <div class="row">
-                hola<input></input>
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8">
+                    <div id="form" class="shadow-lg p-4 mb-2 bg-dark rounded">
+                        <form>
+                            <div class="d-grid gap-2">
+                                <h4>Datos del jugador</h4>
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <label>Nombre completo:</label>
+                                        <input name="full-name" class="form-control" required>    
+                                    </div> 
+                                    <div class="col-md-4">
+                                        <label>Fecha de nacimiento:</label>
+                                        <input type="date" id="dateofbirth" class="form-control" min="1920-1-01" max="2023-12-31" required>
+                                    </div> 
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Ciudad de nacimiento:</label>
+                                        <input id="birth-city" class="form-control" required>
+                                    </div> 
+                                    <div class="col-md-4">
+                                        <label>Nacionalidad:</label>
+                                        <input id="nacionality" class="form-control" required>  
+                                    </div> 
+                                    <div class="col-md-4">
+                                        <label>Dorsal:</label>
+                                        <input id="number" class="form-control" required>  
+                                    </div> 
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Altura:</label>
+                                        <input id="player-height" class="form-control" placeholder="En metros" required>    
+                                    </div> 
+                                    <div class="col-md-4">
+                                        <label>Peso:</label>
+                                        <input id="player-weight" class="form-control" placeholder="En kilogramos" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label>Equipo:</label>
+                                        <input type="player-team" class="form-control" required>
+                                    </div> 
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label>Puntos:</label>
+                                        <input id="player-points" class="form-control" required>    
+                                    </div> 
+                                    <div class="col-md-3">
+                                        <label>Rebotes:</label>
+                                        <input id="player-rebounds" class="form-control" required>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label>Asistencias:</label>
+                                        <input id="player-assists" class="form-control" required>    
+                                    </div> 
+                                    <div class="col-md-3">
+                                        <label>Recuperaciones:</label>
+                                        <input id="player-steals" class="form-control" required>
+                                    </div> 
+                                </div>
+
+                                <br>
+                                <h4>Datos del partido</h4>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Local:</label>
+                                        <input id="local-name" class="form-control" placeholder="Nombre del equipo" required>   
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label>Puntos:</label>
+                                        <input id="local-points" class="form-control" required>   
+                                    </div> 
+                                    <div class="col-md-4">
+                                        <label>Visitante:</label>
+                                        <input id="visitor-name" class="form-control" placeholder="Nombre del equipo" required>    
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label>Puntos:</label>
+                                        <input id="visitor-points" class="form-control" required>    
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Fecha de juego:</label>
+                                        <input type="date" id="dateofmatch" class="form-control" min="2021-1-01" max="2021-12-31" required>
+                                    </div> 
+                                    <div class="col-md-6">
+                                        <label>Tipo de partido:</label>
+                                        <label for="match-type">Tipo de partido:</label>
+                                        <select class="form-control" id="match-type-select">
+                                            <option>Temporada regular 20/21</option>
+                                            <option>Temporada regular 21/22</option>
+                                            <option>Play-offs 2021</option>
+                                        </select>  
+                                    </div>
+                                </div>
+
+
+                                <button type="submit" class="btn btn-danger" style="margin-top: 10px;">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-2"></div>
             </div>
         </div>
     </main>
@@ -72,4 +206,5 @@
 
 <script src="js/videoControls.js"></script>
 <script src="js/tracks.js"></script>
+<script src="js/admin.js"></script>
 </html>
