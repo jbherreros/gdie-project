@@ -13,7 +13,8 @@ startTimeBtn.addEventListener('click', startTime);
 endTimeBtn.addEventListener('click', endTime);
 clearBtn.addEventListener('click', clearForm);
 saveBtn.addEventListener('click', saveTrack)
-testBtn.addEventListener('click', test);
+testBtn.addEventListener('click', testStop);
+videoTest.addEventListener('pause', testEnded);
 
 //Lo podemos quitar
 function getCurrentTimeAdmin(cTime){
@@ -39,24 +40,39 @@ function clearForm(){
     endValue.value=null;
 }
 
-function test(){
-    console.log("Test: " + startValue.value + " " + endValue.value);
-    var sv = parseFloat(startValue.value);
-    var ev = parseFloat(endValue.value);
-    if(sv < ev){
-        console.log("resources/top10-video.mp4#t="+sv+","+ev+"");
-        console.log(videoTest);
-        videoTest.src="resources/top10-video.mp4#t="+sv+","+ev;
-        videoTest.play();
+function testStop(){
+    if(videoTest.paused){
+        console.log("Test: " + startValue.value + " " + endValue.value);
+        var sv = parseFloat(startValue.value);
+        var ev = parseFloat(endValue.value);
+        if(sv < ev){
+            console.log("resources/top10-video.mp4#t="+sv+","+ev+"");
+            console.log(videoTest);
+            videoTest.src="resources/top10-video.mp4#t="+sv+","+ev;
+            videoTest.play();
+            myVideo.pause();
+            testBtn.className = "btn btn-danger";
+            testBtn.innerHTML = "STOP"
+        } else {
+            alert("Los valores entrados no son correctos!");
+        }
     } else {
-        alert("Los valores entrados no son correctos!");
+        videoTest.pause();
     }
 
+}
+
+function testEnded(){
+    console.log("test pausado");
+    testBtn.className = "btn btn-primary";
+    testBtn.innerHTML = "Test";
 }
 
 function saveTrack(){
     if(parseFloat(startValue.value) < parseFloat(endValue.value)){
         getTime.style.display='none';
+        videoTest.style.display='none';
+        myVideo.style.display='none';
         console.log("abrir");
         form.style.display= 'flex';
     } else {
