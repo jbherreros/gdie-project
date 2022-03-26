@@ -12,11 +12,12 @@ chapter-1
 	"rebounds": 7,
 	"assists": 3,
 	"steals": 2,
-	"team": "Los Ángeles Clippers"
+	"team": "Los Ángeles Clippers",
+	"pic": "leonard.png"
 },
 "scoreboard": {
 	"home_team": "Los Ángeles Clippers",
-	"visitor_team" "Utah Jazz",
+	"visitor_team": "Utah Jazz",
 	"home_points": 118,
 	"visitor_points": 104,
 	"date": "06-14-2021",
@@ -37,11 +38,12 @@ chapter-2
 	"rebounds": 8,
 	"assists": 13,
 	"steals": 0,
-	"team": "Brooklyn Nets"
+	"team": "Brooklyn Nets",
+	"pic": "durant.png"
 },
 "scoreboard": {
 	"home_team": "Brooklyn Nets",
-	"visitor_team" "Cleveland Cavaliers",
+	"visitor_team": "Cleveland Cavaliers",
 	"home_points": 123,
 	"visitor_points": 109,
 	"date": "05-17-2021",
@@ -62,11 +64,12 @@ chapter-3
 	"rebounds": 7,
 	"assists": 2,
 	"steals": 1,
-	"team": "Charlotte Hornets"
+	"team": "Charlotte Hornets",
+	"pic": "bridges.png"
 },
 "scoreboard": {
 	"home_team": "Charlotte Hornets",
-	"visitor_team" "Atlanta Hawks",
+	"visitor_team": "Atlanta Hawks",
 	"home_points": 101,
 	"visitor_points": 105,
 	"date": "04-11-2021",
@@ -87,11 +90,12 @@ chapter-4
 	"rebounds": 5,
 	"assists": 9,
 	"steals": 2,
-	"team": "Dallas Mavericks"
+	"team": "Dallas Mavericks",
+	"pic": "doncic.png"
 },
 "scoreboard": {
 	"home_team": "Memphis Grizzlies",
-	"visitor_team" "Dallas Mavericks",
+	"visitor_team": "Dallas Mavericks",
 	"home_points": 113,
 	"visitor_points": 114,
 	"date": "11-14-2021",
@@ -112,11 +116,12 @@ chapter-5
 	"rebounds": 3,
 	"assists": 3,
 	"steals": 1,
-	"team": "Golden State Warriors"
+	"team": "Golden State Warriors",
+	"pic": "curry.png"
 },
 "scoreboard": {
 	"home_team": "New York Knicks",
-	"visitor_team" "Golden State Warriors",
+	"visitor_team": "Golden State Warriors",
 	"home_points": 96,
 	"visitor_points": 105,
 	"date": "12-15-2021",
@@ -137,11 +142,12 @@ chapter-6
 	"rebounds": 4,
 	"assists": 8,
 	"steals": 1,
-	"team": "New Orleans Pelicans"
+	"team": "New Orleans Pelicans",
+	"pic": "graham.png"
 },
 "scoreboard": {
 	"home_team": "Oklahoma City Thunder",
-	"visitor_team" "New Orleans Pelicans",
+	"visitor_team": "New Orleans Pelicans",
 	"home_points": 110,
 	"visitor_points": 113,
 	"date": "12-15-2021",
@@ -162,11 +168,12 @@ chapter-7
 	"rebounds": 3,
 	"assists": 4,
 	"steals": 2,
-	"team": "Minnesota Timberwolves"
+	"team": "Minnesota Timberwolves",
+	"pic": "edwards.png"
 },
 "scoreboard": {
 	"home_team": "Minnesota Timberwolves",
-	"visitor_team" "Toronto Raptors",
+	"visitor_team": "Toronto Raptors",
 	"home_points": 81,
 	"visitor_points": 86,
 	"date": "02-20-2021",
@@ -187,11 +194,12 @@ chapter-8
 	"rebounds": 14,
 	"assists": 8,
 	"steals": 3,
-	"team": "Milwaukee Bucks"
+	"team": "Milwaukee Bucks",
+	"pic": "antetokounmpo.png"
 },
 "scoreboard": {
 	"home_team": "Milwaukee Bucks",
-	"visitor_team" "Phoenix Suns",
+	"visitor_team": "Phoenix Suns",
 	"home_points": 109,
 	"visitor_points": 103,
 	"date": "07-15-2021",
@@ -212,11 +220,12 @@ chapter-9
 	"rebounds": 14,
 	"assists": 1,
 	"steals": 1,
-	"team": "Phoenix Suns"
+	"team": "Phoenix Suns",
+	"pic": "ayton.png"
 },
 "scoreboard": {
 	"home_team": "Phoenix Suns",
-	"visitor_team" "Los Ángeles Clippers",
+	"visitor_team": "Los Ángeles Clippers",
 	"home_points": 104,
 	"visitor_points": 103,
 	"date": "06-22-2021",
@@ -237,11 +246,12 @@ chapter-10
 	"rebounds": 9,
 	"assists": 6,
 	"steals": 0,
-	"team": "Milwaukee Bucks"
+	"team": "Milwaukee Bucks",
+	"pic": "antetokounmpo.png"
 },
 "scoreboard": {
 	"home_team": "Phoenix Suns",
-	"visitor_team" "Milwaukee Bucks",
+	"visitor_team": "Milwaukee Bucks",
 	"home_points": 119,
 	"visitor_points": 123,
 	"date": "07-17-2021",

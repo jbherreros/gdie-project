@@ -135,13 +135,12 @@ input[id="volume-slider"] {
 }
 
 .scoreboard{
-    margin-top: 5px;
-    padding-bottom: 10px;
+    margin-top: 7px;
     font-size: 109%;
     background-color:black;
     color: white;    
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    margin-bottom: 10px;
+    margin-bottom: 16px;
     text-align: center;
     border-radius: 5px;
 }
@@ -168,7 +167,11 @@ input[id="volume-slider"] {
 }
 
 .padding{
-    padding-top: 2px;
+    padding: 10px;
+}
+
+.padding-2{
+    padding-top: 18px; 
 }
 
 .video-t{
@@ -177,6 +180,21 @@ input[id="volume-slider"] {
 
 #video-test{
     border-radius: 3px;
+}
+
+#players-list{
+    text-align: center;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+#player-stats{
+    /*text-align: center;
+    margin: 0 auto;
+    width: 97%;*/
+
+    margin:0 auto;
+    padding:0.25em 1em;
 }
 
 footer{

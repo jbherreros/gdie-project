@@ -18,7 +18,7 @@
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
                   <img src="./resources/nba-logo.jpg" width="85" height="50" class="d-inline-block align-top" alt="">
-              </a>
+                </a>
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <li><a href="#" class="nav-link px-2 text-white">Home</a></li>
@@ -30,9 +30,22 @@
     
     <main>
         <div class="container">
+            <!-- Estadística Jugador -->
+            <div class="row">
+                <div id="player-stats" class="col-12 card padding">
+                    Aquí irán las estadísticas del jugador <br>
+                    <img id="player-pic" width="180px">
+                    <p id="nombre"></p>
+                </div>
+                
+            </div>
+
+            <!-- Jugadores -->
+            <div class="padding padding-2"></div>
             <div class="row">
                 <div class="col-lg-2">
-                    Lista 1
+                    <div id="players-list" class="row card">                  
+                    </div>
                 </div>
                 <div class="col-lg-8">
                     <div class="video-c">
@@ -60,18 +73,16 @@
                 </div>
                 <div class="col-lg-2">
                     <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action">Top 1</a>
-                        <a href="#" class="list-group-item list-group-item-action">Top 2</a>
-                        <a href="#" class="list-group-item list-group-item-action">Top 3</a>
-                        <a href="#" class="list-group-item list-group-item-action">Top 4</a>
-                        <a href="#" class="list-group-item list-group-item-action">Top 5</a>
-                        <a href="#" class="list-group-item list-group-item-action">Top 6</a>
-                        <a href="#" class="list-group-item list-group-item-action">Top 7</a>
-                        <a href="#" class="list-group-item list-group-item-action">Top 8</a>
-                        <a href="#" class="list-group-item list-group-item-action">Top 9</a>
-                        <a href="#" class="list-group-item list-group-item-action active">
-                        Top 10
-                        </a>
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-danger">Top 1</a>
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-danger">Top 2</a>
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-danger">Top 3</a>
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-danger">Top 4</a>
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-danger">Top 5</a>
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-danger">Top 6</a>
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-danger">Top 7</a>
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-danger">Top 8</a>
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-danger">Top 9</a>
+                        <a href="#" class="list-group-item list-group-item-action list-group-item-danger active">Top 10</a>
                     </div>
                 </div>
             </div>
@@ -79,7 +90,7 @@
                 <div class="row">
                     <div class="col-3">
                         <p style="padding-bottom: 5px; font-size: 90%;">HOME</p>
-                        <img width="65%" height="65%" src="resources/knicks.png" style="padding-bottom: 10px;" class="img-fluid" alt="...">
+                        <img width="65%" height="65%" src="resources/clippers.png" style="padding-bottom: 10px;" class="img-fluid" alt="...">
                         <p>Cleveland Cavaliers</p>
                     </div>
                     <div class="col-6 border border-2 border-top-0 border-bottom-0 border-white">
@@ -109,7 +120,7 @@
 
                     <div class="col-3">
                         <p style="padding-bottom: 5px; font-size: 90%;">VISITOR</p>
-                        <img width="65%" height="65%" src="resources/knicks.png" style="padding-bottom: 10px;" class="img-fluid" alt="...">
+                        <img width="65%" height="65%" src="resources/suns.png" style="padding-bottom: 10px;" class="img-fluid" alt="...">
                         <p>New York Knicks</p>
                     </div>
 
