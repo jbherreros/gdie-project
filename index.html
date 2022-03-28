@@ -31,23 +31,36 @@
     <main>
         <div class="container">
             <!-- Estadística Jugador -->
-            <div class="row">
+            <!--<div class="row">
                 <div id="player-stats" class="col-12 card padding">
                     Aquí irán las estadísticas del jugador <br>
                     <img id="player-pic" width="180px">
                     <p id="nombre"></p>
                 </div>
                 
+            </div>-->
+            <div id="player-stats" class="card padding">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <img id="player-pic" width="100%">
+                    </div>
+                    <div class="col-lg-5">
+                        <p id="nombre"></p>
+                    </div>
+                    <div class="col-lg-5">
+                        <ul class="list-group list-group-horizontal-sm">
+  <li class="list-group-item">An item</li>
+  <li class="list-group-item">A second item</li>
+  <li class="list-group-item">A third item</li>
+</ul>
+                    </div>
+                </div>
+                
             </div>
-
             <!-- Jugadores -->
             <div class="padding padding-2"></div>
             <div class="row">
-                <div class="col-lg-2">
-                    <div id="players-list" class="row card">                  
-                    </div>
-                </div>
-                <div class="col-lg-8">
+                <div class="col-sm-12 col-lg-8 order-lg-2">
                     <div class="video-c">
                         <video id="video">
                             <source src="resources/top10-video.mp4" type="video/mp4" />
@@ -71,18 +84,81 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2">
+                <div id="players-list" class="mb-4 col-sm-6 col-lg-2 overflow-auto order-lg-1" style="height: 409px">
+                    <!-- <div id="players-list" class="row card"></div> -->
+                    <div id="play-1" class="card">
+                      <img src="./resources/question_mark.png" class="players-list-img card-img-top">
+                      <div class="card-body">
+                        <h5 class="card-title">Top 1</h5>
+                      </div>
+                    </div>
+                    <div id="play-2" class="card">
+                        <img src="./resources/question_mark.png" class="players-list-img card-img-top">
+                      <div class="card-body">
+                        <h5 class="card-title">Top 2</h5>
+                      </div>
+                    </div>
+                    <div id="play-3" class="card">
+                        <img src="./resources/question_mark.png" class="players-list-img card-img-top">
+                      <div class="card-body">
+                        <h5 class="card-title">Top 3</h5>
+                      </div>
+                    </div>
+                    <div id="play-4" class="card">
+                        <img src="./resources/question_mark.png" class="players-list-img card-img-top">
+                      <div class="card-body">
+                        <h5 class="card-title">Top 4</h5>
+                      </div>
+                    </div>
+                    <div id="play-5" class="card">
+                        <img src="./resources/question_mark.png" class="players-list-img card-img-top">
+                      <div class="card-body">
+                        <h5 class="card-title">Top 5</h5>
+                      </div>
+                    </div>
+                    <div id="play-6" class="card">
+                        <img src="./resources/question_mark.png" class="players-list-img card-img-top">
+                      <div class="card-body">
+                        <h5 class="card-title">Top 6</h5>
+                      </div>
+                    </div>
+                    <div id="play-7" class="card">
+                        <img src="./resources/question_mark.png" class="players-list-img card-img-top">
+                      <div class="card-body">
+                        <h5 class="card-title">Top 7</h5>
+                      </div>
+                    </div>
+                    <div id="play-8" class="card">
+                        <img src="./resources/question_mark.png" class="players-list-img card-img-top">
+                      <div class="card-body">
+                        <h5 class="card-title">Top 8</h5>
+                      </div>
+                    </div>
+                    <div id="play-9" class="card">
+                        <img src="./resources/question_mark.png" class="players-list-img card-img-top">
+                      <div class="card-body">
+                        <h5 class="card-title">Top 9</h5>
+                      </div>
+                    </div>
+                    <div id="play-10" class="card">
+                        <img src="./resources/question_mark.png" class="players-list-img card-img-top">
+                      <div class="card-body">
+                        <h5 class="card-title">Top 10</h5>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-2 order-lg-3">
                     <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action list-group-item-danger">Top 1</a>
-                        <a href="#" class="list-group-item list-group-item-action list-group-item-danger">Top 2</a>
-                        <a href="#" class="list-group-item list-group-item-action list-group-item-danger">Top 3</a>
-                        <a href="#" class="list-group-item list-group-item-action list-group-item-danger">Top 4</a>
-                        <a href="#" class="list-group-item list-group-item-action list-group-item-danger">Top 5</a>
-                        <a href="#" class="list-group-item list-group-item-action list-group-item-danger">Top 6</a>
-                        <a href="#" class="list-group-item list-group-item-action list-group-item-danger">Top 7</a>
-                        <a href="#" class="list-group-item list-group-item-action list-group-item-danger">Top 8</a>
-                        <a href="#" class="list-group-item list-group-item-action list-group-item-danger">Top 9</a>
-                        <a href="#" class="list-group-item list-group-item-action list-group-item-danger active">Top 10</a>
+                        <button id="btn-play-1" class="list-group-item list-group-item-action list-group-item-danger">Top 1</button>
+                        <button id="btn-play-2" class="list-group-item list-group-item-action list-group-item-danger">Top 2</button>
+                        <button id="btn-play-3" class="list-group-item list-group-item-action list-group-item-danger">Top 3</button>
+                        <button id="btn-play-4" class="list-group-item list-group-item-action list-group-item-danger">Top 4</button>
+                        <button id="btn-play-5" class="list-group-item list-group-item-action list-group-item-danger">Top 5</button>
+                        <button id="btn-play-6" class="list-group-item list-group-item-action list-group-item-danger">Top 6</button>
+                        <button id="btn-play-7" class="list-group-item list-group-item-action list-group-item-danger">Top 7</button>
+                        <button id="btn-play-8" class="list-group-item list-group-item-action list-group-item-danger">Top 8</button>
+                        <button id="btn-play-9" class="list-group-item list-group-item-action list-group-item-danger">Top 9</button>
+                        <button id="btn-play-10" class="list-group-item list-group-item-action list-group-item-danger active">Top 10</button>
                     </div>
                 </div>
             </div>

@@ -88,6 +88,14 @@ video{
     }
 }
 
+@media screen and (max-width: 992px) {
+    .players-list-img{
+        width:30%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
 
 .play-btn{
     font-size: 25px;
@@ -182,11 +190,14 @@ input[id="volume-slider"] {
     border-radius: 3px;
 }
 
+/*
 #players-list{
     text-align: center;
     margin-right: 0px;
     margin-left: 0px;
 }
+*/
+
 
 #player-stats{
     /*text-align: center;
