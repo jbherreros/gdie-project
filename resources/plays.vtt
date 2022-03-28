@@ -19,6 +19,8 @@ chapter-1
 "scoreboard": {
 	"home_team": "Los Ángeles Clippers",
 	"visitor_team": "Utah Jazz",
+	"home_pic": "clippers.png",
+	"visitor_pic": "jazz.png",
 	"home_points": 118,
 	"visitor_points": 104,
 	"date": "06-14-2021",
@@ -46,6 +48,8 @@ chapter-2
 "scoreboard": {
 	"home_team": "Brooklyn Nets",
 	"visitor_team": "Cleveland Cavaliers",
+	"home_pic": "nets.png",
+	"visitor_pic": "cavaliers.png",
 	"home_points": 123,
 	"visitor_points": 109,
 	"date": "05-17-2021",
@@ -73,6 +77,8 @@ chapter-3
 "scoreboard": {
 	"home_team": "Charlotte Hornets",
 	"visitor_team": "Atlanta Hawks",
+	"home_pic": "hornets.png",
+	"visitor_pic": "hawks.png",
 	"home_points": 101,
 	"visitor_points": 105,
 	"date": "04-11-2021",
@@ -100,6 +106,8 @@ chapter-4
 "scoreboard": {
 	"home_team": "Memphis Grizzlies",
 	"visitor_team": "Dallas Mavericks",
+	"home_pic": "grizzlies.png",
+	"visitor_pic": "mavericks.png",
 	"home_points": 113,
 	"visitor_points": 114,
 	"date": "11-14-2021",
@@ -127,6 +135,8 @@ chapter-5
 "scoreboard": {
 	"home_team": "New York Knicks",
 	"visitor_team": "Golden State Warriors",
+	"home_pic": "knicks.png",
+	"visitor_pic": "warriors.png",
 	"home_points": 96,
 	"visitor_points": 105,
 	"date": "12-15-2021",
@@ -154,6 +164,8 @@ chapter-6
 "scoreboard": {
 	"home_team": "Oklahoma City Thunder",
 	"visitor_team": "New Orleans Pelicans",
+	"home_pic": "thunder.png",
+	"visitor_pic": "pelicans.png",
 	"home_points": 110,
 	"visitor_points": 113,
 	"date": "12-15-2021",
@@ -181,6 +193,8 @@ chapter-7
 "scoreboard": {
 	"home_team": "Minnesota Timberwolves",
 	"visitor_team": "Toronto Raptors",
+	"home_pic": "timberwolves.png",
+	"visitor_pic": "raptors.png",
 	"home_points": 81,
 	"visitor_points": 86,
 	"date": "02-20-2021",
@@ -208,6 +222,8 @@ chapter-8
 "scoreboard": {
 	"home_team": "Milwaukee Bucks",
 	"visitor_team": "Phoenix Suns",
+	"home_pic": "bucks.png",
+	"visitor_pic": "suns.png",
 	"home_points": 109,
 	"visitor_points": 103,
 	"date": "07-15-2021",
@@ -235,6 +251,8 @@ chapter-9
 "scoreboard": {
 	"home_team": "Phoenix Suns",
 	"visitor_team": "Los Ángeles Clippers",
+	"home_pic": "suns.png",
+	"visitor_pic": "clippers.png",
 	"home_points": 104,
 	"visitor_points": 103,
 	"date": "06-22-2021",
@@ -262,6 +280,8 @@ chapter-10
 "scoreboard": {
 	"home_team": "Phoenix Suns",
 	"visitor_team": "Milwaukee Bucks",
+	"home_pic": "suns.png",
+	"visitor_pic": "bucks.png",
 	"home_points": 119,
 	"visitor_points": 123,
 	"date": "07-17-2021",

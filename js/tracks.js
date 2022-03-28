@@ -41,8 +41,33 @@ window.onload = function () {
         // "this" is a textTrack
         var play_number = obj.play;
         var player_name = obj.player.name;
-        document.getElementById('nombre').innerHTML = player_name;
+        
+        // Update player data
+        document.getElementById('player-name').innerHTML = player_name;
         document.getElementById('player-pic').src = "resources/" + obj.player.pic;
+        document.getElementById('player-dob').innerHTML = "FALTA PONER";
+        document.getElementById('player-city').innerHTML = "FALTA PONER";
+        document.getElementById('player-nacionality').innerHTML ="FALTA PONER";
+        document.getElementById('player-shirt-number').innerHTML =obj.player.number;
+        document.getElementById('player-height').innerHTML =obj.player.height;
+        document.getElementById('player-weight').innerHTML =obj.player.weight;
+        document.getElementById('player-team').innerHTML = obj.player.team;
+        document.getElementById('player-points').innerHTML = obj.player.points;
+        document.getElementById('player-rebounds').innerHTML = obj.player.rebounds;
+        document.getElementById('player-assists').innerHTML = obj.player.assists;
+        document.getElementById('player-steals').innerHTML = obj.player.steals;
+        // Update teams data
+        document.getElementById('img-home-team').src ="/resources/"+obj.scoreboard.home_pic; // por ahora da error, añadir campo en vtt *********
+        document.getElementById('img-visitor-team').src ="/resources/"+ obj.scoreboard.visitor_pic; // por ahora da error, añadir campo en vtt *********
+        document.getElementById('home-points').innerHTML = obj.scoreboard.home_points;
+        document.getElementById('visitor-points').innerHTML = obj.scoreboard.visitor_points;
+        document.getElementById('home-team-name').innerHTML = obj.scoreboard.home_team;
+        document.getElementById('visitor-team-name').innerHTML = obj.scoreboard.visitor_team;
+        document.getElementById('match-date').innerHTML = obj.scoreboard.date;
+        document.getElementById('match-type').innerHTML = obj.scoreboard.type;
+
+
+
         //var cue = textTrack.activeCues[0]; // assuming there is only one active cue
 
         //Actualiza la lista de jugadores

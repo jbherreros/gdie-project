@@ -1,6 +1,6 @@
 @font-face {
     font-family: dsDigi;
-    src: url(../resources/DS-DIGI.ttf);
+    src: url(/resources/DS-DIGI.ttf);
 }
 
 body{
@@ -8,7 +8,6 @@ body{
     background-size: 100%;
     background-repeat: repeat;
     color:black;
-
     justify-content: center;
 }
 
@@ -143,7 +142,7 @@ input[id="volume-slider"] {
 }
 
 .scoreboard{
-    margin-top: 7px;
+    margin-top: 5px;
     font-size: 109%;
     background-color:black;
     color: white;    
@@ -190,22 +189,14 @@ input[id="volume-slider"] {
     border-radius: 3px;
 }
 
-/*
-#players-list{
-    text-align: center;
-    margin-right: 0px;
-    margin-left: 0px;
-}
-*/
-
-
 #player-stats{
-    /*text-align: center;
-    margin: 0 auto;
-    width: 97%;*/
-
     margin:0 auto;
     padding:0.25em 1em;
+}
+
+#player-labels{
+    display: flex;
+    float: left;
 }
 
 footer{
