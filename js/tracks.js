@@ -35,6 +35,15 @@ window.onload = function () {
      };*/
     console.log(loaded_players);
 
+    document.getElementById('top-10-list').addEventListener('click',listGoToMinute); 
+    
+    function listGoToMinute(e){
+        var topPlay= parseInt(e.srcElement.id.split("-")[2])-1;
+        console.log("top play "+topPlay)
+        myVideo.currentTime=cues[9-topPlay].startTime;
+    };
+
+
     textTrack.oncuechange = function () {
         var cue = textTrack.activeCues[0];
         var obj = JSON.parse(cue.text);
@@ -57,17 +66,14 @@ window.onload = function () {
         document.getElementById('player-assists').innerHTML = obj.player.assists;
         document.getElementById('player-steals').innerHTML = obj.player.steals;
         // Update teams data
-        document.getElementById('img-home-team').src ="/resources/"+obj.scoreboard.home_pic; // por ahora da error, añadir campo en vtt *********
-        document.getElementById('img-visitor-team').src ="/resources/"+ obj.scoreboard.visitor_pic; // por ahora da error, añadir campo en vtt *********
+        document.getElementById('img-home-team').src ="/resources/"+obj.scoreboard.home_pic; 
+        document.getElementById('img-visitor-team').src ="/resources/"+ obj.scoreboard.visitor_pic;
         document.getElementById('home-points').innerHTML = obj.scoreboard.home_points;
         document.getElementById('visitor-points').innerHTML = obj.scoreboard.visitor_points;
         document.getElementById('home-team-name').innerHTML = obj.scoreboard.home_team;
         document.getElementById('visitor-team-name').innerHTML = obj.scoreboard.visitor_team;
         document.getElementById('match-date').innerHTML = obj.scoreboard.date;
         document.getElementById('match-type').innerHTML = obj.scoreboard.type;
-
-
-
         //var cue = textTrack.activeCues[0]; // assuming there is only one active cue
 
         //Actualiza la lista de jugadores
@@ -99,7 +105,7 @@ window.onload = function () {
         document.getElementById("btn-play-" + play_number).classList.add("active");
         active_play = play_number;
 
-    }
+    };
 
     function fillPlayersLoaded() {
         for (let index = 0; index < loaded_players.length; index++) {
