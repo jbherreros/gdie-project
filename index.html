@@ -30,13 +30,14 @@
     
     <main>
         <div class="container">
+          <!-- Estadística jugador-->
             <div id="player-stats" class="card padding">
                 <div class="row">
                     <div class="col-lg-2">
                         <img id="player-pic" src="/resources/silueta.png" width="100%">
                     </div>
 
-                    <div class="col-lg-3">
+                    <div class="col-lg-3 player-stats-first">
                       <p id="player-name" class="h2">Player name</p>
                       <h6>
                         <img id="img-player-team" width="20px">&nbsp;
@@ -44,16 +45,16 @@
                       #<p id="player-shirt-number" style="display:inline"></p></h6>
                     </div>
 
-                    <div class="col-lg-3">
+                    <div class="col-lg-3 player-stats-second">
                         <label>Nacimiento:&nbsp;</label><p style="display:inline" id="player-dob"></p>
-                        <p style="display:inline" id="player-city"></p>
-                        <label>País:&nbsp;</label><p style="display:inline" id="player-country"></p>
-                        <label>Altura:&nbsp;</label><p style="display:inline" id="player-height"></p>
-                        <label>Peso:&nbsp;</label><p style="display:inline" id="player-weight"></p>
+                        <p style="display:inline" id="player-city"></p><br>
+                        <label>País:&nbsp;</label><p style="display:inline" id="player-country"></p><br>
+                        <label>Altura/Peso:&nbsp;</label><p style="display:inline" id="player-height"></p>m&nbsp;/
+                        </label><p style="display:inline" id="player-weight"></p>kg<br>
                     </div>
 
                     <div class="col-lg-4">
-                      <div class="player-stats">
+                      <div class="player-stats-third">
                         <h5 class="player-p text-center border-black">Estadísticas del partido</h5>
                         <div class="row text-center">
                           <div class="col-3">
@@ -104,7 +105,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="players-list" class="mb-4 col-sm-6 col-lg-2 overflow-auto order-lg-1" style="height: 409px">
+                <div id="players-list" class="mb-4 col-sm-6 col-lg-2 overflow-auto order-lg-1" style="height: 481.5px">
                     <div id="play-1" class="card">
                       <img src="./resources/silueta.png" class="players-list-img card-img-top">
                       <div class="card-body">
