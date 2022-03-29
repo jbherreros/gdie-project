@@ -206,8 +206,12 @@ input[id="volume-slider"] {
     border-radius: 20px;
 }
 
-.player-stats-first, .player-stats-second{
+.player-stats-first{
     padding-top: 16px;
+}
+
+.player-stats-second{
+    padding-top: 30px;
 }
 
 .player-p{
