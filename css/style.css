@@ -199,6 +199,22 @@ input[id="volume-slider"] {
     float: left;
 }
 
+.player-stats{
+    margin-top: 13px;
+    border-style: solid; 
+    border-width: 1px;
+    border-radius: 20px;
+}
+
+.player-p{
+    background-color: #842029; 
+    border-top-left-radius: 19px; 
+    border-top-right-radius: 19px; 
+    border-bottom-width: 1px; 
+    border-color: black;
+    color: white;
+}
+
 footer{
     padding-top: 10px;  
     font-size: 15px;
