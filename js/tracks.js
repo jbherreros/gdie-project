@@ -101,6 +101,7 @@ window.onload = function () {
             var cb = document.getElementById("play-" + play_number).children[1];
             var player_name_tag = document.createElement("p");
             player_name_tag.className = "card-text";
+            player_name_tag.style.fontSize = "15px";
             player_name_tag.innerHTML = player_name;
             //Puede ser que no funcione en Internet Explorer
             cb.appendChild(player_name_tag);
