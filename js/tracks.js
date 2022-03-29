@@ -53,7 +53,7 @@ window.onload = function () {
         
         // Update player data
         document.getElementById('player-name').innerHTML = player_name;
-        document.getElementById('player-pic').src = "resources/" + obj.player.pic;
+        document.getElementById('player-pic').src = "./resources/" + obj.player.pic;
         document.getElementById('player-dob').innerHTML = obj.player.dob;
         document.getElementById('player-city').innerHTML = obj.player.city;
         document.getElementById('player-country').innerHTML =obj.player.country;
@@ -68,16 +68,16 @@ window.onload = function () {
         let pTeam = String(obj.player.team);
         let sTeam = String(obj.scoreboard.home_team);
         if(pTeam.localeCompare(sTeam)){
-            document.getElementById('img-player-team').src = "resources/" + obj.scoreboard.visitor_pic;
+            document.getElementById('img-player-team').src = "./resources/" + obj.scoreboard.visitor_pic;
         } else {
-            document.getElementById('img-player-team').src = "resources/" + obj.scoreboard.home_pic;
+            document.getElementById('img-player-team').src = "./resources/" + obj.scoreboard.home_pic;
         }
 
 
 
         // Update teams data
-        document.getElementById('img-home-team').src ="/resources/"+obj.scoreboard.home_pic; 
-        document.getElementById('img-visitor-team').src ="/resources/"+ obj.scoreboard.visitor_pic;
+        document.getElementById('img-home-team').src ="./resources/"+obj.scoreboard.home_pic; 
+        document.getElementById('img-visitor-team').src ="./resources/"+ obj.scoreboard.visitor_pic;
         document.getElementById('home-points').innerHTML = obj.scoreboard.home_points;
         document.getElementById('visitor-points').innerHTML = obj.scoreboard.visitor_points;
         document.getElementById('home-team-name').innerHTML = obj.scoreboard.home_team;
