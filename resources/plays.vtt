@@ -24,7 +24,7 @@ chapter-1
 	"home_points": 118,
 	"visitor_points": 104,
 	"date": "06-14-2021",
-	"type": "Playoffs 2021",
+	"type": "Playoffs",
 	"game_url": "https://espndeportes.espn.com/basquetbol/nba/duelo?juegoId=401333061"
 }
 }
@@ -53,7 +53,7 @@ chapter-2
 	"home_points": 123,
 	"visitor_points": 109,
 	"date": "05-17-2021",
-	"type": "Regular Season 2020/2021",
+	"type": "Regular Season",
 	"game_url": "https://www.espn.co.uk/nba/game/_/gameId/401307881"
 }
 }
@@ -82,7 +82,7 @@ chapter-3
 	"home_points": 101,
 	"visitor_points": 105,
 	"date": "04-11-2021",
-	"type": "Regular Season 2020/2021",
+	"type": "Regular Season",
 	"game_url": "https://espndeportes.espn.com/basquetbol/nba/juego/_/juegoId/401307599"
 }
 }
@@ -111,7 +111,7 @@ chapter-4
 	"home_points": 113,
 	"visitor_points": 114,
 	"date": "11-14-2021",
-	"type": "Regular Season 2020/2021",
+	"type": "Regular Season",
 	"game_url": "https://espndeportes.espn.com/basquetbol/nba/juego/_/juegoId/401307633"
 }
 }
@@ -140,7 +140,7 @@ chapter-5
 	"home_points": 96,
 	"visitor_points": 105,
 	"date": "12-15-2021",
-	"type": "Regular Season 2021/2022",
+	"type": "Regular Season",
 	"game_url": "https://espndeportes.espn.com/basquetbol/nba/juego/_/juegoId/401360238"
 }
 }
@@ -169,7 +169,7 @@ chapter-6
 	"home_points": 110,
 	"visitor_points": 113,
 	"date": "12-15-2021",
-	"type": "Regular Season 2021/2022",
+	"type": "Regular Season",
 	"game_url": "https://espndeportes.espn.com/basquetbol/nba/ficha?juegoId=401360246"
 }
 }
@@ -198,7 +198,7 @@ chapter-7
 	"home_points": 81,
 	"visitor_points": 86,
 	"date": "02-20-2021",
-	"type": "Regular Season 2020/2021",
+	"type": "Regular Season",
 	"game_url": "https://espndeportes.espn.com/basquetbol/nba/ficha?juegoId=401267614"
 }
 }
@@ -227,7 +227,7 @@ chapter-8
 	"home_points": 109,
 	"visitor_points": 103,
 	"date": "07-15-2021",
-	"type": "Playoffs 2021",
+	"type": "Playoffs",
 	"game_url": "https://www.espn.ph/nba/game/_/gameId/401344138"
 }
 }
@@ -256,7 +256,7 @@ chapter-9
 	"home_points": 104,
 	"visitor_points": 103,
 	"date": "06-22-2021",
-	"type": "Playoffs 2021",
+	"type": "Playoffs",
 	"game_url": "https://espndeportes.espn.com/basquetbol/nba/juego/_/juegoId/401337334"
 }
 }
@@ -285,7 +285,7 @@ chapter-10
 	"home_points": 119,
 	"visitor_points": 123,
 	"date": "07-17-2021",
-	"type": "Playoffs 2021",
+	"type": "Playoffs",
 	"game_url": "https://espndeportes.espn.com/basquetbol/nba/juego/_/juegoId/401344139"
 }
 }
