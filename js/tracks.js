@@ -109,7 +109,7 @@ window.onload = function () {
         }
 
         //Hacemos el scroll al jugador que realiza la jugada
-        //document.getElementById("players-list").scrollTop = (play_number - 1) * 200;
+        document.getElementById("players-list").scrollTop = (play_number - 1) * 217.5;
 
         //Actualizar lista de jugadas
         document.getElementById("btn-play-" + active_play).classList.remove("active");
