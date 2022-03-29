@@ -11,7 +11,7 @@ const videoTest = document.getElementById('video-test')
 
 startTimeBtn.addEventListener('click', startTime);
 endTimeBtn.addEventListener('click', endTime);
-clearBtn.addEventListener('click', clearForm);
+//clearBtn.addEventListener('click', clearForm);
 saveBtn.addEventListener('click', saveTrack)
 testBtn.addEventListener('click', testStop);
 videoTest.addEventListener('pause', testEnded);
@@ -72,9 +72,12 @@ function saveTrack(){
     if(parseFloat(startValue.value) < parseFloat(endValue.value)){
         getTime.style.display='none';
         videoTest.style.display='none';
+        myVideo.pause();
+        videoTest.pause();
         myVideo.style.display='none';
         console.log("abrir");
         form.style.display= 'flex';
+        
     } else {
         alert("Los valores entrados no son correctos!");
     }
