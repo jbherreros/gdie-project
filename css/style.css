@@ -1,6 +1,6 @@
 @font-face {
     font-family: dsDigi;
-    src: url(/resources/DS-DIGI.ttf);
+    src: url(../resources/DS-DIGI.TTF);
 }
 
 body{
@@ -93,6 +93,17 @@ video{
         display: block;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .adjust-img, .player-stats-first, .player-stats-second{
+        width:60%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .player-stats-second{
+        padding-top: 5px;
     }
 }
 
@@ -198,19 +209,23 @@ input[id="volume-slider"] {
     float: left;
 }
 
+.player-stats-first{
+    margin-top: 16px;
+}
+
+.player-stats-second{
+    margin-top: 30px;
+}
+
 .player-stats-third{
-    margin-top: 17px;
+    margin-top: 20px;
     border-style: solid; 
     border-width: 1px;
     border-radius: 20px;
 }
 
-.player-stats-first{
-    padding-top: 16px;
-}
-
-.player-stats-second{
-    padding-top: 30px;
+#score{
+    margin-top: 5px;
 }
 
 .player-p{
