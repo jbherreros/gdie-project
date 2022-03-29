@@ -35,37 +35,55 @@
                     <div class="col-lg-2">
                         <img id="player-pic" src="/resources/silueta.png" width="100%">
                     </div>
-                    <div class="col-lg-5">
-                        Nombre:<p id="player-name"></p>
-                        F. nacimiento:<p id="player-dob"></p>
-                        Ciudad:<p id="player-city"></p>
-                        Nacionalidad:<p id="player-nacionality"></p>
-                        Dorsal:<p id="player-shirt-number"></p>
-                        Altura:<p id="player-height"></p>
-                        Peso:<p id="player-weight"></p>
-                        Equipo:<p id="player-team"></p>
-                        Puntos:<p id="player-points"></p>
-                        Rebotes:<p id="player-rebounds"></p>
-                        Asistencias:<p id="player-assists"></p>
-                        Recuperaciones:<p id="player-steals"></p>
+
+                    <div class="col-lg-3">
+                      <p id="player-name" class="h2">Player name</p>
+                      <h6>
+                        <img id="img-player-team" width="20px">&nbsp;
+                        <p id="player-team" style="display:inline" >Team</p>&nbsp;
+                      #<p id="player-shirt-number" style="display:inline"></p></h6>
                     </div>
-                    <div class="col-lg-5">
-                        <ul class="list-group list-group-horizontal-sm">
-                          <li class="list-group-item">An item</li>
-                          <li class="list-group-item">A second item</li>
-                          <li class="list-group-item">A third item</li>
-                        </ul>
+
+                    <div class="col-lg-3">
+                        <label>Nacimiento:&nbsp;</label><p style="display:inline" id="player-dob"></p>
+                        <p style="display:inline" id="player-city"></p>
+                        <label>País:&nbsp;</label><p style="display:inline" id="player-country"></p>
+                        <label>Altura:&nbsp;</label><p style="display:inline" id="player-height"></p>
+                        <label>Peso:&nbsp;</label><p style="display:inline" id="player-weight"></p>
                     </div>
-                </div>
-                
-            </div>
+
+                    <div class="col-lg-4">
+                      <div class="player-stats">
+                        <h5 class="player-p text-center border-black">Estadísticas del partido</h5>
+                        <div class="row text-center">
+                          <div class="col-3">
+                            <label>PTS</label>
+                            <p id="player-points" class="h4 bold">-</p>
+                          </div>
+                          <div class="col-3">
+                            <label>REB</label>
+                            <p id="player-rebounds" class="h4 bold">-</p>
+                          </div>
+                          <div class="col-3">
+                            <label>ASI</label>
+                            <p id="player-assists" class="h4 bold">-</p>
+                          </div>
+                          <div class="col-3">
+                            <label>REC</label>
+                            <p id="player-steals" class="h4 bold">-</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>                  
+                  </div>                
+              </div>
             <!-- Jugadores -->
             <div class="padding padding-2"></div>
             <div class="row">
                 <div class="col-sm-12 col-lg-8 order-lg-2">
                     <div class="video-c">
                         <video id="video">
-                            <source src="resources/top10-video.mp4" type="video/mp4" />
+                            <source src="resources/top10-video.mp4" type="video/mp4"/>
                             Your browser does not support the current video format
                             <track label="plays" kind="chapters" srclang="es" src="resources/plays.vtt" default>
                         </video>
@@ -180,7 +198,6 @@
                             </div>
                         </div>
                         <div class="row">
-                            <!--<div class="col-lg-2"></div>-->
                             <div class="col-lg-6">
                                 <b>FECHA</b>
                                 <p id="match-date" style="padding-top: 10px; font-size: 20px; text-align: center; color: red; font-family: dsDigi;">-</p>

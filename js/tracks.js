@@ -54,9 +54,9 @@ window.onload = function () {
         // Update player data
         document.getElementById('player-name').innerHTML = player_name;
         document.getElementById('player-pic').src = "resources/" + obj.player.pic;
-        document.getElementById('player-dob').innerHTML = "FALTA PONER";
-        document.getElementById('player-city').innerHTML = "FALTA PONER";
-        document.getElementById('player-nacionality').innerHTML ="FALTA PONER";
+        document.getElementById('player-dob').innerHTML = obj.player.dob;
+        document.getElementById('player-city').innerHTML = obj.player.city;
+        document.getElementById('player-country').innerHTML =obj.player.country;
         document.getElementById('player-shirt-number').innerHTML =obj.player.number;
         document.getElementById('player-height').innerHTML =obj.player.height;
         document.getElementById('player-weight').innerHTML =obj.player.weight;
@@ -65,6 +65,16 @@ window.onload = function () {
         document.getElementById('player-rebounds').innerHTML = obj.player.rebounds;
         document.getElementById('player-assists').innerHTML = obj.player.assists;
         document.getElementById('player-steals').innerHTML = obj.player.steals;
+        let pTeam = String(obj.player.team);
+        let sTeam = String(obj.scoreboard.home_team);
+        if(pTeam.localeCompare(sTeam)){
+            document.getElementById('img-player-team').src = "resources/" + obj.scoreboard.visitor_pic;
+        } else {
+            document.getElementById('img-player-team').src = "resources/" + obj.scoreboard.home_pic;
+        }
+
+
+
         // Update teams data
         document.getElementById('img-home-team').src ="/resources/"+obj.scoreboard.home_pic; 
         document.getElementById('img-visitor-team').src ="/resources/"+ obj.scoreboard.visitor_pic;
