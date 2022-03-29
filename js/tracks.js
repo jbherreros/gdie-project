@@ -35,12 +35,26 @@ window.onload = function () {
      };*/
     console.log(loaded_players);
 
+<<<<<<< Updated upstream
     document.getElementById('top-10-list').addEventListener('click',listGoToMinute); 
     
     function listGoToMinute(e){
         var topPlay= parseInt(e.srcElement.id.split("-")[2])-1;
         console.log("top play "+topPlay)
         myVideo.currentTime=cues[9-topPlay].startTime+0.0001;
+=======
+   /* var top=10;
+    for (var i = 0; i < cues.length; i++) {
+        document.getElementById('top-'+top).innerText=top;
+        top=top-1;
+        console.log("iteraciones " +i+" top "+ top)
+        console.log('top-'+top)
+     }*/
+
+   /* cue.onenter = function(){
+        console.log("soy la cue entrando");
+       // console.log(JSON.parse(cue.text));
+>>>>>>> Stashed changes
     };
 
 
@@ -83,6 +97,7 @@ window.onload = function () {
             //var src = document.getElementById("play-" + obj.play);
             //src.appendChild(img);
 
+<<<<<<< Updated upstream
             //Actualiza la imagen
             var img = document.getElementById("play-" + play_number).children[0];
             img.src="./resources/" + obj.player.pic;
@@ -111,6 +126,32 @@ window.onload = function () {
         for (let index = 0; index < loaded_players.length; index++) {
             loaded_players[index] = false;
         }
+=======
+        var img = document.createElement("img");
+        img.src = "resources/"+obj.player.pic;
+        var src = document.getElementById("players-list");
+        src.appendChild(img);
+    }
+
+    document.getElementById('1').addEventListener('click', goToMinute)
+    document.getElementById('2').addEventListener('click', goToMinute)
+    document.getElementById('3').addEventListener('click', goToMinute)
+    document.getElementById('4').addEventListener('click', goToMinute)
+    document.getElementById('5').addEventListener('click', goToMinute)
+    document.getElementById('6').addEventListener('click', goToMinute)
+    document.getElementById('7').addEventListener('click', goToMinute)
+    document.getElementById('8').addEventListener('click', goToMinute)
+    document.getElementById('9').addEventListener('click', goToMinute)
+    document.getElementById('10').addEventListener('click', goToMinute)
+
+
+    function goToMinute(e){
+       let topBtn = e.currentTarget.id;
+       console.log(parseInt(topBtn))
+       console.log(textTrack.cues[topBtn-1].startTime)
+       myVideo.currentTime=textTrack.cues[topBtn-1].startTime;
+       
+>>>>>>> Stashed changes
     }
 
 };
