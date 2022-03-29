@@ -40,7 +40,7 @@ window.onload = function () {
     function listGoToMinute(e){
         var topPlay= parseInt(e.srcElement.id.split("-")[2])-1;
         console.log("top play "+topPlay)
-        myVideo.currentTime=cues[9-topPlay].startTime;
+        myVideo.currentTime=cues[9-topPlay].startTime+0.0001;
     };
 
 
