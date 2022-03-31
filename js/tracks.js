@@ -21,18 +21,7 @@ window.onload = function () {
     var textTrack = textTracks[0]; // plays track
     var cues = textTrack.cues; // cues list
     var cue = cues[0];
-    //console.log(cue);
-    //console.log(cue.text);
-    //console.log(textTrack.kind);
 
-    /* cue.onenter = function(){
-         console.log("soy la cue entrando");
-        // console.log(JSON.parse(cue.text));
-     };
- 
-     cue.onexit = function(){
-         console.log("soy la cue saliendo");
-     };*/
     console.log(loaded_players);
 
     document.getElementById('top-10-list').addEventListener('click',listGoToMinute); 
@@ -72,8 +61,6 @@ window.onload = function () {
         } else {
             document.getElementById('img-player-team').src = "./resources/" + obj.scoreboard.home_pic;
         }
-
-
 
         // Update teams data
         document.getElementById('img-home-team').src ="./resources/"+obj.scoreboard.home_pic; 
