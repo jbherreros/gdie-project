@@ -87,6 +87,14 @@
             </div>
 
             <!-- Formulario -->
+
+            <?php
+            $fp = fopen('Output.txt', 'w');
+            fwrite($fp, 'Cats chase mice');
+            fclose($fp);
+            echo "hola";
+            ?>
+
             <div class="row">
                 <div class="col-lg-2"></div>
                 <div class="col-lg-8">
@@ -228,6 +236,5 @@
 </body>
 
 <script src="js/videoControls.js"></script>
-<script src="js/tracks.js"></script>
 <script src="js/admin.js"></script>
 </html>
