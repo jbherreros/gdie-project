@@ -10,6 +10,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 });
 */
 //Deja de funcionar en Chrome cuando se recarga la página después de haber cargado inmediatamente la página
+
 window.onload = function () {
     const plays_number = 10;
     var loaded_players = new Array(plays_number);
@@ -35,14 +36,20 @@ window.onload = function () {
      };*/
     console.log(loaded_players);
 
-    document.getElementById('top-10-list').addEventListener('click',listGoToMinute); 
-    
-    function listGoToMinute(e){
-        var topPlay= parseInt(e.srcElement.id.split("-")[2])-1;
-        console.log("top play "+topPlay)
-        myVideo.currentTime=cues[9-topPlay].startTime+0.0001;
-    };
+    document.getElementById('top-10-list').addEventListener('click', listGoToMinute);
 
+    /*
+    beginGame();
+    function beginGame() {
+        console.log(cues[0].text);
+    }
+    */
+
+    function listGoToMinute(e){
+        var topPlay= parseInt(e.target.id.split("-")[2])-1;
+        console.log("top play "+topPlay);
+        myVideo.currentTime=cues[9-topPlay].startTime+0.0001;
+    }
 
     textTrack.oncuechange = function () {
         var cue = textTrack.activeCues[0];
@@ -125,4 +132,3 @@ window.onload = function () {
     }
 
 };
-
