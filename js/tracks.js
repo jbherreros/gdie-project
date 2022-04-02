@@ -38,13 +38,6 @@ window.onload = function () {
 
     document.getElementById('top-10-list').addEventListener('click', listGoToMinute);
 
-    /*
-    beginGame();
-    function beginGame() {
-        console.log(cues[0].text);
-    }
-    */
-
     function listGoToMinute(e){
         var topPlay= parseInt(e.target.id.split("-")[2])-1;
         console.log("top play "+topPlay);
