@@ -39,16 +39,30 @@ window.onload = function () {
     document.getElementById('top-10-list').addEventListener('click', listGoToMinute);
 
     function listGoToMinute(e){
-        var topPlay= parseInt(e.target.id.split("-")[2])-1;
+        var topPlay= parseInt(e.target.id.split("-")[2]);
         console.log("top play "+topPlay);
-        myVideo.currentTime=cues[9-topPlay].startTime+0.0001;
+        let found = false;
+        let index = 0;
+        let cue = null;
+        while ((!found) && (index < cues.length)) {
+            if (cues[index].id == topPlay) {
+                cue = cues[index];
+                found = true;
+            }
+            //console.log("Pos " + index);
+            index++;
+        } 
+        if (found) {
+            myVideo.currentTime=cue.startTime+0.0001;
+        }
     }
 
     textTrack.oncuechange = function () {
         var cue = textTrack.activeCues[0];
         var obj = JSON.parse(cue.text);
         // "this" is a textTrack
-        var play_number = obj.play;
+        var play_number = cue.id;
+        console.log(play_number);
         var player_name = obj.player.name;
         
         // Update player data

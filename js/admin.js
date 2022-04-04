@@ -34,7 +34,7 @@ window.onload = function () {
         json = JSON.parse(cues[i].text);
         //console.log(cues[i].startTime);
         //console.log(cues[i].endTime);
-        tableRow = tableRow + '<tr><th scope="row">'+json.play+'</th><td>'+json.player.name
+        tableRow = tableRow + '<tr><th scope="row">'+cues[i].id+'</th><td>'+json.player.name
         +'</td><td>'+convertTimeToVttFormat(cues[i].startTime)+'</td><td>'
         +convertTimeToVttFormat(cues[i].endTime)
         +'</td><td><button id="eliminarCue-'+i
