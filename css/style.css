@@ -17,14 +17,14 @@ header{
 
 video{
     width: 100%;
+    border-radius: 5px;
 }
 
 .video-c{
     width: 100%;
-    /*max-width: 800px;*/
     position: relative;
     overflow: hidden;
-    border-radius: 5px;
+    
 }
 
 .video-c:hover .down-controls{
@@ -55,11 +55,11 @@ video{
 }
 
 .up-controls{
-    display: flex;
+    /*display: flex;*/
+    top: 13px;
     margin-left: 1.5%;
     position: absolute;
-    bottom: 0;
-    width: 82px;
+    width: 84px;
     background-color:black;
     color:white;
     opacity: 0;
@@ -69,6 +69,7 @@ video{
     transition-delay: 0.5s;
 }
 
+/*
 @media screen and (max-width: 500px) {
     .up-controls{
         margin-bottom: 44%;
@@ -86,6 +87,7 @@ video{
         margin-bottom: 47.5%;
     }
 }
+*/
 
 @media screen and (max-width: 992px) {
     .players-list-img{

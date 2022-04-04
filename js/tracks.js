@@ -10,7 +10,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 });
 */
 //Deja de funcionar en Chrome cuando se recarga la página después de haber cargado inmediatamente la página
-
 window.onload = function () {
     const plays_number = 10;
     var loaded_players = new Array(plays_number);
@@ -37,11 +36,36 @@ window.onload = function () {
     console.log(loaded_players);
 
     document.getElementById('top-10-list').addEventListener('click', listGoToMinute);
+    document.getElementById('players-list').addEventListener('click', playersGoToMinute)
 
     function listGoToMinute(e){
         var topPlay= parseInt(e.target.id.split("-")[2])-1;
         console.log("top play "+topPlay);
         myVideo.currentTime=cues[9-topPlay].startTime+0.0001;
+    }
+
+    function playersGoToMinute(e){
+        var div = e.target; 
+        let play=String(div.id.split("-")[1]);
+
+        if (play > 0){
+            console.log(play)
+            myVideo.currentTime=cues[10-play].startTime+0.0001;
+
+        } else {
+            div=div.parentNode;
+            play=String(div.id.split("-")[1]);
+            console.log(play)
+
+            if(play > 0){
+                myVideo.currentTime=cues[10-play].startTime+0.0001;
+            } else {
+                div=div.parentNode;
+                play=String(div.id.split("-")[1]);
+                console.log(play)
+                myVideo.currentTime=cues[10-play].startTime+0.0001;
+            }
+        }
     }
 
     textTrack.oncuechange = function () {
@@ -73,8 +97,6 @@ window.onload = function () {
             document.getElementById('img-player-team').src = "./resources/" + obj.scoreboard.home_pic;
         }
 
-
-
         // Update teams data
         document.getElementById('img-home-team').src ="./resources/"+obj.scoreboard.home_pic; 
         document.getElementById('img-visitor-team').src ="./resources/"+ obj.scoreboard.visitor_pic;
@@ -101,7 +123,7 @@ window.onload = function () {
             var cb = document.getElementById("play-" + play_number).children[1];
             var player_name_tag = document.createElement("p");
             player_name_tag.className = "card-text";
-            player_name_tag.style.fontSize = "15px";
+            player_name_tag.style.fontSize = "13px";
             player_name_tag.innerHTML = player_name;
             //Puede ser que no funcione en Internet Explorer
             cb.appendChild(player_name_tag);
