@@ -69,7 +69,7 @@ window.onload = function () {
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
               console.log(this.responseText);
-              location.reload();
+              window.location.replace("index.html");
             }
         };
         var data = getTextTrackJson();
