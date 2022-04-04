@@ -97,7 +97,7 @@
                               <th scope="col">Jugador</th>
                               <th scope="col">Inicio</th>
                               <th scope="col">Final</th>
-                              <th scope="col">Acciones</th>
+                              <th scope="col" colspan="2" style="text-align: center;">Acciones</th>
                           </tr>
                       </thead>
                       <tbody id="t-body">
@@ -117,7 +117,7 @@
                                 <h4>Jugada</h4>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <input name="play" class="form-control" required>    
+                                        <input id="play" name="play" class="form-control" required>    
                                     </div>
                                 </div>
                                 <br>
@@ -126,61 +126,61 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <label>Nombre completo:</label>
-                                        <input name="full-name" class="form-control" required>    
+                                        <input id="full-name" name="full-name" class="form-control" required>    
                                     </div>
                                     <div class="col-md-4">
                                         <label>Foto:</label>
-                                        <input name="player-pic"  class="form-control" required>    
+                                        <input id="player-pic" name="player-pic"  class="form-control" required>    
                                     </div> 
                                     <div class="col-md-4">
                                         <label>Fecha de nacimiento:</label>
-                                        <input type="date" name="dateofbirth" class="form-control" min="1920-1-01" max="2023-12-31" required>
+                                        <input type="date" id="dateofbirth" name="dateofbirth" class="form-control" min="1920-1-01" max="2023-12-31" required>
                                     </div> 
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4">
                                         <label>Ciudad de nacimiento:</label>
-                                        <input name="birth-city" class="form-control" required>
+                                        <input id="birth-city" name="birth-city" class="form-control" required>
                                     </div> 
                                     <div class="col-md-4">
                                         <label>Nacionalidad:</label>
-                                        <input name="nacionality" class="form-control" required>  
+                                        <input id="nacionality" name="nacionality" class="form-control" required>  
                                     </div> 
                                     <div class="col-md-4">
                                         <label>Dorsal:</label>
-                                        <input name="number" class="form-control" required>  
+                                        <input id="number" name="number" class="form-control" required>  
                                     </div> 
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4">
                                         <label>Altura:</label>
-                                        <input name="player-height" class="form-control" placeholder="En metros" required>    
+                                        <input id="player-height" name="player-height" class="form-control" placeholder="En metros" required>    
                                     </div> 
                                     <div class="col-md-4">
                                         <label>Peso:</label>
-                                        <input name="player-weight" class="form-control" placeholder="En kilogramos" required>
+                                        <input id="player-weight" name="player-weight" class="form-control" placeholder="En kilogramos" required>
                                     </div>
                                     <div class="col-md-4">
                                         <label>Equipo:</label>
-                                        <input name="player-team" class="form-control" required>
+                                        <input id="player-team" name="player-team" class="form-control" required>
                                     </div> 
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3">
                                         <label>Puntos:</label>
-                                        <input name="player-points" class="form-control" required>    
+                                        <input id="player-points" name="player-points" class="form-control" required>    
                                     </div> 
                                     <div class="col-md-3">
                                         <label>Rebotes:</label>
-                                        <input name="player-rebounds" class="form-control" required>
+                                        <input id="player-rebounds" name="player-rebounds" class="form-control" required>
                                     </div>
                                     <div class="col-md-3">
                                         <label>Asistencias:</label>
-                                        <input name="player-assists" class="form-control" required>    
+                                        <input id="player-assists" name="player-assists" class="form-control" required>    
                                     </div> 
                                     <div class="col-md-3">
                                         <label>Recuperaciones:</label>
-                                        <input name="player-steals" class="form-control" required>
+                                        <input id="player-steals" name="player-steals" class="form-control" required>
                                     </div> 
                                 </div>
 
@@ -189,31 +189,31 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <label>Local:</label>
-                                        <input name="local-name" class="form-control" placeholder="Nombre del equipo" required>   
+                                        <input id="local-name" name="local-name" class="form-control" placeholder="Nombre del equipo" required>   
                                     </div>
                                     <div class="col-md-2">
                                         <label>Puntos:</label>
-                                        <input name="local-points" class="form-control" required>   
+                                        <input id="local-points" name="local-points" class="form-control" required>   
                                     </div> 
                                     <div class="col-md-4">
                                         <label>Visitante:</label>
-                                        <input name="visitor-name" class="form-control" placeholder="Nombre del equipo" required>    
+                                        <input id="visitor-name" name="visitor-name" class="form-control" placeholder="Nombre del equipo" required>    
                                     </div>
                                     <div class="col-md-2">
                                         <label>Puntos:</label>
-                                        <input name="visitor-points" class="form-control" required>    
+                                        <input id="visitor-points" name="visitor-points" class="form-control" required>    
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label>Fecha de juego:</label>
-                                        <input type="date" name="dateofmatch" class="form-control" min="2021-1-01" max="2021-12-31" required>
+                                        <input id="dateofmatch" type="date" name="dateofmatch" class="form-control" min="2021-1-01" max="2021-12-31" required>
                                     </div> 
                                     <div class="col-md-6">
                                         <label for="match-type">Tipo de partido:</label>
-                                        <select class="form-control" name="match-type-select">
-                                            <option>REGULAR SEASON</option>
-                                            <option>PLAYOFFS</option>
+                                        <select id="match-type-select" class="form-control" name="match-type-select">
+                                            <option>Regular Season</option>
+                                            <option>Playoffs</option>
                                         </select>  
                                     </div>
                                 </div>
@@ -221,17 +221,17 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label>Logo:</label>
-                                        <input name="home-logo" class="form-control" placeholder="Local" required>
+                                        <input id="home-logo" name="home-logo" class="form-control" placeholder="Local" required>
                                     </div> 
                                     <div class="col-md-6">
                                         <label>Logo:</label>
-                                        <input name="visitor-logo" class="form-control" placeholder="Visitante" required>
+                                        <input id="visitor-logo" name="visitor-logo" class="form-control" placeholder="Visitante" required>
                                     </div> 
                                 </div>
                                 <input id="h-start-time" name="h-start-time" type="hidden" >
                                 <input id="h-end-time" name="h-end-time" type="hidden">
-
-                                <button type="submit" name="saveCueBtn" class="btn btn-danger" style="margin-top: 10px;">Guardar</button>
+                                <button id="save-btn-form" type="submit" name="saveCueBtn" class="btn btn-danger" style="margin-top: 10px;">Guardar</button>
+                                <a id="editCueBtn" class="btn btn-primary" style="margin-top: 10px;">Editar</a>
                             </div>
                         </form>
                     </div>

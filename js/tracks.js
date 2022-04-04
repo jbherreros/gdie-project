@@ -86,7 +86,7 @@ window.onload = function () {
         var obj = JSON.parse(cue.text);
         // "this" is a textTrack
         var play_number = cue.id;
-        console.log(play_number);
+        console.log("ID" + play_number);
         var player_name = obj.player.name;
         
         // Update player data

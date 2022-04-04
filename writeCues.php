@@ -18,9 +18,9 @@
         $file = './resources/plays.vtt';
         $result = file_put_contents($file, $file_content);
         if (!$result) {
-            echo 'No se borró con éxito';
+            echo 'No se escribió con éxito';
         }else{
-            echo 'Se borró con éxito';
+            echo 'Se escribió con éxito';
         }   
     }
 
