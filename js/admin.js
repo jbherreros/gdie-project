@@ -13,10 +13,10 @@ window.onload = function () {
     const getTime = document.getElementById('get-time');
     const testBtn = document.getElementById('test-btn');
     const videoTest = document.getElementById('video-test');
+    const deleteTable = document.getElementById('delete-table');
 
     startTimeBtn.addEventListener('click', startTime);
     endTimeBtn.addEventListener('click', endTime);
-    //clearBtn.addEventListener('click', clearForm);
     saveBtn.addEventListener('click', saveTrack)
     testBtn.addEventListener('click', testStop);
     videoTest.addEventListener('pause', testEnded);
@@ -24,8 +24,8 @@ window.onload = function () {
     var textTracks = myVideo.textTracks;
     var textTrack = textTracks[0]; // plays track
     var cues = textTrack.cues;
-    //stv.addEventListener('click', mystv);
 
+    // TABLA DE ELIMINACIÓN
     // Añadir las filas de la tabla
     var tableRow="";  
     for (let i = 0; i < cues.length; i++){
@@ -38,9 +38,7 @@ window.onload = function () {
         +'</td><td><button id="eliminarCue-'+i
         +'" class="btn-sm btn-danger">Eliminar</button></td></tr>';
     }
-
     document.getElementById('t-body').innerHTML = tableRow;
-
     // Añadir el listener a cada boton de cada jugada (fila)
     for (let i = 0; i < cues.length; i++) {
         json = JSON.parse(cues[i].text);
@@ -116,13 +114,6 @@ window.onload = function () {
         endValue.value=convertTimeToVttFormat(myVideo.currentTime);
     }
 
-    function clearForm(){
-        startValue.value=null;
-        hStartTime.value = null;
-        endValue.value=null;
-        hEndTime.value = null;
-    }
-
     function testStop(){
         if(videoTest.paused){
             console.log("Test: " + hStartValue.value + " " + hEndValue.value);
@@ -160,6 +151,7 @@ window.onload = function () {
             myVideo.style.display='none';
             console.log("abrir");
             form.style.display= 'flex';
+            deleteTable.style.display = 'none';
             
         } else {
             alert("Los valores entrados no son correctos!");

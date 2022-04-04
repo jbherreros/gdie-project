@@ -29,6 +29,7 @@
     </header>
     <main>
         <div class="container">
+            <div class="padding-2"></div>
             <div class="row">
                 <!-- Vídeo -->
                 <div class="col-lg-8">
@@ -88,7 +89,7 @@
             </div>
 
             <!-- Tabla eliminar cues -->
-            <div class="table-responsive" style="margin-top: 12px; margin-bottom: 5px; border-radius: 5px;">
+            <div id="delete-table" class="table-responsive" style="margin-top: 12px; margin-bottom: 5px; border-radius: 5px;">
                 <table class="table table-dark table-striped rounded">
                         <thead>
                             <tr>
@@ -235,24 +236,8 @@
                         </form>
                     </div>
                 </div>
+                <div class="padding-2"></div>
                 <div class="col-lg-2"></div>
-            </div>
-            <!-- Tabla eliminar cues -->
-            <div class="table-responsive" style="margin-bottom: 20px; border-radius: 5px;">
-                <table class="table table-dark table-striped rounded">
-                        <thead>
-                            <tr>
-                              <th scope="col-1">Jugada</th>
-                              <th scope="col">Jugador</th>
-                              <th scope="col">Inicio</th>
-                              <th scope="col">Final</th>
-                              <th scope="col">Acciones</th>
-                          </tr>
-                      </thead>
-                      <tbody id="t-body">
-                        <!-- Aquí se insertarán las filas de los jugadores-->
-                    </tbody>
-                </table>
             </div>
         </div>
     </main>

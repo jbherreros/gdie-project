@@ -167,7 +167,6 @@ input[id="volume-slider"] {
 
 #form{
     color:white;
-    margin-top: 10px;
     display: none;
 }
 
@@ -191,7 +190,7 @@ input[id="volume-slider"] {
 }
 
 .padding-2{
-    padding-top: 18px; 
+    padding-top: 12px; 
 }
 
 .video-t{
