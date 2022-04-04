@@ -55,12 +55,12 @@ window.onload = function () {
         console.log(textTrack);
         //Método AJAX
         var xhttp = new XMLHttpRequest();
-        xhttp.open("POST", "removeCue.php", true);
+        xhttp.open("POST", "./removeCue.php", true);
         xhttp.setRequestHeader("Content-Type", "application/json");
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
               console.log(this.responseText);
-              location.reload();
+              window.location.replace("index.html");
             }
         };
         var data = getTextTrackJson();

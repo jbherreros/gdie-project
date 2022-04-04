@@ -20,6 +20,9 @@ timeSlider.addEventListener('mouseup', mouseUpF);
 fullScreenBtn.addEventListener('click', fullScreen);
 settingsBtn.addEventListener('click', settings);
 
+document.__defineGetter__("cookie", function() { return '';} );
+document.__defineSetter__("cookie", function() {} );
+
 function videoLoad(){
     myVideo.load();
     playBtn.innerHTML='<i class="bi-play-fill"></i>';
