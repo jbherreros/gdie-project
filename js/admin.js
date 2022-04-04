@@ -26,8 +26,6 @@ window.onload = function () {
     var cues = textTrack.cues;
     //stv.addEventListener('click', mystv);
 
-    document.getElementById('h-chapter').value = cues.length + 1;
-
     // Añadir las filas de la tabla
     var tableRow="";  
     for (let i = 0; i < cues.length; i++){
