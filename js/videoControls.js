@@ -23,6 +23,12 @@ settingsBtn.addEventListener('click', settings);
 document.__defineGetter__("cookie", function() { return '';} );
 document.__defineSetter__("cookie", function() {} );
 
+if (myVideo.paused){
+    playBtn.innerHTML='<i class="bi-play-fill"></i>';
+} else {
+    playBtn.innerHTML='<i class="bi-pause-fill"></i>';
+}
+
 function videoLoad(){
     myVideo.load();
     playBtn.innerHTML='<i class="bi-play-fill"></i>';
