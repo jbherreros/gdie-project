@@ -81,6 +81,10 @@ window.onload = function () {
         }
     }
 
+    function convertDigitIn(str){
+        return str.split('-').reverse().join('-');
+    }
+
     textTrack.oncuechange = function () {
         var cue = textTrack.activeCues[0];
         var obj = JSON.parse(cue.text);
@@ -92,7 +96,8 @@ window.onload = function () {
         // Update player data
         document.getElementById('player-name').innerHTML = player_name;
         document.getElementById('player-pic').src = "./resources/" + obj.player.pic;
-        document.getElementById('player-dob').innerHTML = obj.player.dob;
+        //var date = new Date(convertDigitIn(json_player.dob));
+        document.getElementById('player-dob').innerHTML = convertDigitIn(obj.player.dob);
         document.getElementById('player-city').innerHTML = obj.player.city;
         document.getElementById('player-country').innerHTML =obj.player.country;
         document.getElementById('player-shirt-number').innerHTML =obj.player.number;
@@ -118,7 +123,7 @@ window.onload = function () {
         document.getElementById('visitor-points').innerHTML = obj.scoreboard.visitor_points;
         document.getElementById('home-team-name').innerHTML = obj.scoreboard.home_team;
         document.getElementById('visitor-team-name').innerHTML = obj.scoreboard.visitor_team;
-        document.getElementById('match-date').innerHTML = obj.scoreboard.date;
+        document.getElementById('match-date').innerHTML = convertDigitIn(obj.scoreboard.date);
         document.getElementById('match-type').innerHTML = obj.scoreboard.type;
         //var cue = textTrack.activeCues[0]; // assuming there is only one active cue
 

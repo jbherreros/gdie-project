@@ -86,7 +86,8 @@ window.onload = function () {
         //Información jugador
         document.getElementById("full-name").value = json_player.name;
         document.getElementById("player-pic").value = json_player.pic;
-        var date = new Date(convertDigitIn(json_player.dob));
+        //var date = new Date(convertDigitIn(json_player.dob));
+        var date = new Date(json_player.dob);
         var formDate = date.toISOString().substring(0,10);
         document.getElementById("dateofbirth").value = formDate;
         document.getElementById("birth-city").value = json_player.city;
@@ -104,7 +105,8 @@ window.onload = function () {
         document.getElementById("local-points").value = json_scoreboard.home_points;
         document.getElementById("visitor-name").value = json_scoreboard.visitor_team;
         document.getElementById("visitor-points").value = json_scoreboard.visitor_points;
-        var date = new Date(convertDigitIn(json_scoreboard.date));
+        //var date = new Date(convertDigitIn(json_scoreboard.date));
+        var date = new Date(json_scoreboard.date);
         var formDate = date.toISOString().substring(0,10);
         document.getElementById("dateofmatch").value = formDate;
         document.getElementById("match-type-select").value = json_scoreboard.type;
@@ -185,10 +187,6 @@ window.onload = function () {
 
         return json;
     }
-
-    function convertDigitIn(str){
-        return str.split('-').reverse().join('-');
-     }
 
     function getTextTrackJson(){
         let text = "";

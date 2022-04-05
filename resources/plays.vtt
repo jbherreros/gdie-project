@@ -14,7 +14,7 @@ WEBVTT FILE
 	"steals": 2,
 	"team": "Los Ángeles Clippers",
 	"pic": "leonard.png",
-	"dob": "29-06-1991",
+	"dob": "1991-06-29",
 	"city": "Riverside, California",
 	"country": "EEUU"
 },
@@ -25,9 +25,8 @@ WEBVTT FILE
 	"visitor_pic": "jazz.png",
 	"home_points": 118,
 	"visitor_points": 104,
-	"date": "14-06-2021",
-	"type": "Playoffs",
-	"game_url": "https://espndeportes.espn.com/basquetbol/nba/duelo?juegoId=401333061"
+	"date": "2021-06-14",
+	"type": "Playoffs"
 }
 }
 
@@ -45,7 +44,7 @@ WEBVTT FILE
 	"steals": 0,
 	"team": "Brooklyn Nets",
 	"pic": "durant.png",
-	"dob": "29-09-1988",
+	"dob": "1988-09-29",
 	"city": "Washington DC",
 	"country": "EEUU"
 },
@@ -56,9 +55,8 @@ WEBVTT FILE
 	"visitor_pic": "cavaliers.png",
 	"home_points": 123,
 	"visitor_points": 109,
-	"date": "17-05-2021",
-	"type": "Regular Season",
-	"game_url": "https://www.espn.co.uk/nba/game/_/gameId/401307881"
+	"date": "2021-05-17",
+	"type": "Regular Season"
 }
 }
 
@@ -76,7 +74,7 @@ WEBVTT FILE
 	"steals": 1,
 	"team": "Charlotte Hornets",
 	"pic": "bridges.png",
-	"dob": "21-03-1998",
+	"dob": "1998-03-21",
 	"city": "Flint, Míchigan",
 	"country": "EEUU"
 },
@@ -87,9 +85,8 @@ WEBVTT FILE
 	"visitor_pic": "hawks.png",
 	"home_points": 101,
 	"visitor_points": 105,
-	"date": "11-04-2021",
-	"type": "Regular Season",
-	"game_url": "https://espndeportes.espn.com/basquetbol/nba/juego/_/juegoId/401307599"
+	"date": "2021-04-11",
+	"type": "Regular Season"
 }
 }
 
@@ -107,7 +104,7 @@ WEBVTT FILE
 	"steals": 2,
 	"team": "Dallas Mavericks",
 	"pic": "doncic.png",
-	"dob": "28-02-1999",
+	"dob": "1999-02-28",
 	"city": "Liubliana",
 	"country": "Eslovenia"
 },
@@ -118,9 +115,8 @@ WEBVTT FILE
 	"visitor_pic": "mavericks.png",
 	"home_points": 113,
 	"visitor_points": 114,
-	"date": "14-11-2021",
-	"type": "Regular Season",
-	"game_url": "https://espndeportes.espn.com/basquetbol/nba/juego/_/juegoId/401307633"
+	"date": "2021-11-14",
+	"type": "Regular Season"
 }
 }
 
@@ -138,7 +134,7 @@ WEBVTT FILE
 	"steals": 1,
 	"team": "Golden State Warriors",
 	"pic": "curry.png",
-	"dob": "14-03-1988",
+	"dob": "1988-03-14",
 	"city": "Akron, Ohio",
 	"country": "EEUU"
 },
@@ -149,9 +145,8 @@ WEBVTT FILE
 	"visitor_pic": "warriors.png",
 	"home_points": 96,
 	"visitor_points": 105,
-	"date": "16-12-2021",
-	"type": "Regular Season",
-	"game_url": "https://espndeportes.espn.com/basquetbol/nba/juego/_/juegoId/401360238"
+	"date": "2021-12-16",
+	"type": "Regular Season"
 }
 }
 
@@ -169,7 +164,7 @@ WEBVTT FILE
 	"steals": 1,
 	"team": "New Orleans Pelicans",
 	"pic": "graham.png",
-	"dob": "22-02-1995",
+	"dob": "1995-02-22",
 	"city": "Raleigh, Carolina del Norte",
 	"country": "EEUU"
 },
@@ -180,9 +175,8 @@ WEBVTT FILE
 	"visitor_pic": "pelicans.png",
 	"home_points": 110,
 	"visitor_points": 113,
-	"date": "15-12-2021",
-	"type": "Regular Season",
-	"game_url": "https://espndeportes.espn.com/basquetbol/nba/ficha?juegoId=401360246"
+	"date": "2021-12-15",
+	"type": "Regular Season"
 }
 }
 
@@ -200,7 +194,7 @@ WEBVTT FILE
 	"steals": 2,
 	"team": "Minnesota Timberwolves",
 	"pic": "edwards.png",
-	"dob": "05-08-2001",
+	"dob": "2001-08-05",
 	"city": "Atlanta, Georgia",
 	"country": "EEUU"
 },
@@ -211,9 +205,8 @@ WEBVTT FILE
 	"visitor_pic": "raptors.png",
 	"home_points": 81,
 	"visitor_points": 86,
-	"date": "20-02-2021",
-	"type": "Regular Season",
-	"game_url": "https://espndeportes.espn.com/basquetbol/nba/ficha?juegoId=401267614"
+	"date": "2021-02-20",
+	"type": "Regular Season"
 }
 }
 
@@ -231,7 +224,7 @@ WEBVTT FILE
 	"steals": 3,
 	"team": "Milwaukee Bucks",
 	"pic": "antetokounmpo.png",
-	"dob": "06-12-1994",
+	"dob": "1994-12-06",
 	"city": "Atenas",
 	"country": "Grecia"
 },
@@ -242,9 +235,8 @@ WEBVTT FILE
 	"visitor_pic": "suns.png",
 	"home_points": 109,
 	"visitor_points": 103,
-	"date": "15-07-2021",
-	"type": "Playoffs",
-	"game_url": "https://www.espn.ph/nba/game/_/gameId/401344138"
+	"date": "2021-07-15",
+	"type": "Playoffs"
 }
 }
 
@@ -262,7 +254,7 @@ WEBVTT FILE
 	"steals": 1,
 	"team": "Phoenix Suns",
 	"pic": "ayton.png",
-	"dob": "23-07-1998",
+	"dob": "1998-07-23",
 	"city": "Nassau",
 	"country": "Bahamas"
 },
@@ -273,9 +265,8 @@ WEBVTT FILE
 	"visitor_pic": "clippers.png",
 	"home_points": 104,
 	"visitor_points": 103,
-	"date": "22-06-2021",
-	"type": "Playoffs",
-	"game_url": "https://espndeportes.espn.com/basquetbol/nba/juego/_/juegoId/401337334"
+	"date": "2021-06-22",
+	"type": "Playoffs"
 }
 }
 
@@ -293,7 +284,7 @@ WEBVTT FILE
 	"steals": 0,
 	"team": "Milwaukee Bucks",
 	"pic": "antetokounmpo.png",
-	"dob": "06-12-1994",
+	"dob": "1994-12-06",
 	"city": "Atenas",
 	"country": "Grecia"
 },
@@ -304,8 +295,7 @@ WEBVTT FILE
 	"visitor_pic": "bucks.png",
 	"home_points": 119,
 	"visitor_points": 123,
-	"date": "17-07-2021",
-	"type": "Playoffs",
-	"game_url": "https://espndeportes.espn.com/basquetbol/nba/juego/_/juegoId/401344139"
+	"date": "2021-07-17",
+	"type": "Playoffs"
 }
 }
