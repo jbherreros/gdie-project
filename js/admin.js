@@ -83,6 +83,7 @@ window.onload = function () {
         let json_scoreboard = json_vtt.scoreboard;
         //Jugada
         document.getElementById("play").value = cues[editarId].id;
+        document.getElementById("play").disabled = true;
         //Información jugador
         document.getElementById("full-name").value = json_player.name;
         document.getElementById("player-pic").value = json_player.pic;
