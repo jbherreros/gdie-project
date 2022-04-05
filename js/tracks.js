@@ -63,7 +63,7 @@ window.onload = function () {
 
         if (play > 0){
             console.log(play)
-            myVideo.currentTime=cues[10-play].startTime+0.0001;
+            myVideo.currentTime=cues[cues.length-play].startTime+0.0001;
 
         } else {
             div=div.parentNode;
@@ -71,12 +71,12 @@ window.onload = function () {
             console.log(play)
 
             if(play > 0){
-                myVideo.currentTime=cues[10-play].startTime+0.0001;
+                myVideo.currentTime=cues[cues.length-play].startTime+0.0001;
             } else {
                 div=div.parentNode;
                 play=String(div.id.split("-")[1]);
                 console.log(play)
-                myVideo.currentTime=cues[10-play].startTime+0.0001;
+                myVideo.currentTime=cues[cues.length-play].startTime+0.0001;
             }
         }
     }
