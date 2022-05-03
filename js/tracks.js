@@ -96,7 +96,6 @@ window.onload = function () {
         // Update player data
         document.getElementById('player-name').innerHTML = player_name;
         document.getElementById('player-pic').src = "./resources/" + obj.player.pic;
-        //var date = new Date(convertDigitIn(json_player.dob));
         document.getElementById('player-dob').innerHTML = convertDigitIn(obj.player.dob);
         document.getElementById('player-city').innerHTML = obj.player.city;
         document.getElementById('player-country').innerHTML =obj.player.country;
@@ -110,6 +109,7 @@ window.onload = function () {
         document.getElementById('player-steals').innerHTML = obj.player.steals;
         let pTeam = String(obj.player.team);
         let sTeam = String(obj.scoreboard.home_team);
+        
         if(pTeam.localeCompare(sTeam)){
             document.getElementById('img-player-team').src = "./resources/" + obj.scoreboard.visitor_pic;
         } else {
@@ -125,15 +125,9 @@ window.onload = function () {
         document.getElementById('visitor-team-name').innerHTML = obj.scoreboard.visitor_team;
         document.getElementById('match-date').innerHTML = convertDigitIn(obj.scoreboard.date);
         document.getElementById('match-type').innerHTML = obj.scoreboard.type;
-        //var cue = textTrack.activeCues[0]; // assuming there is only one active cue
 
         //Actualiza la lista de jugadores
         if (!loaded_players[play_number - 1]) {
-            //var img = document.createElement("img");
-            //img.src = "resources/" + obj.player.pic;
-            //var src = document.getElementById("play-" + obj.play);
-            //src.appendChild(img);
-
             //Actualiza la imagen
             var img = document.getElementById("play-" + play_number).children[0];
             img.src="./resources/" + obj.player.pic;

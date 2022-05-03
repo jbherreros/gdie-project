@@ -7,6 +7,7 @@ const volumeSlider = document.getElementById('volume-slider'); // Volume bar
 const timeSlider = document.getElementById('time-slider'); // Time bar
 const fullScreenBtn = document.getElementById('full-screen-btn'); // Full screen
 const settingsBtn = document.getElementById('settings-btn'); // Settings
+const reactionBtn = document.getElementById('reaction-btn'); // Monkey btn
 var movingTimeSlider = false;
 
 myVideo.addEventListener('dblclick', playPause);
@@ -19,6 +20,7 @@ timeSlider.addEventListener('mousedown', mouseDownF);
 timeSlider.addEventListener('mouseup', mouseUpF);
 fullScreenBtn.addEventListener('click', fullScreen);
 settingsBtn.addEventListener('click', settings);
+reactionBtn.addEventListener('click', videoReaction);
 
 document.__defineGetter__("cookie", function() { return '';} );
 document.__defineSetter__("cookie", function() {} );
@@ -92,6 +94,11 @@ function mouseDownF(){
 function mouseUpF(){
     console.log("releasing");
     movingTimeSlider = false;
+}
+
+// mouse over y mouse leave por si hay que hacer el efecto del mono
+function videoReaction(){
+    alert("video reacción boton");
 }
 
 function fullScreen(){

@@ -55,11 +55,11 @@ video{
 }
 
 .up-controls{
-    /*display: flex;*/
+    display: flex;
     top: 13px;
     margin-left: 1.5%;
     position: absolute;
-    width: 84px;
+    width: 110px;
     background-color:black;
     color:white;
     opacity: 0;
@@ -69,6 +69,7 @@ video{
     transition-delay: 0.5s;
 }
 
+<<<<<<< Updated upstream
 /*
 @media screen and (max-width: 500px) {
     .up-controls{
@@ -84,8 +85,18 @@ video{
     .up-controls{
         margin-bottom: 47.5%;
     }
+=======
+.dropdown-menu{
+    background-color: black !important;
+    opacity: 0.8;
+    color: white;
 }
-*/
+
+.dropdown-item{
+    color: white;
+    opacity: 1;
+>>>>>>> Stashed changes
+}
 
 @media screen and (max-width: 992px) {
     .players-list-img{
@@ -123,10 +134,19 @@ video{
     outline: 0; 
 }
 
-.full-screen-btn{
+#reaction-btn{
+    font-size: 18px;
+    color:white;
+    background: transparent;
+    border: 0;
+    outline: 0px;
+}
+
+#full-screen-btn{
     margin-top: 5px;
     margin-bottom: 5px;
     margin-left: 7px;
+    margin-right: 7px;
     font-size: 18px;
     color:white;
     background: transparent;
@@ -134,7 +154,7 @@ video{
     outline: 5px;
 }
 
-.settings-btn{
+#settings-btn{
     margin-left: 7px;
     font-size: 18px;
     color:white;
