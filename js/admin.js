@@ -16,6 +16,8 @@ window.onload = function () {
     const testBtn = document.getElementById('test-btn');
     const videoTest = document.getElementById('video-test');
     const deleteTable = document.getElementById('delete-table');
+    const videoReaccionCont = document.getElementById('video-reaccion');
+    const videoReaccionBtn = document.getElementById('videoReaccionBtn');
 
     startTimeBtn.addEventListener('click', startTime);
     endTimeBtn.addEventListener('click', endTime);
@@ -41,9 +43,10 @@ window.onload = function () {
         tableRow = tableRow + '<tr><th scope="row">'+cues[i].id+'</th><td>'+json.player.name
         +'</td><td>'+convertTimeToVttFormat(cues[i].startTime)+'</td><td>'
         +convertTimeToVttFormat(cues[i].endTime)
-        +'</td><td style="text-align: right;"><button id="editarCue-'+i
-        +'" class="btn-sm btn-success">Editar</button></td><td><button id="eliminarCue-'+i
-        +'" class="btn-sm btn-danger">Eliminar</button></td>' 
+        +'</td><td style="text-align: end;"><button id="editarCue-'+i
+        +'" class="btn-sm btn-success">Editar</button></td><td style="text-align: center;"><button id="eliminarCue-'+i
+        +'" class="btn-sm btn-danger">Eliminar</button></td><td><button id="videoReaccion-'+i
+        +'" class="btn-sm btn-primary">Vídeo reacción</button></td>' 
         +'</tr>';
     }
     document.getElementById('t-body').innerHTML = tableRow;
@@ -53,7 +56,34 @@ window.onload = function () {
         idBtn = "eliminarCue-" + i;
         document.getElementById(idBtn).addEventListener('click', eliminar);
         document.getElementById("editarCue-" + i).addEventListener('click', editarForm);
+        document.getElementById("videoReaccion-"+i).addEventListener('click', abrirVideoReaccion);
 
+    }
+
+    function hasGetUserMedia() {
+        return !!(navigator.mediaDevices &&
+       navigator.mediaDevices.getUserMedia);
+       }
+
+    function abrirVideoReaccion(e){
+        if (hasGetUserMedia()) {
+            let cuePos = parseInt(e.target.id.split("-")[1]);
+            console.log(cuePos);
+            getTime.style.display='none';
+            videoTest.style.display='none';
+            myVideo.pause();
+            videoTest.pause();
+            myVideo.style.display='none';
+            form.style.display= 'none';
+            deleteTable.style.display = 'none';
+            saveBtnForm.style.display='none';
+            if (videoReaccionCont.classList.contains("d-none")) {
+                videoReaccionCont.classList.remove("d-none");
+            
+            }
+        } else {
+            alert("getUserMedia() is not supported by your browser");
+        } 
     }
 
     function eliminar(e){
@@ -308,4 +338,95 @@ window.onload = function () {
             alert("Los valores entrados no son correctos!");
         }
     }
+
+let mediaRecorder;
+let recordedBlobs;
+
+const activarCamara = document.querySelector('button#start');
+const recordedVideo = document.querySelector('video#recorded');
+const recordButton = document.querySelector('button#record');
+
+recordButton.addEventListener('click', () => {
+    if (recordButton.textContent === 'Start Recording') {
+      startRecording();
+    } else {
+      stopRecording();
+      recordButton.textContent = 'Start Recording';
+      playButton.disabled = false;
+      downloadButton.disabled = false;
+      codecPreferences.disabled = false;
+    }
+});
+
+function handleDataAvailable(event) {
+    console.log('handleDataAvailable', event);
+    if (event.data && event.data.size > 0) {
+      recordedBlobs.push(event.data);
+    }
+  }
+
+function startRecording() {
+    recordedBlobs = [];
+    const mimeType = codecPreferences.options[codecPreferences.selectedIndex].value;
+    const options = {mimeType};
+  
+    try {
+      mediaRecorder = new MediaRecorder(window.stream, options);
+    } catch (e) {
+      console.error('Exception while creating MediaRecorder:', e);
+      alert(`Exception while creating MediaRecorder: ${JSON.stringify(e)}`);
+      return;
+    }
+  
+    console.log('Created MediaRecorder', mediaRecorder, 'with options', options);
+    recordButton.textContent = 'Stop Recording';
+    playButton.disabled = true;
+    downloadButton.disabled = true;
+    codecPreferences.disabled = true;
+    mediaRecorder.onstop = (event) => {
+      console.log('Recorder stopped: ', event);
+      console.log('Recorded Blobs: ', recordedBlobs);
+    };
+    mediaRecorder.ondataavailable = handleDataAvailable;
+    mediaRecorder.start();
+    console.log('MediaRecorder started', mediaRecorder);
+  }
+  
+  function stopRecording() {
+    mediaRecorder.stop();
+  }
+
+function handleSuccess(stream) {
+    recordButton.disabled = false;
+    console.log('getUserMedia() got stream:', stream);
+    window.stream = stream;
+    
+    const gumVideo = document.querySelector('video#gum');
+    gumVideo.srcObject = stream;
+
+    console.log("Todo fue bien!");
+  }
+
+async function init(constraints) {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia(constraints);
+      
+      handleSuccess(stream);
+    } catch (e) {
+      console.error('navigator.getUserMedia error:', e);
+      alert(`navigator.getUserMedia error:${e.toString()}`);
+    }
+  }
+  
+
+activarCamara.addEventListener('click', async () => {
+    document.querySelector('button#start').disabled = true;
+    const constraints = {
+      video: {
+        width: 1280, height: 720
+      }
+    };
+    console.log('Using media constraints:', constraints);
+    await init(constraints);
+  });
 };

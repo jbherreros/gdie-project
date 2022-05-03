@@ -97,7 +97,7 @@
                               <th scope="col">Jugador</th>
                               <th scope="col">Inicio</th>
                               <th scope="col">Final</th>
-                              <th scope="col" colspan="2" style="text-align: center;">Acciones</th>
+                              <th scope="col" colspan="3" style="text-align: center;">Acciones</th>
                           </tr>
                       </thead>
                       <tbody id="t-body">
@@ -238,6 +238,19 @@
                 </div>
                 <div class="padding-2"></div>
                 <div class="col-lg-2"></div>
+            </div>
+            <div id="video-reaccion" class="d-none">
+                <h1>Graba tu vídeo reacción</h1>
+                <video id="gum" class="vr-style" playsinline autoplay muted></video>
+                <video id="recorded" class="vr-style" playsinline loop></video>
+                <div>
+                    <ul class="vr-btn-style list-group list-group-horizontal-sm">
+                        <li class="list-group-item"><button id="start" class="btn btn-secondary btn-sm">Activar cámara</button></li>
+                        <li class="list-group-item"><button id="record" class="btn btn-secondary btn-sm" disabled>Grabar</button></li>
+                        <li class="list-group-item"><button id="play" class="btn btn-secondary btn-sm" disabled>Play</button></li>
+                        <li class="list-group-item"><button id="download" class="btn btn-secondary btn-sm" disabled>Guardar</button></li>
+                      </ul>
+                </div>
             </div>
         </div>
     </main>
