@@ -83,21 +83,22 @@
                     <div class="video-c">
                         <video id="video">
                             <source src="./resources/top10-video.mp4" type="video/mp4"/>
+
                             Your browser does not support the current video format
                             <track label="plays" kind="chapters" srclang="es" src="./resources/plays.vtt" default>
                         </video>
-                    
+        
                         <div class="up-controls dropdown">
-                            <button type="button" id="settings-btn" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi-gear-wide-connected"></i></button>
+                            <button class="up-controls-btn" type="button" id="settings-btn" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi-gear-wide-connected"></i></button>
                             <ul class="dropdown-menu" aria-labelledby="settings-btn">
                               <li><a class="dropdown-item" href="#">1080p</a></li>
                               <li><a class="dropdown-item" href="#">720p</a></li>
+                              <li><a class="dropdown-item" href="#">480p</a></li>
                               <li><a class="dropdown-item" href="#">360p</a></li>
+                              <li><a class="dropdown-item" href="#">Auto</a></li>
                             </ul>
-                             
-                            <button id="full-screen-btn"><i class="bi-fullscreen"></i></button> 
-                            <button id="reaction-btn"><i class="bi-eye"></i></button>
-                            
+                            <button class="up-controls-btn"  id="full-screen-btn"><i class="bi-fullscreen"></i></button> 
+                            <button class="up-controls-btn"  id="reaction-btn"><i class="bi-eye"></i></button>
                         </div>
                     
                         <div class="down-controls">
@@ -109,8 +110,8 @@
                             <input id="volume-slider" type="range" min="0" max="1" value="1" step="0.01">
                             &nbsp;&nbsp;
                         </div>
-                    </div>                   
-                </div>              
+                    </div>                     
+                </div>             
                 <!-- Jugadores -->
                 <div id="players-list" class="mb-4 col-sm-6 col-lg-2 overflow-auto order-lg-1" style="cursor: pointer; height: 407px">
                     <div id="play-1" class="card height-mycard">
@@ -228,10 +229,48 @@
             </div>
         </div>
     </main>
+    
+    <!-- Pop-up video reactions -->
+    <div class="pop-up bg-dark">
+      <div class="options-bar bg-light">
+        <button class="close-pop-up"><i class="bi-x-square-fill"></i></button>
+      </div>
+      <h5>Chat de video</h5>
+      <div class="chat">
+        <div class="message-received bg-danger">
+          &nbsp;???? te ha enviado un vídeo: 
+        </div>
+        <div class="message-sent bg-primary">
+          &nbsp; Has enviado este vídeo:
+        </div>
+        
+      </div>
+      <!-- Button trigger modal -->
+     <button type="button" class="btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Enviar vídeo</button>
+    </div>
+
+      <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Graba tu vídeo</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Aquí se hará la grabación
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <footer class="text-center text-white bg-dark mt-auto">
         <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-            by: Juan Carlos Bujosa & Guillermo Torrens
+            by: Juan Carlos Bujosa & Guillermo -Torrens
         </div>
     </footer>
     <script src="js/videoControls.js"></script>

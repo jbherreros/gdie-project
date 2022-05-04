@@ -35,14 +35,20 @@
                 <div class="col-lg-8">
                     <div class="video-c">
                         <video id="video">
-                            <source src="resources/top10-video.mp4" type="video/mp4" />
+                            <source src="./resources/top10-video.mp4" type="video/mp4"/>
                             Your browser does not support the current video format
                             <track label="plays" kind="chapters" srclang="es" src="./resources/plays.vtt" default>
                         </video>
-                    
-                        <div class="up-controls">
-                            <button class="settings-btn" id="settings-btn"><i class="bi-gear-wide-connected"></i></button>
-                            <button class="full-screen-btn" id="full-screen-btn"><i class="bi-fullscreen"></i></button> 
+        
+                        <div class="up-controls dropdown">
+                            <button class="up-controls-btn" type="button" id="settings-btn" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi-gear-wide-connected"></i></button>
+                            <ul class="dropdown-menu" aria-labelledby="settings-btn">
+                              <li><a class="dropdown-item" href="#">1080p</a></li>
+                              <li><a class="dropdown-item" href="#">720p</a></li>
+                              <li><a class="dropdown-item" href="#">360p</a></li>
+                            </ul>
+                            <button class="up-controls-btn"  id="full-screen-btn"><i class="bi-fullscreen"></i></button> 
+                            <button class="up-controls-btn"  id="reaction-btn"><i class="bi-eye"></i></button>
                         </div>
                     
                         <div class="down-controls">
@@ -54,7 +60,7 @@
                             <input id="volume-slider" type="range" min="0" max="1" value="1" step="0.01">
                             &nbsp;&nbsp;
                         </div>
-                    </div>
+                    </div>  
                 </div>
 
                 <!-- Tiempo vídeo -->

@@ -98,7 +98,9 @@ function mouseUpF(){
 
 // mouse over y mouse leave por si hay que hacer el efecto del mono
 function videoReaction(){
-    alert("video reacción boton");
+    let videoReaction=document.getElementById('video-reaction');
+videoReaction.style.display='flex';
+    
 }
 
 function fullScreen(){
