@@ -70,7 +70,7 @@ video{
 
 .pop-up .close-pop-up{
     position: absolute;
-    left: 0;
+    right: 0;
     color:black;
     background: transparent;
     border: 0;
