@@ -21,7 +21,6 @@ timeSlider.addEventListener('mousedown', mouseDownF);
 timeSlider.addEventListener('mouseup', mouseUpF);
 fullScreenBtn.addEventListener('click', fullScreen);
 settingsBtn.addEventListener('click', settings);
-reactionBtn.addEventListener('click', videoReaction);
 
 document.__defineGetter__("cookie", function() { return '';} );
 document.__defineSetter__("cookie", function() {} );
@@ -122,13 +121,6 @@ function mouseDownF(){
 function mouseUpF(){
     console.log("releasing");
     movingTimeSlider = false;
-}
-
-// mouse over y mouse leave por si hay que hacer el efecto del mono
-function videoReaction(){
-    let videoReaction=document.getElementById('video-reaction');
-videoReaction.style.display='flex';
-    
 }
 
 function fullScreen(){
