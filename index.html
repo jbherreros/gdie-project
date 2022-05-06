@@ -81,20 +81,22 @@
             <div class="row">
                 <div class="col-sm-12 col-lg-8 order-lg-2">
                     <div class="video-c">
-                        <video id="video">
-                            <source src="./resources/top10-video.mp4" type="video/mp4"/>
-
+                        <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+                        <video id="video" data-dashjs-player src="./videos/dash/manifest.mpd">
+                          
+                            <source src="./videos/hls/manifest.m3u8" type="application/x-megURL"/>
                             Your browser does not support the current video format
                             <track label="plays" kind="chapters" srclang="es" src="./resources/plays.vtt" default>
+                        
+                          
                         </video>
-        
                         <div class="up-controls dropdown">
                             <button class="up-controls-btn" type="button" id="settings-btn" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi-gear-wide-connected"></i></button>
                             <ul class="dropdown-menu" aria-labelledby="settings-btn">
                               <li><a class="dropdown-item" href="#">1080p</a></li>
                               <li><a class="dropdown-item" href="#">720p</a></li>
                               <li><a class="dropdown-item" href="#">480p</a></li>
-                              <li><a class="dropdown-item" href="#">360p</a></li>
+                              <li><a id="q-360p" class="dropdown-item">360p</a></li>
                               <li><a class="dropdown-item" href="#">Auto</a></li>
                             </ul>
                             <button class="up-controls-btn"  id="full-screen-btn"><i class="bi-fullscreen"></i></button> 
@@ -273,6 +275,7 @@
             by: Juan Carlos Bujosa & Guillermo -Torrens
         </div>
     </footer>
+    <script src="http://cdn.dashjs.org/v4.4.0/dash.all.min.js"></script>
     <script src="js/videoControls.js"></script>
     <script src="js/tracks.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

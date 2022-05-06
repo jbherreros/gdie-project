@@ -33,7 +33,6 @@ window.onload = function () {
      cue.onexit = function(){
          console.log("soy la cue saliendo");
      };*/
-    console.log(loaded_players);
 
     document.getElementById('top-10-list').addEventListener('click', listGoToMinute);
     document.getElementById('players-list').addEventListener('click', playersGoToMinute)

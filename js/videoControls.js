@@ -8,6 +8,7 @@ const timeSlider = document.getElementById('time-slider'); // Time bar
 const fullScreenBtn = document.getElementById('full-screen-btn'); // Full screen
 const settingsBtn = document.getElementById('settings-btn'); // Settings
 const reactionBtn = document.getElementById('reaction-btn'); // Monkey btn
+const quality360pBtn = document.getElementById('q-360p');
 var movingTimeSlider = false;
 
 myVideo.addEventListener('dblclick', playPause);
@@ -24,6 +25,33 @@ reactionBtn.addEventListener('click', videoReaction);
 
 document.__defineGetter__("cookie", function() { return '';} );
 document.__defineSetter__("cookie", function() {} );
+
+if (Hls.isSupported()) {
+    console.log("YES");
+    var hls = new Hls();
+    hls.loadSource("./videos/hls/manifest.m3u8");
+    hls.attachMedia(myVideo);
+}else{
+    var url = "./videos/dash/manifest.mpd";
+    var player = dashjs.MediaPlayer().create();
+    player.initialize(myVideo, url, false);
+    
+}
+
+quality360pBtn.addEventListener('click', function () {
+    console.log("Estoy aqui");
+    var hls = new Hls();
+    hls.loadSource("./videos/hls/360p.m3u8");
+    hls.attachMedia(myVideo);
+});
+
+/*
+(function(){
+    var url = "./videos/dash/manifest.mpd";
+    var player = dashjs.MediaPlayer().create();
+    player.initialize(myVideo, url, false);
+})();
+*/
 
 if (myVideo.paused){
     playBtn.innerHTML='<i class="bi-play-fill"></i>';
