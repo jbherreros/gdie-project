@@ -355,13 +355,14 @@ footer{
 video.vr-style {
     background-color: #222;
     vertical-align: top;
-    --width: 25vw;
+    --width: 100%;
     width: var(--width);
-    height: calc(var(--width) * 0.5625);
+    height: 100%;
+    /*height: calc(var(--width) * 0.5625); */ 
 }
   
 video.vr-style:last-of-type {
-    margin: 0 0 20px 0;
+    margin: 0 0 0 0;
 }
   
 video#gumVideo {
@@ -369,7 +370,12 @@ video#gumVideo {
 }
 
 ul.vr-btn-style{
-    text-align: left;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.modal{
+    text-align: center;
 }
 
 ul.vr-btn-style li{

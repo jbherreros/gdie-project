@@ -259,22 +259,38 @@
       <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Graba tu vídeo</h5>
+            <h1 class="modal-title" id="exampleModalLabel">Graba tu vídeo reacción</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <div id="video-reaccion">
-              <h1>Graba tu vídeo reacción</h1>
-              <video id="gum" class="vr-style" playsinline autoplay muted></video>
-              <video id="recorded" class="vr-style" playsinline loop></video>
+              <div class="row">
+                <div class="col-6">
+                  <video id="gum" class="vr-style" heigth="100%" playsinline autoplay muted></video>
+                </div>
+                <div class="col-6">
+                  <video id="recorded" class="vr-style" playsinline loop></video>
+                </div>
+
+                <ul class="vr-btn-style list-group list-group-horizontal">
+                  <li class="list-group-item"><button id="start" class="btn btn-secondary btn"><i class="bi-camera-video"></i></button></li> <!-- bi-camera-video-off -->
+                  <li class="list-group-item"><button id="record" class="btn btn-danger btn" disabled><i class="bi-record-circle"></i></button></li>
+                  <li class="list-group-item"><button id="play" class="btn btn-secondary btn" disabled><i class="bi-play-fill"></i></button></li>
+                  <!--<li class="list-group-item"><button id="download" class="btn btn-secondary btn-sm" disabled>Guardar</button></li>-->
+                </ul>
+              </div>
+
+              <center>
               <div>
-                  <ul class="vr-btn-style list-group list-group-horizontal-sm">
-                      <li class="list-group-item"><button id="start" class="btn btn-secondary btn-sm">Activar cámara</button></li>
-                      <li class="list-group-item"><button id="record" class="btn btn-secondary btn-sm" disabled>Grabar</button></li>
-                      <li class="list-group-item"><button id="play" class="btn btn-secondary btn-sm" disabled>Play</button></li>
-                      <li class="list-group-item"><button id="download" class="btn btn-secondary btn-sm" disabled>Guardar</button></li>
+                  <ul class="vr-btn-style list-group list-group-horizontal">
+                      <li class="list-group-item"><button id="start" class="btn btn-secondary btn"><i class="bi-camera-video"></i></button></li> <!-- bi-camera-video-off -->
+                      <li class="list-group-item"><button id="record" class="btn btn-danger btn" disabled><i class="bi-record-circle"></i></button></li>
+                      <li class="list-group-item"><button id="play" class="btn btn-secondary btn" disabled><i class="bi-play-fill"></i></button></li>
+                      <!--<li class="list-group-item"><button id="download" class="btn btn-secondary btn-sm" disabled>Guardar</button></li>-->
                     </ul>
               </div>
+            </center>
+
             </div>
           </div>
           <div class="modal-footer">
@@ -287,7 +303,7 @@
 
     <footer class="text-center text-white bg-dark mt-auto">
         <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-            by: Juan Carlos Bujosa & Guillermo -Torrens
+            by: Juan Carlos Bujosa & Guillermo Torrens
         </div>
     </footer>
 

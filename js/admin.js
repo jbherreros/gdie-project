@@ -339,7 +339,7 @@ window.onload = function () {
         }
     }
 
-let mediaRecorder;
+/*let mediaRecorder;
 let recordedBlobs;
 
 const activarCamara = document.querySelector('button#start');
@@ -428,5 +428,5 @@ activarCamara.addEventListener('click', async () => {
     };
     console.log('Using media constraints:', constraints);
     await init(constraints);
-  });
+  });*/
 };
