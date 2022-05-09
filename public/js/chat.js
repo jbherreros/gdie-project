@@ -7,13 +7,13 @@ var peer = new Peer();
 var otro;
 
 var socket = io();
-/*socket.on('chat message', function(msg){
+socket.on('chat message', function(msg){
     if (msg.userid != myid) {
         console.log("Usuario conectado: " + msg);
         otro = msg;
     }
 });
-*/
+
 
 var conn = null;
 
@@ -60,19 +60,17 @@ const recordButton = document.querySelector('button#record');
 const playButton = document.querySelector('button#play');
 const downloadButton = document.querySelector('button#download');
 
-const textRecordButton = 'Grabar';
-
 recordButton.addEventListener('click', () => {
-    if (recordButton.textContent === textRecordButton) {
+    if (recordButton.innerHTML == '<i class="bi-record-circle"></i>') {
       startRecording();
     } else {
       stopRecording();
-      recordButton.textContent = textRecordButton;
+      recordButton.innerHTML = '<i class="bi-stop-fill"></i>';
       playButton.disabled = false;
       downloadButton.disabled = false;
       codecPreferences.disabled = false;
     }
-});
+});// hjp
 
 playButton.addEventListener('click', () => {
     const superBuffer = new Blob(recordedBlobs, {});
@@ -101,7 +99,7 @@ function startRecording() {
     }
   
     console.log('Created MediaRecorder', mediaRecorder);
-    recordButton.textContent = 'Stop Recording';
+    recordButton.innerHTML = '<i class="bi-stop-fill"></i>';
     playButton.disabled = true;
     downloadButton.disabled = true;
     mediaRecorder.onstop = (event) => {
