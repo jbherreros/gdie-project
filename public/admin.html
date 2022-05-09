@@ -1,0 +1,272 @@
+<!-- Juan Carlos Bujosa y Guillermo Torrens -->  
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"> <!-- Iconos Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> <!-- Bootstrap framework -->
+    <link rel="stylesheet" href="css/style.css"> <!-- Hoja de estilos -->
+    <link rel="icon" href="./resources/nba-icon.ico"> <!-- Icono web -->
+    <title>TOP 10 PLAYS</title>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <header class="p-3 bg-dark text-white">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                  <img src="./resources/nba-logo.jpg" width="85" height="50" class="d-inline-block align-top" alt="">
+              </a>
+
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="/" class="nav-link px-2 text-secondary">Home</a></li>
+                    <li><a href="admin.html" id="admin" class="nav-link px-2 text-white">Admin</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="padding-2"></div>
+            <div class="row">
+                <!-- Vídeo -->
+                <div class="col-lg-8">
+                    <div class="video-c">
+                        <video id="video">
+                            <source src="./resources/top10-video.mp4" type="video/mp4"/>
+                            Your browser does not support the current video format
+                            <track label="plays" kind="chapters" srclang="es" src="./resources/plays.vtt" default>
+                        </video>
+        
+                        <div class="up-controls dropdown">
+                            <button class="up-controls-btn" type="button" id="settings-btn" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi-gear-wide-connected"></i></button>
+                            <ul class="dropdown-menu" aria-labelledby="settings-btn">
+                              <li><a class="dropdown-item" href="#">1080p</a></li>
+                              <li><a class="dropdown-item" href="#">720p</a></li>
+                              <li><a class="dropdown-item" href="#">360p</a></li>
+                            </ul>
+                            <button class="up-controls-btn"  id="full-screen-btn"><i class="bi-fullscreen"></i></button> 
+                        </div>
+                    
+                        <div class="down-controls">
+                            <button class="play-btn" id="play-btn"><i class="bi-play-fill"></i></button>
+                            <a id="current-time" style="margin-top: 8px;">0:00</a>&nbsp;&nbsp;
+                            <input id="time-slider" type="range" min="0" max="1" value="0" step="0.0001">
+                            &nbsp;&nbsp;<a id="duration" style="margin-top: 8px;"></a>
+                            <button class="volume-btn" id="volume-btn"><i class="bi-volume-up-fill"></i></button>
+                            <input id="volume-slider" type="range" min="0" max="1" value="1" step="0.01">
+                            &nbsp;&nbsp;
+                        </div>
+                    </div>  
+                </div>
+
+                <!-- Tiempo vídeo -->
+                <div class="col-md-4 ">
+                    <div id="get-time" class="get-time shadow-lg p-4 mb-2 bg-dark rounded">
+                        <h6>Selecciona el minuto de inicio:</h6>
+                        <div class="row">
+                            <div class="input-group mb-2">
+                                <input disabled type="text" id="s-time-value" class="form-control" placeholder="0.0000">
+                                <input id="h-start-value" type="hidden" >
+                                <button class="btn btn-primary" type="button" id="s-time">Inicio</button>
+                            </div>
+                            <div class="input-group mb-1">
+                                <input disabled type="text" id="e-time-value" class="form-control" placeholder="0.0000">
+                                <input id="h-end-value" type="hidden">
+                                <button class="btn btn-primary" type="button" id="e-time" style="width: 64px;">Final</button>
+                            </div>
+                        </div>
+                        <div class="time-control">
+                            <button class="btn btn-success" type="button" id="save-btn">Guardar</button>
+                            <button class="btn btn-primary" type="button" id="test-btn">Test</button>
+                        </div>
+                    </div>
+
+                    <div class="video-t">
+                        <video id="video-test" poster="./resources/testing.png">
+                            <source src="resources/top10-video.mp4" type="video/mp4" />
+                            Your browser does not support the current video format
+                        </video>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabla eliminar cues -->
+            <div id="delete-table" class="table-responsive" style="margin-top: 12px; margin-bottom: 5px; border-radius: 5px;">
+                <table class="table table-dark table-striped rounded">
+                        <thead>
+                            <tr>
+                              <th scope="col-1">Jugada</th>
+                              <th scope="col">Jugador</th>
+                              <th scope="col">Inicio</th>
+                              <th scope="col">Final</th>
+                              <th scope="col" colspan="3" style="text-align: center;">Acciones</th>
+                          </tr>
+                      </thead>
+                      <tbody id="t-body">
+                        <!-- Aquí se insertarán las filas de los jugadores-->
+                    </tbody>
+                </table>
+            </div>
+            
+
+            <!-- Formulario -->
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8">
+                    <div id="form" class="shadow-lg p-4 mb-2 bg-dark rounded">
+                        <form action="saveCue.php" method="POST">
+                            <div class="d-grid gap-2">
+                                <h4>Jugada</h4>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input id="play" name="play" class="form-control" required>    
+                                    </div>
+                                </div>
+                                <br>
+
+                                <h4>Datos del jugador</h4>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Nombre completo:</label>
+                                        <input id="full-name" name="full-name" class="form-control" required>    
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label>Foto:</label>
+                                        <input id="player-pic" name="player-pic"  class="form-control" required>    
+                                    </div> 
+                                    <div class="col-md-4">
+                                        <label>Fecha de nacimiento:</label>
+                                        <input type="date" id="dateofbirth" name="dateofbirth" class="form-control" min="1920-1-01" max="2023-12-31" required>
+                                    </div> 
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Ciudad de nacimiento:</label>
+                                        <input id="birth-city" name="birth-city" class="form-control" required>
+                                    </div> 
+                                    <div class="col-md-4">
+                                        <label>Nacionalidad:</label>
+                                        <input id="nacionality" name="nacionality" class="form-control" required>  
+                                    </div> 
+                                    <div class="col-md-4">
+                                        <label>Dorsal:</label>
+                                        <input id="number" name="number" class="form-control" required>  
+                                    </div> 
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Altura:</label>
+                                        <input id="player-height" name="player-height" class="form-control" placeholder="En metros" required>    
+                                    </div> 
+                                    <div class="col-md-4">
+                                        <label>Peso:</label>
+                                        <input id="player-weight" name="player-weight" class="form-control" placeholder="En kilogramos" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label>Equipo:</label>
+                                        <input id="player-team" name="player-team" class="form-control" required>
+                                    </div> 
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label>Puntos:</label>
+                                        <input id="player-points" name="player-points" class="form-control" required>    
+                                    </div> 
+                                    <div class="col-md-3">
+                                        <label>Rebotes:</label>
+                                        <input id="player-rebounds" name="player-rebounds" class="form-control" required>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label>Asistencias:</label>
+                                        <input id="player-assists" name="player-assists" class="form-control" required>    
+                                    </div> 
+                                    <div class="col-md-3">
+                                        <label>Recuperaciones:</label>
+                                        <input id="player-steals" name="player-steals" class="form-control" required>
+                                    </div> 
+                                </div>
+
+                                <br>
+                                <h4>Datos del partido</h4>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Local:</label>
+                                        <input id="local-name" name="local-name" class="form-control" placeholder="Nombre del equipo" required>   
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label>Puntos:</label>
+                                        <input id="local-points" name="local-points" class="form-control" required>   
+                                    </div> 
+                                    <div class="col-md-4">
+                                        <label>Visitante:</label>
+                                        <input id="visitor-name" name="visitor-name" class="form-control" placeholder="Nombre del equipo" required>    
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label>Puntos:</label>
+                                        <input id="visitor-points" name="visitor-points" class="form-control" required>    
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Fecha de juego:</label>
+                                        <input id="dateofmatch" type="date" name="dateofmatch" class="form-control" min="2021-1-01" max="2021-12-31" required>
+                                    </div> 
+                                    <div class="col-md-6">
+                                        <label for="match-type">Tipo de partido:</label>
+                                        <select id="match-type-select" class="form-control" name="match-type-select">
+                                            <option>Regular Season</option>
+                                            <option>Playoffs</option>
+                                        </select>  
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Logo:</label>
+                                        <input id="home-logo" name="home-logo" class="form-control" placeholder="Local" required>
+                                    </div> 
+                                    <div class="col-md-6">
+                                        <label>Logo:</label>
+                                        <input id="visitor-logo" name="visitor-logo" class="form-control" placeholder="Visitante" required>
+                                    </div> 
+                                </div>
+                                <input id="h-start-time" name="h-start-time" type="hidden" >
+                                <input id="h-end-time" name="h-end-time" type="hidden">
+                                <button id="save-btn-form" type="submit" name="saveCueBtn" class="btn btn-danger" style="margin-top: 10px;">Guardar</button>
+                                <a id="editCueBtn" class="btn btn-primary" style="margin-top: 10px;">Editar</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="padding-2"></div>
+                <div class="col-lg-2"></div>
+            </div>
+            <div id="video-reaccion" class="d-none">
+                <h1>Graba tu vídeo reacción</h1>
+                <video id="gum" class="vr-style" playsinline autoplay muted></video>
+                <video id="recorded" class="vr-style" playsinline loop></video>
+                <div>
+                    <ul class="vr-btn-style list-group list-group-horizontal-sm">
+                        <li class="list-group-item"><button id="start" class="btn btn-secondary btn-sm">Activar cámara</button></li>
+                        <li class="list-group-item"><button id="record" class="btn btn-secondary btn-sm" disabled>Grabar</button></li>
+                        <li class="list-group-item"><button id="play" class="btn btn-secondary btn-sm" disabled>Play</button></li>
+                        <li class="list-group-item"><button id="download" class="btn btn-secondary btn-sm" disabled>Guardar</button></li>
+                      </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center text-white bg-dark mt-auto">
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+            by: Juan Carlos Bujosa & Guillermo Torrens
+        </div>
+    </footer>
+</body>
+
+<script src="js/videoControls.js"></script>
+<script src="js/admin.js"></script>
+</html>
