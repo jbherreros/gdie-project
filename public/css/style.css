@@ -194,6 +194,11 @@ video{
     color: white;
 }
 
+.disabled{
+    background: #0275d8 !important;
+    color: white !important;
+}
+
 .dropdown-item{
     color: white;
     opacity: 1;

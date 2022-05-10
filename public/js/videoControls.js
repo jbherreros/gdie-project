@@ -8,8 +8,9 @@ const timeSlider = document.getElementById('time-slider'); // Time bar
 const fullScreenBtn = document.getElementById('full-screen-btn'); // Full screen
 const settingsBtn = document.getElementById('settings-btn'); // Settings
 const reactionBtn = document.getElementById('reaction-btn'); // Monkey btn
-const quality360pBtn = document.getElementById('q-360p');
+const qualitySettings = document.getElementById('quality-settings'); // List of resolutions (360p, 480p, 720p, 1080p or Auto)
 var movingTimeSlider = false;
+var currentResolution = "manifest"; // Default resolution (auto)
 
 myVideo.addEventListener('dblclick', playPause);
 myVideo.addEventListener('ended', videoLoad);
@@ -25,13 +26,89 @@ settingsBtn.addEventListener('click', settings);
 document.__defineGetter__("cookie", function() { return '';} );
 document.__defineSetter__("cookie", function() {} );
 
-/*
-(function(){
+/*if (Hls.isSupported()) {
+    console.log("HLS is available");
+    var hls = new Hls();
+    hls.loadSource("./videos/hls/manifest.m3u8");
+    hls.attachMedia(myVideo);
+}else{*/
+    console.log("MPEG-DASH is available");
     var url = "./videos/dash/manifest.mpd";
     var player = dashjs.MediaPlayer().create();
     player.initialize(myVideo, url, false);
-})();
-*/
+
+    
+//}
+
+qualitySettings.addEventListener('click', function (e) {
+    let pressed = e.target;
+    error=false;
+
+    var bitrates = player.getBitrateInfoListFor("video");
+    console.log('Bitrates available:' + bitrates.length);
+    console.log(bitrates[0])
+    console.log(bitrates[1])
+    console.log(bitrates[2])
+    console.log(bitrates[3])
+
+    let settingsp = player.getSettings();
+    settingsp.streaming.abr.autoSwitchBitrate = false;
+
+    switch (pressed.id) {
+        case "1080p":
+            player.setQualityFor("video", bitrates[3].qualityIndex);
+            break;
+        case "720p":
+            player.setQualityFor("video", bitrates[2].qualityIndex);
+            break;
+        case "480p":
+            player.setQualityFor("video", bitrates[1].qualityIndex);
+            break;
+        case "360p":
+            player.setQualityFor("video", bitrates[0].qualityIndex);
+            break;
+        case "manifest":
+            settingsp.streaming.abr.autoSwitchBitrate = true;
+            break;
+        default:
+            error=true;
+            break;
+    }
+
+    if(!error){
+        pressed.classList.add('disabled');
+        document.getElementById(currentResolution).classList.remove('disabled');
+        currentResolution=pressed.id;
+    }
+
+    /*switch (pressed.id) {
+        case "1080p":
+            hls.currentLevel=3;
+            break;
+        case "720p":
+            hls.currentLevel=2;
+            break;
+        case "480p":
+            hls.currentLevel=1;
+            break;
+        case "360p":
+            hls.currentLevel=0;
+            break;
+        case "manifest":
+            hls.currentLevel=-1;
+            break;
+        default:
+            error=true;
+            break;
+    }
+    console.log(error)
+    if(!error){
+        pressed.classList.add('disabled');
+        document.getElementById(currentResolution).classList.remove('disabled');
+        currentResolution=pressed.id;
+    }*/
+
+});
 
 if (myVideo.paused){
     playBtn.innerHTML='<i class="bi-play-fill"></i>';
@@ -40,7 +117,8 @@ if (myVideo.paused){
 }
 
 function videoLoad(){
-    myVideo.load();
+    //myVideo.load();
+    myVideo.currentTime=0;
     playBtn.innerHTML='<i class="bi-play-fill"></i>';
 }
 

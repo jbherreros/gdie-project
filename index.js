@@ -14,9 +14,10 @@ var httpServer = http.Server(app);
 
 var io = socketio(httpServer);
 io.on('connection', function(socket){
-    console.log("Hola");
+    //console.log("Hola");
     socket.on('chat message', function(msg){
-        io.emit('chat message', msg);
+        socket.broadcast.emit('chat message', msg);
+        console.log(msg)
     });   
 });
 

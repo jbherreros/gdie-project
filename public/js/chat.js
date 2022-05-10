@@ -8,33 +8,42 @@ var otro;
 
 var socket = io();
 socket.on('chat message', function(msg){
-    if (msg.userid != myid) {
-        console.log("Usuario conectado: " + msg);
-        otro = msg;
-    }
+  if(typeof(msg) != "string"){ // Envio de video
+    console.log(msg.userid+" me ha enviado: " + msg.video);
+    //myVideo.src=msg.video;
+    
+  } else { // Se ha conectado un nuevo usuario
+    console.log("Usuario conectado: " + msg);
+    otro = msg;
+  }
+
 });
 
 
 var conn = null;
 
 function estConexion(){
-    conn = peer.connect(document.getElementById('usuario').value);
+    /*conn = peer.connect(document.getElementById('usuario').value);
     conn.on('open', function() {
         // Send messages
         console.log("Enviando..");
         conn.send('Hello!');
-    });
+    });*/
+    socket.emit('chat message', {
+      userid: myid,
+      video: recordedBlobs[0]
+     });
 }
 
-        // Receive messages
+ /*       // Receive messages
         if (conn) {
             conn.on('data', function(data) {
                 console.log('Received', data);
               });
-        }
+        }*/
 
 peer.on('open', function(id) {
-	console.log('My peer ID is: ' + id);
+	  console.log('My peer ID is: ' + id);
     myid = id;
     socket.emit('chat message', id);  
 });
@@ -65,10 +74,10 @@ recordButton.addEventListener('click', () => {
       startRecording();
     } else {
       stopRecording();
-      recordButton.innerHTML = '<i class="bi-stop-fill"></i>';
+      recordButton.innerHTML = '<i class="bi-record-circle"></i>';
       playButton.disabled = false;
       downloadButton.disabled = false;
-      codecPreferences.disabled = false;
+      //codecPreferences.disabled = false;
     }
 });// hjp
 
@@ -85,6 +94,7 @@ function handleDataAvailable(event) {
     console.log('handleDataAvailable', event);
     if (event.data && event.data.size > 0) {
       recordedBlobs.push(event.data);
+      console.log(recordedBlobs)
     }
   }
 

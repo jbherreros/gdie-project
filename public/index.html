@@ -82,22 +82,20 @@
                 <div class="col-sm-12 col-lg-8 order-lg-2">
                     <div class="video-c">
                         <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-                        <video id="video" data-dashjs-player src="./videos/dash/manifest.mpd">
-                          
+                        <video id="video" data-dashjs-player>
+                          <!--  src="./videos/dash/manifest.mpd"-->
                             <source src="./videos/hls/manifest.m3u8" type="application/x-megURL"/>
                             Your browser does not support the current video format
-                            <track label="plays" kind="chapters" srclang="es" src="./resources/plays.vtt" default>
-                        
-                          
+                            <track label="plays" kind="chapters" srclang="es" src="./resources/plays.vtt" default>                          
                         </video>
                         <div class="up-controls dropdown">
                             <button class="up-controls-btn" type="button" id="settings-btn" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi-gear-wide-connected"></i></button>
-                            <ul class="dropdown-menu" aria-labelledby="settings-btn">
-                              <li><a class="dropdown-item" href="#">1080p</a></li>
-                              <li><a class="dropdown-item" href="#">720p</a></li>
-                              <li><a class="dropdown-item" href="#">480p</a></li>
-                              <li><a id="q-360p" class="dropdown-item">360p</a></li>
-                              <li><a class="dropdown-item" href="#">Auto</a></li>
+                            <ul id="quality-settings" class="dropdown-menu" aria-labelledby="settings-btn">
+                              <li><button id="1080p" class="dropdown-item">1080p</button></li>
+                              <li><button id="720p" class="dropdown-item">720p</button></li>
+                              <li><button id="480p" class="dropdown-item">480p</button></li>
+                              <li><button id="360p" class="dropdown-item">360p</button></li>
+                              <li><button id="manifest" class="dropdown-item disabled">Auto</button></li>
                             </ul>
                             <button class="up-controls-btn"  id="full-screen-btn"><i class="bi-fullscreen"></i></button> 
                         </div>
