@@ -9,7 +9,7 @@ var otro;
 var socket = io();
 socket.on('chat message', function(msg){
   if(typeof(msg) != "string"){ // Envio de video
-    console.log(msg.userid+" me ha enviado: " + msg.video);
+    console.log(msg.userid+" me ha enviado: " + msg.text);
     //myVideo.src=msg.video;
     
   } else { // Se ha conectado un nuevo usuario
@@ -31,7 +31,7 @@ function estConexion(){
     });*/
     socket.emit('chat message', {
       userid: myid,
-      video: recordedBlobs[0]
+      text: "mensaje"
      });
 }
 
