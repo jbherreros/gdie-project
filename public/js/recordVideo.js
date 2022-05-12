@@ -1,65 +1,3 @@
-let myid;
-document.getElementById('close-chat-btn').addEventListener('click', closeChat); // To close the pop up chat  
-document.getElementById('open-chat-btn').addEventListener('click', openChat); // Open chat
-const enviarVideoBtn = document.getElementById('e-v-btn').addEventListener('click', estConexion);
-var peer = new Peer();
-
-var otro;
-
-var socket = io();
-socket.on('chat message', function(msg){
-  if(typeof(msg) != "string"){ // Envio de video
-    console.log(msg.userid+" me ha enviado: " + msg.text);
-    //myVideo.src=msg.video;
-    
-  } else { // Se ha conectado un nuevo usuario
-    console.log("Usuario conectado: " + msg);
-    otro = msg;
-  }
-
-});
-
-
-var conn = null;
-
-function estConexion(){
-    /*conn = peer.connect(document.getElementById('usuario').value);
-    conn.on('open', function() {
-        // Send messages
-        console.log("Enviando..");
-        conn.send('Hello!');
-    });*/
-    socket.emit('chat message', {
-      userid: myid,
-      text: "mensaje"
-     });
-}
-
- /*       // Receive messages
-        if (conn) {
-            conn.on('data', function(data) {
-                console.log('Received', data);
-              });
-        }*/
-
-peer.on('open', function(id) {
-	  console.log('My peer ID is: ' + id);
-    myid = id;
-    socket.emit('chat message', id);  
-});
-
-function closeChat(){
-    document.getElementById('pop-chat').style.display='none';
-    document.getElementById('open-chat-btn').style.display='block';
-
-}
-
-function openChat(){
-    console.log("abre chat");
-    document.getElementById('pop-chat').style.display='block';
-    document.getElementById('open-chat-btn').style.display='none';
-}
-
 let mediaRecorder;
 let recordedBlobs;
 
@@ -94,7 +32,7 @@ function handleDataAvailable(event) {
     console.log('handleDataAvailable', event);
     if (event.data && event.data.size > 0) {
       recordedBlobs.push(event.data);
-      console.log(recordedBlobs)
+      console.log(recordedBlobs);
     }
   }
 
