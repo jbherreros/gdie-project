@@ -118,7 +118,6 @@ video{
 
 
 #send-message{
-    /*position: relative;*/
     margin-left: 288px;
     color: black;
     background: white;
@@ -140,6 +139,7 @@ video{
     border-radius: 5px;
     margin-top: 4%;
     margin-left: 5%;
+    padding-bottom:12%;
     text-align: center;
     height: 69%;
     width: 90%;
@@ -147,7 +147,8 @@ video{
     margin-bottom: 1%;
     color: black;
     overflow-y: auto;
-    font-size: 15px;
+    font-size: 16px;
+    overflow-x: hidden;
 }
 
 .chat-btn-container{
@@ -178,8 +179,10 @@ video{
 
 .message-received{
     margin-top: 2%;
-    width: 80%;
-    height: 60px;
+    float:left;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-right: 35px;
     margin-left: 3%;
     border-color: black;
     border-radius: 5px;
@@ -191,9 +194,11 @@ video{
 
 .message-sent{
     margin-top: 2%;
-    width: 80%;
-    height: 60px;
-    margin-left: 17%;
+    float:right;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 35px;
+    margin-right: 3%;
     border-color: black;
     border-radius: 5px;
     border-style: solid; 
@@ -205,10 +210,6 @@ video{
 #chat-list{
     list-style:none;
     padding: 0;
-}
-
-#chat-list li{
-    padding-left: 5px;
 }
 
 #master-chat-status{

@@ -6,6 +6,12 @@ document.getElementById("open-chat-btn").addEventListener("click", openChat); //
 document.getElementById("close-chat-btn").addEventListener("click", closeChat); // To close the pop up chat
 const messageBox=document.getElementById('message');
 const chatBox=document.getElementById('chatBox');
+const status=document.getElementById('master-chat-status');
+const sendBtn = document.getElementById('send-message');
+const sendVideoBtn = document.getElementById('send-video');
+const messageList = document.getElementById('chat-list');
+
+document.getElementById("connect").addEventListener("click", join);
 
 var typeChoosed = false;
 function openChat() {
@@ -26,17 +32,23 @@ function closeChat() {
   document.getElementById("open-chat-btn").style.display = "block";
 }
 
-document.getElementById("connect").addEventListener("click", join);
+messageBox.addEventListener('keypress', function(e){
+  if (messageBox.value == "") return;
+
+  var event = e || window.event;
+  var char = event.which || event.keyCode;
+  if (char == '13')
+      sendBtn.click();
+});
 
 document.getElementById("send-message").addEventListener("click", function () {
   conn.send(messageBox.value);
   console.log(messageBox.value)
-  chatBox.innerHTML=messageBox.value;
+  addMessage(messageBox.value, "sent");
   messageBox.value=null;
-
+  console.log(chatBox.scrollHeight)
+  chatBox.scrollTop = chatBox.scrollHeight;
 });
-
-document.getElementById("e-v-btn").addEventListener("click", join);
 
 initializeSlave();
 
@@ -106,14 +118,14 @@ function join() {
   });
   // Handle incoming data (messages only since this is the signal sender)
   conn.on("data", function (data) {
-    addMessage("Datos " + data);
+    addMessage(data, "received");
   });
   conn.on("close", function () {
     console.log("Connection closed");
   });
 }
 
-function addMessage(msg) {
+function addMessage(msg, type) {
   var now = new Date();
   var h = now.getHours();
   var m = addZero(now.getMinutes());
@@ -126,5 +138,20 @@ function addMessage(msg) {
     if (t < 10) t = "0" + t;
     return t;
   }
-  console.log(h + ":" + m + ":" + s + "->" + msg);
+  info = "("+h + ":" + m + ":" + s + "): " + msg;
+
+  var node = document.createElement('li');
+  node.classList.add("message-"+type+"");
+  node.appendChild(document.createTextNode(info));
+  messageList.appendChild(node);
+
+  if(type=="received"){
+    var audio = new Audio('./resources/message-notification.mp3');
+    audio.play();
+  }
+
+  console.log(chatBox.scrollHeight)
+  chatBox.scrollTop = chatBox.scrollHeight;
+
+  console.log(info);
 }

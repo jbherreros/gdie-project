@@ -8,6 +8,8 @@ const status=document.getElementById('master-chat-status');
 const messageBox= document.getElementById('message');
 const sendBtn = document.getElementById('send-message');
 const sendVideoBtn = document.getElementById('send-video');
+const messageList = document.getElementById('chat-list');
+const audioNotification = document.getElementById('message-notification');
 
 var typeChoosed = false;
 function openChat() {
@@ -32,6 +34,27 @@ document.getElementById('master').addEventListener('click', function(){
     typeChoosed=true;
     document.getElementById("pop-chat").style.display = "block";
     document.getElementById("open-chat-btn").style.display = "none";
+
+    // Para copiar el contenido al portapapeles
+    messageBox.select();
+    messageBox.setSelectionRange(0, 99999); /* For mobile devices */
+    navigator.clipboard.writeText(messageBox.value);
+    alert("Copied the text: " + copyText.value);
+});
+
+messageBox.addEventListener('keypress', function(e){
+  if (messageBox.value == "") return;
+  var event = e || window.event;
+  var char = event.which || event.keyCode;
+  if (char == '13')
+      sendBtn.click();
+});
+
+document.getElementById("send-message").addEventListener("click", function () {
+  conn.send(messageBox.value);
+  console.log(messageBox.value)
+  addMessage(messageBox.value, "sent");
+  messageBox.value=null;
 });
 
 initializeMaster();
@@ -54,7 +77,7 @@ function initializeMaster() {
     }
 
     console.log("ID: " + peer.id);
-    document.getElementById('message').value="ID: "+peer.id;
+    document.getElementById('message').value=peer.id;
     console.log("Awaiting connection...");
   });
   peer.on("connection", function (c) {
@@ -77,7 +100,6 @@ function initializeMaster() {
     messageBox.disabled=false;
     sendBtn.disabled=false;
     sendVideoBtn.disabled=false;
-    console.log();
     ready();
   });
   peer.on("disconnected", function () {
@@ -103,7 +125,7 @@ function initializeMaster() {
 function ready() {
   conn.on("data", function (data) {
     //console.log(data);
-    addMessage(data);
+    addMessage(data, "received");
     /*
       var cueString = "<span class=\"cueMsg\">Cue: </span>";
       switch (data) {
@@ -134,7 +156,8 @@ function ready() {
   });
 }
 
-function addMessage(msg) {
+// type can be sent or received
+function addMessage(msg, type) {
   var now = new Date();
   var h = now.getHours();
   var m = addZero(now.getMinutes());
@@ -147,5 +170,21 @@ function addMessage(msg) {
     if (t < 10) t = "0" + t;
     return t;
   }
-  console.log(h + ":" + m + ":" + s + "->" + msg);
+
+  info = "("+h + ":" + m + ":" + s + "): " + msg;
+
+  var node = document.createElement('li');
+  node.classList.add("message-"+type+"");
+  node.appendChild(document.createTextNode(info));
+  messageList.appendChild(node);
+
+  if(type=="received"){
+    var audio = new Audio('./resources/message-notification.mp3');
+    audio.play();
+  }
+
+  console.log(chatBox.scrollHeight)
+  chatBox.scrollTop = chatBox.scrollHeight;
+
+  console.log(info);
 }
