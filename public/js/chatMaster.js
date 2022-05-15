@@ -4,6 +4,10 @@ var peerId = null;
 var conn = null;
 document.getElementById("open-chat-btn").addEventListener("click", openChat); // Open chat
 document.getElementById("close-chat-btn").addEventListener("click", closeChat); // To close the pop up chat
+const status=document.getElementById('master-chat-status');
+const messageBox= document.getElementById('message');
+const sendBtn = document.getElementById('send-message');
+const sendVideoBtn = document.getElementById('send-video');
 
 var typeChoosed = false;
 function openChat() {
@@ -27,6 +31,7 @@ function closeChat() {
 document.getElementById('master').addEventListener('click', function(){
     typeChoosed=true;
     document.getElementById("pop-chat").style.display = "block";
+    document.getElementById("open-chat-btn").style.display = "none";
 });
 
 initializeMaster();
@@ -49,6 +54,7 @@ function initializeMaster() {
     }
 
     console.log("ID: " + peer.id);
+    document.getElementById('message').value="ID: "+peer.id;
     console.log("Awaiting connection...");
   });
   peer.on("connection", function (c) {
@@ -65,7 +71,12 @@ function initializeMaster() {
 
     conn = c;
     console.log("Connected to: " + conn.peer);
-    status.innerHTML = "Connected";
+    status.innerHTML = '<i class="bi-check-circle"></i>&nbsp;Conectado';
+    status.style.background='#198754'; // Green color
+    messageBox.value=null;
+    messageBox.disabled=false;
+    sendBtn.disabled=false;
+    sendVideoBtn.disabled=false;
     console.log();
     ready();
   });

@@ -25,8 +25,12 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body align-self-center">
-            <button class="btn btn-danger" id="master" data-bs-dismiss="modal" >Master</button>
-            <a class="btn btn-primary" href="./slave.html">Esclavo</a>
+            Para iniciar una conversación con otra persona es necesario que uno de los usuarios se conecte en modo master y el otro en modo esclavo. <br><br>
+            <center>
+              <button class="btn btn-danger" id="master" data-bs-dismiss="modal" >Master</button>
+              <a class="btn btn-primary" href="./slave.html">Esclavo</a>
+            </center>
+            <br><h6>Nota: ambos disfrutarán de las mismas funcionalidades.</h6>
           </div>
           <div class="modal-footer">          
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -38,12 +42,12 @@
     <header class="p-3 bg-dark text-white">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <a href="#" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
                   <img src="./resources/nba-logo.jpg" width="85" height="50" class="d-inline-block align-top" alt="">
                 </a>
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="/" class="nav-link px-2 text-white">Home</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white">Home</a></li>
                     <li><a href="admin.html" id="admin" class="nav-link px-2 text-secondary">Admin</a></li>
                 </ul>
             </div>
@@ -264,19 +268,29 @@
       </div>
       <h5>Videochat</h5>
       <div id="chatBox" class="chat">
-        <div class="message-received bg-danger">
-          &nbsp;???? te ha enviado un vídeo: 
-        </div>
-        <div class="message-sent bg-primary">
-          &nbsp; Has enviado este vídeo:
-        </div>
+        <ul id="chat-list">
+          <li id="master-chat-status"><i class="bi-exclamation-triangle"></i>&nbsp;No estás conectado</li>
+          <!--<li class="chat-status bg-success"><i class="bi-check-circle"></i>&nbsp;Conectado</li>-->
+          <!--<li class="message-received">Pedro: Hola, ¿cómo estás?</li>
+          <li class="message-sent">Juan: Muy bien, ¿tú?</li>
+          <li class="message-received">Pedro: Hola, ¿cómo estás?</li>
+          <li class="message-sent">Juan: Muy bien, ¿tú?</li>
+          <li class="message-received">Pedro: Hola, ¿cómo estás?</li>
+          <li class="message-sent">Juan: Muy bien, ¿tú?</li>
+          <li class="message-received">Pedro: Hola, ¿cómo estás?</li>
+          <li class="message-sent">Juan: Muy bien, ¿tú?</li>
+          <li class="message-received">Pedro: Hola, ¿cómo estás?</li>
+          <li class="message-sent">Juan: Muy bien, ¿tú?</li>
+          <li class="message-received">Pedro: Hola, ¿cómo estás?</li>
+          <li class="message-sent">Juan: Muy bien, ¿tú?</li>-->
+        </ul>
       </div>
 
       <!-- Button trigger modal -->
       <div id="message-form">
-            <input id="message">
-            <button class="btn btn-primary" id="send-message"><i class="bi-send"></i></button>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi-camera-reels"></i></button>    
+            <input id="message" disabled>
+            <button type="button" class="btn" id="send-message"><i class="bi-send" disabled></i></button>
+            <button type="button" class="btn btn-primary" id="send-video" data-bs-toggle="modal" data-bs-target="#exampleModal" disabled><i class="bi-film"></i></button>    
       </div>
      
     </div>
@@ -310,12 +324,7 @@
               </div>
             </div>
           </div>
-          <div class="modal-footer">
-            <label>Para:</label>
-            <div class="col-3">
-              <input id="usuario" class="form-control" placeholder="Usuario">
-            </div>
-            
+          <div class="modal-footer">           
             <button id="e-v-btn" type="button" class="btn btn-primary">Enviar</button>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
           </div>
