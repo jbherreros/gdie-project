@@ -47,6 +47,7 @@ document
     messageBox.select();
     messageBox.setSelectionRange(0, 99999); /* For mobile devices */
     navigator.clipboard.writeText(messageBox.value);
+    document.getElementById('helping-message').append("\n"+"Copiado");
   });
 
 messageBox.addEventListener("keypress", function (e) {
