@@ -2,6 +2,7 @@ var lastPeerId = null;
 var peer = null; // Own peer object
 var peerId = null;
 var conn = null;
+var nNotification = 0; // contador de notificaciones recibidas
 document.getElementById("open-chat-btn").addEventListener("click", openChat); // Open chat
 document.getElementById("close-chat-btn").addEventListener("click", closeChat); // To close the pop up chat
 const messageBox=document.getElementById('message');
@@ -10,8 +11,12 @@ const status=document.getElementById('master-chat-status');
 const sendBtn = document.getElementById('send-message');
 const sendVideoBtn = document.getElementById('send-video');
 const messageList = document.getElementById('chat-list');
+const notification = document.getElementById("chat-notification");
 
 document.getElementById("connect").addEventListener("click", join);
+document.getElementById('clipboard-paste').addEventListener('click', function(){
+  // por ahora no sé como hacerlo
+});
 
 var typeChoosed = false;
 function openChat() {
@@ -24,12 +29,14 @@ function openChat() {
     console.log("abre chat");
     document.getElementById("pop-chat").style.display = "block";
     document.getElementById("open-chat-btn").style.display = "none";
+    nNotification = 0;
   }
 }
 
 function closeChat() {
   document.getElementById("pop-chat").style.display = "none";
   document.getElementById("open-chat-btn").style.display = "block";
+  notification.style.display = "none";
 }
 
 messageBox.addEventListener('keypress', function(e){
@@ -43,10 +50,8 @@ messageBox.addEventListener('keypress', function(e){
 
 document.getElementById("send-message").addEventListener("click", function () {
   conn.send(messageBox.value);
-  console.log(messageBox.value)
   addMessage(messageBox.value, "sent");
   messageBox.value=null;
-  console.log(chatBox.scrollHeight)
   chatBox.scrollTop = chatBox.scrollHeight;
 });
 
@@ -125,6 +130,7 @@ function join() {
   });
 }
 
+// type can be sent or received
 function addMessage(msg, type) {
   var now = new Date();
   var h = now.getHours();
@@ -138,11 +144,12 @@ function addMessage(msg, type) {
     if (t < 10) t = "0" + t;
     return t;
   }
-  info = "("+h + ":" + m + ":" + s + "): " + msg;
+  
+  info = msg+' <a class="message-time">'+h+':'+m+':'+s+'</a>';
 
-  var node = document.createElement('li');
-  node.classList.add("message-"+type+"");
-  node.appendChild(document.createTextNode(info));
+  var node = document.createElement("li");
+  node.classList.add("message-" + type + "");
+  node.innerHTML=info;
   messageList.appendChild(node);
 
   if(type=="received"){
@@ -150,8 +157,14 @@ function addMessage(msg, type) {
     audio.play();
   }
 
-  console.log(chatBox.scrollHeight)
   chatBox.scrollTop = chatBox.scrollHeight;
+
+  if (document.getElementById("pop-chat").style.display == "none") {
+    // si al recibir un mensaje no tenemos abierta la caja de mensajes, aparece una notificación
+    notification.style.display = "inline";
+    nNotification++;
+    notification.innerHTML = nNotification;
+  }
 
   console.log(info);
 }

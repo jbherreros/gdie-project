@@ -38,7 +38,7 @@ video{
 
     #message{
         width: 182px !important;
-        height: 38px !important;
+        height: 37px !important;
     }
 
     #send-message{
@@ -85,23 +85,33 @@ video{
 #message{
     position: absolute;
     text-align: left;
-    font-size: 13px;;
-    /*width: 308px;*/
-    width: 272px;
+    font-size: 13px;
+    width: 271px;
     height: 37px;
     margin-left: 5%;
 }
 
-#message-form input{
+#message{
     margin-top: 8px;
     border: 0px;
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
+    height: 37px;
     outline: none;
+}
+
+.message-time{
+    display: inline-block;
+    font-size: 9px;
+    margin-top: 5px;
+    text-decoration: none;
+    color:white;  
+    /*font-weight: bold;*/
 }
 
 #message-form input:disabled{
     background: #ccc;
+    text-align: center;
 }
 
 #message-form button:disabled{
@@ -116,8 +126,8 @@ video{
     height: 37px;
 }
 
-
 #send-message{
+    position: relative;
     margin-left: 288px;
     color: black;
     background: white;
@@ -139,15 +149,15 @@ video{
     border-radius: 5px;
     margin-top: 4%;
     margin-left: 5%;
-    padding-bottom:12%;
+    /*padding-bottom:0.5%;*/
     text-align: center;
     height: 69%;
     width: 90%;
     background: white;
     margin-bottom: 1%;
     color: black;
-    overflow-y: auto;
-    font-size: 16px;
+    font-size: 16.5px;
+    overflow-y:auto;
     overflow-x: hidden;
 }
 
@@ -179,10 +189,9 @@ video{
 
 .message-received{
     margin-top: 2%;
-    float:left;
     padding-left: 5px;
     padding-right: 5px;
-    margin-right: 35px;
+    margin-right: 155px;
     margin-left: 3%;
     border-color: black;
     border-radius: 5px;
@@ -190,14 +199,14 @@ video{
     border-width: 1px;
     text-align: left;
     background: #df4759;
+    width: fit-content;
 }
 
 .message-sent{
     margin-top: 2%;
-    float:right;
     padding-left: 5px;
     padding-right: 5px;
-    margin-left: 35px;
+    margin-left: 155px;
     margin-right: 3%;
     border-color: black;
     border-radius: 5px;
@@ -205,6 +214,7 @@ video{
     border-width: 1px;
     text-align: left;
     background: #0d6efd;
+    width: fit-content;
 }
 
 #chat-list{
@@ -215,11 +225,40 @@ video{
 #master-chat-status{
     position: relative;
     background: #df4759;
+}
 
+#helping-message{
+    list-style: none;
 }
 
 #slave-chat-status{
     background: #198754; /* Connected colour */
+}
+
+.notification{
+    position: absolute;
+    color: black;
+    background: orange;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    font-size: 12px;
+    font-weight: bold;
+    width: 23px;
+    height: 23px;
+    border: black;
+    border-width: 2px;
+    border-style: solid;
+    text-decoration: none;
+    display: none;
+}
+
+#master-id{
+    position: absolute;
+    width: 83%;
+}
+
+#clipboard-paste{
+    float: right;
 }
 
 .video-c{

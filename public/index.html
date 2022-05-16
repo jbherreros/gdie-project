@@ -259,6 +259,7 @@
     <!-- Chat pop-up button -->
     <div id="open-chat-btn" class="chat-btn-container bg-primary">
       <button class="open-chat-btn"><i class="bi-chat-dots"></i></button>
+      <a id="chat-notification" class="notification">0</a>
     </div>
     
     <!-- Video reactions chat pop-up -->
@@ -268,21 +269,15 @@
       </div>
       <h5>Videochat</h5>
       <div id="chatBox" class="chat">
-        <ul id="chat-list">
-          <li id="master-chat-status"><i class="bi-exclamation-triangle"></i>&nbsp;No estás conectado</li>
-          <!--<li class="chat-status bg-success"><i class="bi-check-circle"></i>&nbsp;Conectado</li>-->
-          <!--<li class="message-received">Pedro: Hola, ¿cómo estás?</li>
-          <li class="message-sent">Juan: Muy bien, ¿tú?</li>
-          <li class="message-received">Pedro: Hola, ¿cómo estás?</li>
-          <li class="message-sent">Juan: Muy bien, ¿tú?</li>
-          <li class="message-received">Pedro: Hola, ¿cómo estás?</li>
-          <li class="message-sent">Juan: Muy bien, ¿tú?</li>
-          <li class="message-received">Pedro: Hola, ¿cómo estás?</li>
-          <li class="message-sent">Juan: Muy bien, ¿tú?</li>
-          <li class="message-received">Pedro: Hola, ¿cómo estás?</li>
-          <li class="message-sent">Juan: Muy bien, ¿tú?</li>
-          <li class="message-received">Pedro: Hola, ¿cómo estás?</li>
-          <li class="message-sent">Juan: Muy bien, ¿tú?</li>-->
+        <div id="master-chat-status"><i class="bi-exclamation-triangle"></i>&nbsp;No estás conectado</div>
+        <div id="helping-message">
+          <br>
+          <li>Para iniciar una conversación copia tu ID y proporciónaselo a un amigo para iniciar una conversación.</li>
+          <br>
+          <li><button id="clipboard-copy-btn" class="btn btn-dark"><i class="bi-files"></i>&nbsp;Copiar</button></li>
+        </div>
+        <ul id="chat-list"> <!-- Here messages are concatenated -->
+          </li>
         </ul>
       </div>
 
