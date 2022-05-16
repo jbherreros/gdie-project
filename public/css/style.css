@@ -29,11 +29,12 @@ video{
 @media screen and (max-width: 767px) {
     .pop-up{
         width: 300px !important;
-        height: 370px !important;
+        height: 390px !important;
     }
 
     .chat{
         height: 62% !important;
+        font-size: 13px !important;
     }
 
     #message{
@@ -43,6 +44,11 @@ video{
 
     #send-message{
         margin-left: 193px !important;
+    }
+
+    .message-received, .message-sent{
+        max-width: 200px !important;
+        
     }
     
 }
@@ -146,11 +152,12 @@ video{
 }
 
 .chat{
-    border-radius: 5px;
-    margin-top: 4%;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-top: 28px;
     margin-left: 5%;
     text-align: center;
-    height: 69%;
+    height: 67.5%;
     width: 90%;
     background: white;
     margin-bottom: 1%;
@@ -190,7 +197,7 @@ video{
     margin-top: 2%;
     padding-left: 5px;
     padding-right: 5px;
-    margin-right: 155px;
+    margin-right: 50px;
     margin-left: 3%;
     border-color: black;
     border-radius: 5px;
@@ -199,14 +206,15 @@ video{
     text-align: left;
     background: #df4759;
     width: fit-content;
+    max-width: 290px;
 }
 
 .message-sent{
     margin-top: 2%;
     padding-left: 5px;
     padding-right: 5px;
-    margin-left: 155px;
     margin-right: 3%;
+    margin-left: auto;
     border-color: black;
     border-radius: 5px;
     border-style: solid; 
@@ -214,25 +222,39 @@ video{
     text-align: left;
     background: #0d6efd;
     width: fit-content;
+    max-width: 290px;
 }
 
 #chat-list{
     list-style:none;
     padding: 0;
+    margin-bottom: 5px;
+}
+
+.chat-status{
+    position: absolute;
+    width: 90%;
+    margin-bottom: 8px;
+    text-align: center;
+    font-size: 14px;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 #master-chat-status{
-    position: relative;
     background: #df4759;
+}
+
+#slave-chat-status{
+    background: #198754; /* Connected colour */
 }
 
 #helping-message{
     list-style: none;
 }
 
-#slave-chat-status{
-    background: #198754; /* Connected colour */
-}
 
 .notification{
     position: absolute;
@@ -240,6 +262,7 @@ video{
     background: orange;
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
+    border-radius: 50%;
     font-size: 12px;
     font-weight: bold;
     width: 23px;
