@@ -123,7 +123,24 @@ function join() {
   });
   // Handle incoming data (messages only since this is the signal sender)
   conn.on("data", function (data) {
-    addMessage(data, "received");
+    if (data.type == "vr") {
+        addMessage("SE HA ENVIADO VÍDEO REACCIÓN", "received");
+        const blob = new Blob(data.video, {type: 'video/webm'});
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.style.display = 'none';
+        a.href = url;
+        a.download = 'test.webm';
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(() => {
+          document.body.removeChild(a);
+          window.URL.revokeObjectURL(url);
+        }, 100);
+    }else{
+      console.log("texto");
+      addMessage(data, "received");
+    }
   });
   conn.on("close", function () {
     console.log("Connection closed");
@@ -168,3 +185,20 @@ function addMessage(msg, type) {
 
   console.log(info);
 }
+
+//Enviar vídeo reacción
+const sendVideoReaccionBtn = document.getElementById("e-v-btn");
+sendVideoReaccionBtn.addEventListener('click', () => {
+  if (recordedBlobs) {
+    console.log(recordedBlobs);
+    const videoReaccion = {
+      "type": "vr",
+      "video": recordedBlobs
+    };
+    console.log(videoReaccion);
+    conn.send(videoReaccion);
+    console.log("Se ha enviado la vídeo reacción!");
+  } else {
+    console.log("No se ha grabado el vídeo");
+  }
+});

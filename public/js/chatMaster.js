@@ -2,15 +2,14 @@ var lastPeerId = null;
 var peer = null; // Own peer object
 var peerId = null;
 var conn = null;
-var nNotification = 0; // contador de notificaciones recibidas
 document.getElementById("open-chat-btn").addEventListener("click", openChat); // Open chat
 document.getElementById("close-chat-btn").addEventListener("click", closeChat); // To close the pop up chat
-const status = document.getElementById("master-chat-status");
-const messageBox = document.getElementById("message");
-const sendBtn = document.getElementById("send-message");
-const sendVideoBtn = document.getElementById("send-video");
-const messageList = document.getElementById("chat-list");
-const notification = document.getElementById("chat-notification");
+const status=document.getElementById('master-chat-status');
+const messageBox= document.getElementById('message');
+const sendBtn = document.getElementById('send-message');
+const sendVideoBtn = document.getElementById('send-video');
+const messageList = document.getElementById('chat-list');
+const audioNotification = document.getElementById('message-notification');
 
 var typeChoosed = false;
 function openChat() {
@@ -23,44 +22,39 @@ function openChat() {
     console.log("abre chat");
     document.getElementById("pop-chat").style.display = "block";
     document.getElementById("open-chat-btn").style.display = "none";
-    nNotification = 0;
   }
 }
 
 function closeChat() {
-  document.getElementById("pop-chat").style.display = "none";
-  document.getElementById("open-chat-btn").style.display = "block";
-  notification.style.display = "none";
-}
+    document.getElementById("pop-chat").style.display = "none";
+    document.getElementById("open-chat-btn").style.display = "block";
+  }
 
-document.getElementById("master").addEventListener("click", function () {
-  typeChoosed = true;
-  document.getElementById("pop-chat").style.display = "block";
-  document.getElementById("open-chat-btn").style.display =
-    "none"; /* For mobile devices */
-});
+document.getElementById('master').addEventListener('click', function(){
+    typeChoosed=true;
+    document.getElementById("pop-chat").style.display = "block";
+    document.getElementById("open-chat-btn").style.display = "none";
 
-document
-  .getElementById("clipboard-copy-btn")
-  .addEventListener("click", function () {
     // Para copiar el contenido al portapapeles
     messageBox.select();
     messageBox.setSelectionRange(0, 99999); /* For mobile devices */
     navigator.clipboard.writeText(messageBox.value);
-    document.getElementById('helping-message').append("\n"+"Copiado");
-  });
+    alert("Copied the text: " + copyText.value);
+});
 
-messageBox.addEventListener("keypress", function (e) {
+messageBox.addEventListener('keypress', function(e){
   if (messageBox.value == "") return;
   var event = e || window.event;
   var char = event.which || event.keyCode;
-  if (char == "13") sendBtn.click();
+  if (char == '13')
+      sendBtn.click();
 });
 
 document.getElementById("send-message").addEventListener("click", function () {
   conn.send(messageBox.value);
+  console.log(messageBox.value)
   addMessage(messageBox.value, "sent");
-  messageBox.value = null;
+  messageBox.value=null;
 });
 
 initializeMaster();
@@ -83,7 +77,7 @@ function initializeMaster() {
     }
 
     console.log("ID: " + peer.id);
-    document.getElementById("message").value = peer.id;
+    document.getElementById('message').value=peer.id;
     console.log("Awaiting connection...");
   });
   peer.on("connection", function (c) {
@@ -100,13 +94,12 @@ function initializeMaster() {
 
     conn = c;
     console.log("Connected to: " + conn.peer);
-    status.innerHTML = '<i class="bi-check-circle"></i>&nbsp;Conectado'; // conexión establecida y color verde
-    status.style.background = "#198754";
-    messageBox.value = null; // vacíamos el contenido de la caja de mensajes
-    messageBox.disabled = false; // quitamos el disable de los botones, ahora disponibles
-    sendBtn.disabled = false;
-    sendVideoBtn.disabled = false;
-    document.getElementById("helping-message").style.display = "none"; // mensaje de ayuda para establecer conexion
+    status.innerHTML = '<i class="bi-check-circle"></i>&nbsp;Conectado';
+    status.style.background='#198754'; // Green color
+    messageBox.value=null;
+    messageBox.disabled=false;
+    sendBtn.disabled=false;
+    sendVideoBtn.disabled=false;
     ready();
   });
   peer.on("disconnected", function () {
@@ -132,7 +125,24 @@ function initializeMaster() {
 function ready() {
   conn.on("data", function (data) {
     //console.log(data);
-    addMessage(data, "received");
+    if (data.type == "vr") {
+        addMessage("SE HA ENVIADO VÍDEO REACCIÓN", "received");
+        const blob = new Blob(data.video, {type: 'video/webm'});
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.style.display = 'none';
+        a.href = url;
+        a.download = 'test.webm';
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(() => {
+          document.body.removeChild(a);
+          window.URL.revokeObjectURL(url);
+        }, 100);
+    }else{
+      console.log("texto");
+      addMessage(data, "received");
+    }
     /*
       var cueString = "<span class=\"cueMsg\">Cue: </span>";
       switch (data) {
@@ -178,26 +188,37 @@ function addMessage(msg, type) {
     return t;
   }
 
-  info = msg+' <a class="message-time">'+h+':'+m+':'+s+'</a>';
+  info = "("+h + ":" + m + ":" + s + "): " + msg;
 
-  var node = document.createElement("li");
-  node.classList.add("message-" + type + "");
-  node.innerHTML=info;
+  var node = document.createElement('li');
+  node.classList.add("message-"+type+"");
+  node.appendChild(document.createTextNode(info));
   messageList.appendChild(node);
 
-  if (type == "received") {
-    var audio = new Audio("./resources/message-notification.mp3");
+  if(type=="received"){
+    var audio = new Audio('./resources/message-notification.mp3');
     audio.play();
   }
 
+  console.log(chatBox.scrollHeight)
   chatBox.scrollTop = chatBox.scrollHeight;
-
-  if (document.getElementById("pop-chat").style.display == "none") {
-    // si al recibir un mensaje no tenemos abierta la caja de mensajes, aparece una notificación
-    notification.style.display = "inline";
-    nNotification++;
-    notification.innerHTML = nNotification;
-  }
 
   console.log(info);
 }
+
+//Enviar vídeo reacción
+const sendVideoReaccionBtn = document.getElementById("e-v-btn");
+sendVideoReaccionBtn.addEventListener('click', () => {
+  if (recordedBlobs) {
+    console.log(recordedBlobs);
+    const videoReaccion = {
+      "type": "vr",
+      "video": recordedBlobs
+    };
+    console.log(videoReaccion);
+    conn.send(videoReaccion);
+    console.log("Se ha enviado la vídeo reacción!");
+  } else {
+    console.log("No se ha grabado el vídeo");
+  }
+});
