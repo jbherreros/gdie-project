@@ -2,14 +2,16 @@ var lastPeerId = null;
 var peer = null; // Own peer object
 var peerId = null;
 var conn = null;
+var nNotification = 0; // contador de notificaciones recibidas
 document.getElementById("open-chat-btn").addEventListener("click", openChat); // Open chat
 document.getElementById("close-chat-btn").addEventListener("click", closeChat); // To close the pop up chat
 const status=document.getElementById('master-chat-status');
+const chatBox=document.getElementById('chatBox');
 const messageBox= document.getElementById('message');
 const sendBtn = document.getElementById('send-message');
 const sendVideoBtn = document.getElementById('send-video');
 const messageList = document.getElementById('chat-list');
-const audioNotification = document.getElementById('message-notification');
+const notification = document.getElementById("chat-notification");
 
 var typeChoosed = false;
 function openChat() {
@@ -28,6 +30,8 @@ function openChat() {
 function closeChat() {
     document.getElementById("pop-chat").style.display = "none";
     document.getElementById("open-chat-btn").style.display = "block";
+    nNotification = 0;
+    notification.style.display = "none";
   }
 
 document.getElementById('master').addEventListener('click', function(){
@@ -39,7 +43,6 @@ document.getElementById('master').addEventListener('click', function(){
     messageBox.select();
     messageBox.setSelectionRange(0, 99999); /* For mobile devices */
     navigator.clipboard.writeText(messageBox.value);
-    alert("Copied the text: " + copyText.value);
 });
 
 messageBox.addEventListener('keypress', function(e){
@@ -100,6 +103,7 @@ function initializeMaster() {
     messageBox.disabled=false;
     sendBtn.disabled=false;
     sendVideoBtn.disabled=false;
+    document.getElementById('helping-message').innerHTML=null;
     ready();
   });
   peer.on("disconnected", function () {
@@ -126,19 +130,15 @@ function ready() {
   conn.on("data", function (data) {
     //console.log(data);
     if (data.type == "vr") {
-        addMessage("SE HA ENVIADO VÍDEO REACCIÓN", "received");
-        const blob = new Blob(data.video, {type: 'video/webm'});
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.style.display = 'none';
-        a.href = url;
-        a.download = 'test.webm';
-        document.body.appendChild(a);
-        a.click();
-        setTimeout(() => {
-          document.body.removeChild(a);
-          window.URL.revokeObjectURL(url);
-        }, 100);
+      const blob = new Blob(data.video, {type: 'video/mp4'});
+      const url = window.URL.createObjectURL(blob);
+      const video = document.createElement('video');
+      video.src = url;
+      video.controls = true;
+      video.classList.add('video-chat');
+      video.width=100;
+      console.log(video);
+      addVideo(video, "received");
     }else{
       console.log("texto");
       addMessage(data, "received");
@@ -188,11 +188,11 @@ function addMessage(msg, type) {
     return t;
   }
 
-  info = "("+h + ":" + m + ":" + s + "): " + msg;
+  info = msg+' <a class="message-time">'+h+':'+m+':'+s+'</a>';
 
-  var node = document.createElement('li');
-  node.classList.add("message-"+type+"");
-  node.appendChild(document.createTextNode(info));
+  var node = document.createElement("li");
+  node.classList.add("message-" + type + "");
+  node.innerHTML=info;
   messageList.appendChild(node);
 
   if(type=="received"){
@@ -200,10 +200,41 @@ function addMessage(msg, type) {
     audio.play();
   }
 
-  console.log(chatBox.scrollHeight)
   chatBox.scrollTop = chatBox.scrollHeight;
 
+  if (document.getElementById("pop-chat").style.display == "none") {
+    // si al recibir un mensaje no tenemos abierta la caja de mensajes, aparece una notificación
+    notification.style.display = "inline";
+    nNotification++;
+    notification.innerHTML = nNotification;
+  }
+
   console.log(info);
+}
+
+function addVideo(video, type){
+  var now = new Date();
+  var h = now.getHours();
+  var m = addZero(now.getMinutes());
+  var s = addZero(now.getSeconds());
+
+  if (h > 12) h -= 12;
+  else if (h === 0) h = 12;
+
+  function addZero(t) {
+    if (t < 10) t = "0" + t;
+    return t;
+  }
+  
+  info = ' <a class="message-time">'+h+':'+m+':'+s+'</a>';
+
+  var node = document.createElement('li');
+  node.innerHTML=info;
+  node.prepend(video);
+  node.classList.add('message-'+type);
+  messageList.appendChild(node);
+  chatBox.scrollTop = chatBox.scrollHeight;
+
 }
 
 //Enviar vídeo reacción
@@ -218,6 +249,14 @@ sendVideoReaccionBtn.addEventListener('click', () => {
     console.log(videoReaccion);
     conn.send(videoReaccion);
     console.log("Se ha enviado la vídeo reacción!");
+    const blob = new Blob(recordedBlobs, {type: 'video/webm'});
+    const url = window.URL.createObjectURL(blob);
+    const video = document.createElement('video');
+    video.src = url;
+    video.controls = true;
+    video.classList.add('video-chat');
+    addVideo(video, "sent");
+
   } else {
     console.log("No se ha grabado el vídeo");
   }

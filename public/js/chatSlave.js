@@ -29,13 +29,13 @@ function openChat() {
     console.log("abre chat");
     document.getElementById("pop-chat").style.display = "block";
     document.getElementById("open-chat-btn").style.display = "none";
-    nNotification = 0;
   }
 }
 
 function closeChat() {
   document.getElementById("pop-chat").style.display = "none";
   document.getElementById("open-chat-btn").style.display = "block";
+  nNotification = 0;
   notification.style.display = "none";
 }
 
@@ -124,19 +124,14 @@ function join() {
   // Handle incoming data (messages only since this is the signal sender)
   conn.on("data", function (data) {
     if (data.type == "vr") {
-        addMessage("SE HA ENVIADO VÍDEO REACCIÓN", "received");
-        const blob = new Blob(data.video, {type: 'video/webm'});
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.style.display = 'none';
-        a.href = url;
-        a.download = 'test.webm';
-        document.body.appendChild(a);
-        a.click();
-        setTimeout(() => {
-          document.body.removeChild(a);
-          window.URL.revokeObjectURL(url);
-        }, 100);
+      const blob = new Blob(data.video, {type: 'video/mp4'});
+      const url = window.URL.createObjectURL(blob);
+      const video = document.createElement('video');
+      video.src = url;
+      video.controls = true;
+      video.classList.add('video-chat');
+      console.log(video);
+      addVideo(video, "received");
     }else{
       console.log("texto");
       addMessage(data, "received");
@@ -186,6 +181,31 @@ function addMessage(msg, type) {
   console.log(info);
 }
 
+function addVideo(video, type){
+  var now = new Date();
+  var h = now.getHours();
+  var m = addZero(now.getMinutes());
+  var s = addZero(now.getSeconds());
+
+  if (h > 12) h -= 12;
+  else if (h === 0) h = 12;
+
+  function addZero(t) {
+    if (t < 10) t = "0" + t;
+    return t;
+  }
+  
+  info = ' <a class="message-time">'+h+':'+m+':'+s+'</a>';
+
+  var node = document.createElement('li');
+  node.innerHTML=info;
+  node.prepend(video);
+  node.classList.add('message-'+type);
+  messageList.appendChild(node);
+  chatBox.scrollTop = chatBox.scrollHeight;
+
+}
+
 //Enviar vídeo reacción
 const sendVideoReaccionBtn = document.getElementById("e-v-btn");
 sendVideoReaccionBtn.addEventListener('click', () => {
@@ -198,6 +218,13 @@ sendVideoReaccionBtn.addEventListener('click', () => {
     console.log(videoReaccion);
     conn.send(videoReaccion);
     console.log("Se ha enviado la vídeo reacción!");
+    const blob = new Blob(recordedBlobs, {type: 'video/webm'});
+    const url = window.URL.createObjectURL(blob);
+    const video = document.createElement('video');
+    video.src = url;
+    video.controls = true;
+    video.classList.add('video-chat');
+    addVideo(video, "sent");
   } else {
     console.log("No se ha grabado el vídeo");
   }

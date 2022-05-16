@@ -26,6 +26,7 @@ playButton.addEventListener('click', () => {
     recordedVideo.src = window.URL.createObjectURL(superBuffer);
     recordedVideo.controls = true;
     recordedVideo.play();
+    console.log(recordedVideo);
   });
 
 function handleDataAvailable(event) {

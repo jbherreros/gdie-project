@@ -42,6 +42,10 @@ video{
         height: 37px !important;
     }
 
+    #message:disabled{
+        font-size: 8px !important;
+    }
+
     #send-message{
         margin-left: 193px !important;
     }
@@ -241,6 +245,10 @@ video{
     margin-right: 5%;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+}
+
+.video-chat{
+    margin-top: 5px;
 }
 
 #master-chat-status{
