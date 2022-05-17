@@ -9,10 +9,12 @@ const status = document.getElementById("slave-chat-status");
 document.getElementById("connect").addEventListener("click", join);
 
 // Botón para pegar el portapapeles
-document.getElementById('clipboard-paste').addEventListener('click', async function(){
-  let text = await navigator.clipboard.readText();
-  document.getElementById('master-id').value=text;
-});
+document
+  .getElementById("clipboard-paste")
+  .addEventListener("click", async function () {
+    let text = await navigator.clipboard.readText();
+    document.getElementById("master-id").value = text;
+  });
 //***************************************************************
 
 initializeSlave();
@@ -46,8 +48,9 @@ function initializeSlave() {
     });
   });
   peer.on("disconnected", function () {
-    status.innerHTML = '<i class="bi-exclamation-triangle"></i>&nbsp;Conexión perdida. Por favor, reconecta.';
-    status.style.background='#df4759' // red color
+    status.innerHTML =
+      '<i class="bi-exclamation-triangle"></i>&nbsp;Conexión perdida. Por favor, reconecta.';
+    status.style.background = "#df4759"; // red color
     disableChatFunctions(true);
     console.log("Connection lost. Please reconnect");
 
@@ -58,8 +61,9 @@ function initializeSlave() {
   });
   peer.on("close", function () {
     conn = null;
-    status.innerHTML = '<i class="bi-exclamation-triangle"></i>&nbsp;Conexión destruida. Por favor, refresca.';
-    status.style.background='#df4759' // red color
+    status.innerHTML =
+      '<i class="bi-exclamation-triangle"></i>&nbsp;Conexión destruida. Por favor, refresca.';
+    status.style.background = "#df4759"; // red color
     disableChatFunctions(true);
     console.log("Connection destroyed");
   });
@@ -88,22 +92,21 @@ function join() {
   // Handle incoming data (messages only since this is the signal sender)
   conn.on("data", function (data) {
     if (data.type == "vr") {
-      const blob = new Blob(data.video, {type: 'video/mp4'});
+      const blob = new Blob(data.video, { type: "video/mp4" });
       const url = window.URL.createObjectURL(blob);
-      const video = document.createElement('video');
+      const video = document.createElement("video");
       video.src = url;
       addVideo(video, "received");
-
-    }else{
+    } else {
       addMessage(data, "received");
-
     }
   });
 
   conn.on("close", function () {
     console.log("Connection closed");
-    status.innerHTML = '<i class="bi-exclamation-triangle"></i>&nbsp;Conexión finalizada. Por favor, refresca.';
-    status.style.background='#df4759' // red color
+    status.innerHTML =
+      '<i class="bi-exclamation-triangle"></i>&nbsp;Conexión finalizada. Por favor, refresca.';
+    status.style.background = "#df4759"; // red color
     disableChatFunctions(true);
   });
 }

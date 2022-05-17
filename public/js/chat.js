@@ -17,7 +17,6 @@ function openChat() {
     $(document).ready(function () {
       $("#firstModal").modal("show");
     });
-
   } else {
     document.getElementById("pop-chat").style.display = "block";
     document.getElementById("open-chat-btn").style.display = "none";
@@ -49,11 +48,11 @@ document.getElementById("send-message").addEventListener("click", function () {
 });
 
 // Activa o desactiva los botones del chat (True or False)
-function disableChatFunctions(disable){
-    messageBox.value=null;
-    messageBox.disabled=disable;
-    sendBtn.disabled=disable;
-    sendVideoBtn.disabled=disable;
+function disableChatFunctions(disable) {
+  messageBox.value = null;
+  messageBox.disabled = disable;
+  sendBtn.disabled = disable;
+  sendVideoBtn.disabled = disable;
 }
 
 //Enviar vídeo reacción
@@ -77,7 +76,6 @@ sendVideoReaccionBtn.addEventListener("click", () => {
     $(document).ready(function () {
       $("#videoReactionModal").modal("toggle");
     });
-
   } else {
     console.log("No se ha grabado el vídeo");
   }
@@ -118,7 +116,7 @@ function addMessage(msg, type) {
     notification.innerHTML = nNotification;
   }
 
-  console.log(h + ":" + m + ":" + s + ":- "+msg);
+  console.log(h + ":" + m + ":" + s + ":- " + msg);
 }
 
 // Añadir mensaje de video al chat del cliente (imprimir por frontend)
@@ -146,7 +144,7 @@ function addVideo(video, type) {
   video.autoplay = true;
   video.classList.add("video-chat");
 
-  node.prepend(video); // Añadimos el video al mensaje 
+  node.prepend(video); // Añadimos el video al mensaje
   node.classList.add("message-" + type); // Mensaje de tipo received/sent
   messageList.appendChild(node); // Añadimos el mensaje al chat
 

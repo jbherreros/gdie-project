@@ -6,17 +6,20 @@ const status = document.getElementById("master-chat-status");
 
 // ************************** MODAL *****************************
 // Selección modo master
-document.getElementById('master').addEventListener('click', function(){
-    typeChoosed=true;
-    openChat();
+document.getElementById("master").addEventListener("click", function () {
+  typeChoosed = true;
+  openChat();
 });
+
 // Botón copiar al portapapeles
-document.getElementById('clipboard-copy-btn').addEventListener('click', function(){
+document
+  .getElementById("clipboard-copy-btn")
+  .addEventListener("click", function () {
     messageBox.select(); // copiaremos el código del master
     messageBox.setSelectionRange(0, 99999); /* For mobile devices */
     navigator.clipboard.writeText(messageBox.value);
-    document.querySelector('.bi-files').innerHTML="&nbsp;Copiado!"
-});
+    document.querySelector(".bi-files").innerHTML = "&nbsp;Copiado!";
+  });
 //***************************************************************
 
 disableChatFunctions(true);
@@ -40,7 +43,7 @@ function initializeMaster() {
     }
 
     console.log("ID: " + peer.id);
-    document.getElementById('message').value=peer.id;
+    document.getElementById("message").value = peer.id;
     console.log("Awaiting connection...");
   });
   peer.on("connection", function (c) {
@@ -59,14 +62,15 @@ function initializeMaster() {
     console.log("Connected to: " + conn.peer);
     // Updating chat status
     status.innerHTML = '<i class="bi-check-circle"></i>&nbsp;Conectado';
-    status.style.background='#198754'; // green color
+    status.style.background = "#198754"; // green color
     disableChatFunctions(false); // activa las funciones del chat
-    document.getElementById('helping-message').innerHTML=null; // borra helping message
+    document.getElementById("helping-message").innerHTML = null; // borra helping message
     ready();
   });
   peer.on("disconnected", function () {
-    status.innerHTML = '<i class="bi-exclamation-triangle"></i>&nbsp;Conexión perdida. Por favor, refresca.';
-    status.style.background='#df4759' // red color
+    status.innerHTML =
+      '<i class="bi-exclamation-triangle"></i>&nbsp;Conexión perdida. Por favor, refresca.';
+    status.style.background = "#df4759"; // red color
     disableChatFunctions(true);
     console.log("Connection lost. Please reconnect");
 
@@ -77,8 +81,9 @@ function initializeMaster() {
   });
   peer.on("close", function () {
     conn = null;
-    status.innerHTML = '<i class="bi-exclamation-triangle"></i>&nbsp;Conexión destruida. Por favor, refresca.';
-    status.style.background='#df4759' // red color
+    status.innerHTML =
+      '<i class="bi-exclamation-triangle"></i>&nbsp;Conexión destruida. Por favor, refresca.';
+    status.style.background = "#df4759"; // red color
     disableChatFunctions(true);
     console.log("Connection destroyed");
   });
@@ -91,23 +96,22 @@ function initializeMaster() {
 function ready() {
   conn.on("data", function (data) {
     if (data.type == "vr") {
-      const blob = new Blob(data.video, {type: 'video/mp4'});
+      const blob = new Blob(data.video, { type: "video/mp4" });
       const url = window.URL.createObjectURL(blob);
-      const video = document.createElement('video');
+      const video = document.createElement("video");
       video.src = url;
       addVideo(video, "received");
-
-    }else{
+    } else {
       addMessage(data, "received");
-
     }
   });
 
   conn.on("close", function () {
-    status.innerHTML = '<i class="bi-exclamation-triangle"></i>&nbsp;Conexión finalizada. Esperando conexión...';
-    status.style.background='#df4759' // red color
+    status.innerHTML =
+      '<i class="bi-exclamation-triangle"></i>&nbsp;Conexión finalizada. Esperando conexión...';
+    status.style.background = "#df4759"; // red color
     disableChatFunctions(true);
-    messageBox.value=peer.id;
+    messageBox.value = peer.id;
     conn = null;
   });
 }
