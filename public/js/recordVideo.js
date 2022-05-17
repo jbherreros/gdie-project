@@ -97,3 +97,5 @@ activarCamara.addEventListener('click', async () => {
     console.log('Using media constraints:', constraints);
     await init(constraints);
   });
+
+  

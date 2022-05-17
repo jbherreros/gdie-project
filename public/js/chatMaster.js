@@ -2,20 +2,24 @@ var lastPeerId = null;
 var peer = null; // Own peer object
 var peerId = null;
 var conn = null;
+const status = document.getElementById("master-chat-status");
 
 // ************************** MODAL *****************************
 // Selección modo master
 document.getElementById('master').addEventListener('click', function(){
     typeChoosed=true;
     openChat();
-
-    // Para copiar el contenido al portapapeles
-    messageBox.select();
+});
+// Botón copiar al portapapeles
+document.getElementById('clipboard-copy-btn').addEventListener('click', function(){
+    messageBox.select(); // copiaremos el código del master
     messageBox.setSelectionRange(0, 99999); /* For mobile devices */
     navigator.clipboard.writeText(messageBox.value);
+    document.querySelector('.bi-files').innerHTML="&nbsp;Copiado!"
 });
 //***************************************************************
 
+disableChatFunctions(true);
 initializeMaster();
 
 // Master: who generates de session key
@@ -55,16 +59,15 @@ function initializeMaster() {
     console.log("Connected to: " + conn.peer);
     // Updating chat status
     status.innerHTML = '<i class="bi-check-circle"></i>&nbsp;Conectado';
-    status.style.background='#198754'; // Green color
-    messageBox.value=null;
-    messageBox.disabled=false;
-    sendBtn.disabled=false;
-    sendVideoBtn.disabled=false;
-    document.getElementById('helping-message').innerHTML=null; // delete helping message
+    status.style.background='#198754'; // green color
+    disableChatFunctions(false); // activa las funciones del chat
+    document.getElementById('helping-message').innerHTML=null; // borra helping message
     ready();
   });
   peer.on("disconnected", function () {
-    status.innerHTML = "Connection lost. Please reconnect";
+    status.innerHTML = '<i class="bi-exclamation-triangle"></i>&nbsp;Conexión perdida. Por favor, refresca.';
+    status.style.background='#df4759' // red color
+    disableChatFunctions(true);
     console.log("Connection lost. Please reconnect");
 
     // Workaround for peer.reconnect deleting previous id
@@ -74,7 +77,9 @@ function initializeMaster() {
   });
   peer.on("close", function () {
     conn = null;
-    status.innerHTML = "Connection destroyed. Please refresh";
+    status.innerHTML = '<i class="bi-exclamation-triangle"></i>&nbsp;Conexión destruida. Por favor, refresca.';
+    status.style.background='#df4759' // red color
+    disableChatFunctions(true);
     console.log("Connection destroyed");
   });
   peer.on("error", function (err) {
@@ -85,46 +90,24 @@ function initializeMaster() {
 
 function ready() {
   conn.on("data", function (data) {
-    //console.log(data);
     if (data.type == "vr") {
       const blob = new Blob(data.video, {type: 'video/mp4'});
       const url = window.URL.createObjectURL(blob);
       const video = document.createElement('video');
       video.src = url;
-      video.controls = true;
-      video.classList.add('video-chat');
-      console.log(video);
       addVideo(video, "received");
+
     }else{
-      console.log("texto");
       addMessage(data, "received");
+
     }
-    /*
-      var cueString = "<span class=\"cueMsg\">Cue: </span>";
-      switch (data) {
-          case 'Go':
-              go();
-              addMessage(cueString + data);
-              break;
-          case 'Fade':
-              fade();
-              addMessage(cueString + data);
-              break;
-          case 'Off':
-              off();
-              addMessage(cueString + data);
-              break;
-          case 'Reset':
-              reset();
-              addMessage(cueString + data);
-              break;
-          default:
-              addMessage("<span class=\"peerMsg\">Peer: </span>" + data);
-              break;
-      };*/
   });
+
   conn.on("close", function () {
-    status.innerHTML = "Connection reset<br>Awaiting connection...";
+    status.innerHTML = '<i class="bi-exclamation-triangle"></i>&nbsp;Conexión finalizada. Esperando conexión...';
+    status.style.background='#df4759' // red color
+    disableChatFunctions(true);
+    messageBox.value=peer.id;
     conn = null;
   });
 }

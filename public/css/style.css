@@ -99,14 +99,10 @@ video{
     width: 271px;
     height: 37px;
     margin-left: 5%;
-}
-
-#message{
     margin-top: 8px;
     border: 0px;
     border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
-    height: 37px;
+    border-top-left-radius: 5px; 
     outline: none;
 }
 
@@ -117,6 +113,10 @@ video{
     text-decoration: none;
     color:white;  
     /*font-weight: bold;*/
+}
+
+.message-time:hover{
+    color: white;
 }
 
 #message-form input:disabled{
@@ -131,8 +131,8 @@ video{
 }
 
 #send-message:disabled{
-    background: #5bc0de !important;
-    border: #5bc0de;
+    background: #ccc !important;
+    border: #ccc !important;
     height: 37px;
 }
 
@@ -211,6 +211,7 @@ video{
     background: #df4759;
     width: fit-content;
     max-width: 290px;
+    transition: 0.03s;
 }
 
 .message-sent{
@@ -227,6 +228,11 @@ video{
     background: #0d6efd;
     width: fit-content;
     max-width: 290px;
+    transition: 0.03s;
+}
+
+.message-received:hover, .message-sent:hover{
+    transform: scale(1.03);
 }
 
 #chat-list{
@@ -282,14 +288,7 @@ video{
     display: none;
 }
 
-#master-id{
-    position: absolute;
-    width: 83%;
-}
 
-#clipboard-paste{
-    float: right;
-}
 
 .video-c{
     width: 100%;

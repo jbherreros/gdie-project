@@ -1,7 +1,6 @@
 var nNotification = 0; // contador de notificaciones recibidas
 document.getElementById("open-chat-btn").addEventListener("click", openChat); // Open chat
 document.getElementById("close-chat-btn").addEventListener("click", closeChat); // To close the pop up chat
-const status = document.getElementById("master-chat-status");
 const chatBox = document.getElementById("chatBox");
 const messageBox = document.getElementById("message");
 const sendBtn = document.getElementById("send-message");
@@ -49,32 +48,36 @@ document.getElementById("send-message").addEventListener("click", function () {
   messageBox.value = null;
 });
 
+// Activa o desactiva los botones del chat (True or False)
+function disableChatFunctions(disable){
+    messageBox.value=null;
+    messageBox.disabled=disable;
+    sendBtn.disabled=disable;
+    sendVideoBtn.disabled=disable;
+}
+
 //Enviar vídeo reacción
 const sendVideoReaccionBtn = document.getElementById("e-v-btn");
 sendVideoReaccionBtn.addEventListener("click", () => {
   if (recordedBlobs) {
-    console.log(recordedBlobs);
     const videoReaccion = {
       type: "vr",
       video: recordedBlobs,
     };
-    console.log(videoReaccion);
+
     conn.send(videoReaccion);
     console.log("Se ha enviado la vídeo reacción!");
     const blob = new Blob(recordedBlobs, { type: "video/webm" });
     const url = window.URL.createObjectURL(blob);
     const video = document.createElement("video");
     video.src = url;
-    //video.controls = true;
-    video.loop = true;
-    video.autoplay = true;
-    video.classList.add("video-chat");
     addVideo(video, "sent");
 
     // Cerramos el modal
     $(document).ready(function () {
       $("#videoReactionModal").modal("toggle");
     });
+
   } else {
     console.log("No se ha grabado el vídeo");
   }
@@ -115,7 +118,7 @@ function addMessage(msg, type) {
     notification.innerHTML = nNotification;
   }
 
-  console.log(info);
+  console.log(h + ":" + m + ":" + s + ":- "+msg);
 }
 
 // Añadir mensaje de video al chat del cliente (imprimir por frontend)
@@ -133,19 +136,30 @@ function addVideo(video, type) {
     return t;
   }
 
-  info = ' <a class="message-time">' + h + ":" + m + ":" + s + "</a>";
+  time = ' <a class="message-time">' + h + ":" + m + ":" + s + "</a>";
 
   var node = document.createElement("li");
-  node.innerHTML = info;
+  node.innerHTML = time; // Añadimos la marca de tiempo al objeto al mensaje
+
   video.controls = false;
   video.loop = true;
   video.autoplay = true;
-  node.prepend(video);
-  node.classList.add("message-" + type);
-  messageList.appendChild(node);
-  chatBox.scrollTop = chatBox.scrollTop;
+  video.classList.add("video-chat");
+
+  node.prepend(video); // Añadimos el video al mensaje 
+  node.classList.add("message-" + type); // Mensaje de tipo received/sent
+  messageList.appendChild(node); // Añadimos el mensaje al chat
 
   if (type == "received") {
     audio.play();
+  }
+
+  chatBox.scrollTop = chatBox.scrollTop; // Scroll hasta abajo del todo
+
+  // Si el chat no está abierto, aumentamos el contador de notificaciones
+  if (document.getElementById("pop-chat").style.display == "none") {
+    notification.style.display = "inline";
+    nNotification++;
+    notification.innerHTML = nNotification;
   }
 }

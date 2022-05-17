@@ -2,14 +2,16 @@ var lastPeerId = null;
 var peer = null; // Own peer object
 var peerId = null;
 var conn = null;
+const status = document.getElementById("slave-chat-status");
 
 // ************************** MODAL *****************************
 // Establecer conexión
 document.getElementById("connect").addEventListener("click", join);
 
 // Botón para pegar el portapapeles
-document.getElementById('clipboard-paste').addEventListener('click', function(){
-  // ¿?¿?¿?
+document.getElementById('clipboard-paste').addEventListener('click', async function(){
+  let text = await navigator.clipboard.readText();
+  document.getElementById('master-id').value=text;
 });
 //***************************************************************
 
@@ -44,7 +46,9 @@ function initializeSlave() {
     });
   });
   peer.on("disconnected", function () {
-    status.innerHTML = "Connection lost. Please reconnect";
+    status.innerHTML = '<i class="bi-exclamation-triangle"></i>&nbsp;Conexión perdida. Por favor, reconecta.';
+    status.style.background='#df4759' // red color
+    disableChatFunctions(true);
     console.log("Connection lost. Please reconnect");
 
     // Workaround for peer.reconnect deleting previous id
@@ -54,7 +58,9 @@ function initializeSlave() {
   });
   peer.on("close", function () {
     conn = null;
-    status.innerHTML = "Connection destroyed. Please refresh";
+    status.innerHTML = '<i class="bi-exclamation-triangle"></i>&nbsp;Conexión destruida. Por favor, refresca.';
+    status.style.background='#df4759' // red color
+    disableChatFunctions(true);
     console.log("Connection destroyed");
   });
   peer.on("error", function (err) {
@@ -77,7 +83,7 @@ function join() {
   conn.on("open", function () {
     console.log("Connected to: " + conn.peer);
     typeChoosed = true;
-    document.getElementById("pop-chat").style.display = "block";
+    openChat();
   });
   // Handle incoming data (messages only since this is the signal sender)
   conn.on("data", function (data) {
@@ -86,16 +92,18 @@ function join() {
       const url = window.URL.createObjectURL(blob);
       const video = document.createElement('video');
       video.src = url;
-      video.controls = true;
-      video.classList.add('video-chat');
-      console.log(video);
       addVideo(video, "received");
+
     }else{
-      console.log("texto");
       addMessage(data, "received");
+
     }
   });
+
   conn.on("close", function () {
     console.log("Connection closed");
+    status.innerHTML = '<i class="bi-exclamation-triangle"></i>&nbsp;Conexión finalizada. Por favor, refresca.';
+    status.style.background='#df4759' // red color
+    disableChatFunctions(true);
   });
 }
