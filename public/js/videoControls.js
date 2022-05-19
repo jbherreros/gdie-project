@@ -28,52 +28,70 @@ document.__defineGetter__("cookie", function () {
 });
 document.__defineSetter__("cookie", function () {});
 
-/*if (Hls.isSupported()) {
-    console.log("HLS is available");
-    var hls = new Hls();
-    hls.loadSource("./videos/hls/manifest.m3u8");
-    hls.attachMedia(myVideo);
-}else{*/
-console.log("MPEG-DASH is available");
-var url = "./videos/dash/manifest.mpd";
-var player = dashjs.MediaPlayer().create();
-player.initialize(myVideo, url, false);
-
-//}
+if (Hls.isSupported()) {
+  console.log("HLS is available");
+  var hls = new Hls();
+  hls.loadSource("./videos/hls/manifest.m3u8");
+  hls.attachMedia(myVideo);
+} else {
+  console.log("MPEG-DASH is available");
+  var url = "./videos/dash/manifest.mpd";
+  var player = dashjs.MediaPlayer().create();
+  player.initialize(myVideo, url, false);
+}
 
 qualitySettings.addEventListener("click", function (e) {
   let pressed = e.target;
   error = false;
 
-  var bitrates = player.getBitrateInfoListFor("video");
-  console.log("Bitrates available:" + bitrates.length);
-  console.log(bitrates[0]);
-  console.log(bitrates[1]);
-  console.log(bitrates[2]);
-  console.log(bitrates[3]);
+  if (Hls.isSupported()) {
+    console.log("hls");
+    switch (pressed.id) {
+      case "1080p":
+        hls.currentLevel = 3;
+        break;
+      case "720p":
+        hls.currentLevel = 2;
+        break;
+      case "480p":
+        hls.currentLevel = 1;
+        break;
+      case "360p":
+        hls.currentLevel = 0;
+        break;
+      case "manifest":
+        hls.currentLevel = -1;
+        break;
+      default:
+        error = true;
+        break;
+    }
+  } else {
+    var bitrates = player.getBitrateInfoListFor("video");
+    console.log("Bitrates available:" + bitrates.length);
+    let settingsp = player.getSettings();
+    settingsp.streaming.abr.autoSwitchBitrate = false;
 
-  let settingsp = player.getSettings();
-  settingsp.streaming.abr.autoSwitchBitrate = false;
-
-  switch (pressed.id) {
-    case "1080p":
-      player.setQualityFor("video", bitrates[3].qualityIndex);
-      break;
-    case "720p":
-      player.setQualityFor("video", bitrates[2].qualityIndex);
-      break;
-    case "480p":
-      player.setQualityFor("video", bitrates[1].qualityIndex);
-      break;
-    case "360p":
-      player.setQualityFor("video", bitrates[0].qualityIndex);
-      break;
-    case "manifest":
-      settingsp.streaming.abr.autoSwitchBitrate = true;
-      break;
-    default:
-      error = true;
-      break;
+    switch (pressed.id) {
+      case "1080p":
+        player.setQualityFor("video", bitrates[3].qualityIndex);
+        break;
+      case "720p":
+        player.setQualityFor("video", bitrates[2].qualityIndex);
+        break;
+      case "480p":
+        player.setQualityFor("video", bitrates[1].qualityIndex);
+        break;
+      case "360p":
+        player.setQualityFor("video", bitrates[0].qualityIndex);
+        break;
+      case "manifest":
+        settingsp.streaming.abr.autoSwitchBitrate = true;
+        break;
+      default:
+        error = true;
+        break;
+    }
   }
 
   if (!error) {
@@ -81,33 +99,6 @@ qualitySettings.addEventListener("click", function (e) {
     document.getElementById(currentResolution).classList.remove("disabled");
     currentResolution = pressed.id;
   }
-
-  /*switch (pressed.id) {
-        case "1080p":
-            hls.currentLevel=3;
-            break;
-        case "720p":
-            hls.currentLevel=2;
-            break;
-        case "480p":
-            hls.currentLevel=1;
-            break;
-        case "360p":
-            hls.currentLevel=0;
-            break;
-        case "manifest":
-            hls.currentLevel=-1;
-            break;
-        default:
-            error=true;
-            break;
-    }
-    console.log(error)
-    if(!error){
-        pressed.classList.add('disabled');
-        document.getElementById(currentResolution).classList.remove('disabled');
-        currentResolution=pressed.id;
-    }*/
 });
 
 if (myVideo.paused) {

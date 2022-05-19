@@ -5,7 +5,6 @@ const activarCamara = document.querySelector("button#start");
 const recordedVideo = document.querySelector("video#recorded");
 const recordButton = document.querySelector("button#record");
 const playButton = document.querySelector("button#play");
-const downloadButton = document.querySelector("button#download");
 
 recordButton.addEventListener("click", () => {
   if (recordButton.innerHTML == '<i class="bi-record-circle"></i>') {
@@ -14,8 +13,6 @@ recordButton.addEventListener("click", () => {
     stopRecording();
     recordButton.innerHTML = '<i class="bi-record-circle"></i>';
     playButton.disabled = false;
-    downloadButton.disabled = false;
-    //codecPreferences.disabled = false;
   }
 }); // hjp
 
@@ -50,7 +47,7 @@ function startRecording() {
   console.log("Created MediaRecorder", mediaRecorder);
   recordButton.innerHTML = '<i class="bi-stop-fill"></i>';
   playButton.disabled = true;
-  downloadButton.disabled = true;
+  activarCamara.disabled=true;
   mediaRecorder.onstop = (event) => {
     console.log("Recorder stopped: ", event);
     console.log("Recorded Blobs: ", recordedBlobs);
@@ -62,6 +59,7 @@ function startRecording() {
 
 function stopRecording() {
   mediaRecorder.stop();
+  activarCamara.disabled=false;
 }
 
 function handleSuccess(stream) {
@@ -87,14 +85,24 @@ async function init(constraints) {
 }
 
 //Activamos la cámara
+let cameraActive = false;
 activarCamara.addEventListener("click", async () => {
-  document.querySelector("button#start").disabled = true;
-  const constraints = {
-    video: {
-      width: 1280,
-      height: 720,
-    },
-  };
-  console.log("Using media constraints:", constraints);
-  await init(constraints);
+  if(cameraActive){
+    document.querySelector("button#start").innerHTML='<i class="bi-camera-video-off"></i>'
+    this.stream.getVideoTracks()[0].stop();
+    recordButton.disabled=true;
+    cameraActive=false;
+
+  } else {
+    document.querySelector("button#start").innerHTML='<i class="bi-camera-video"></i>'
+    cameraActive=true;
+    const constraints = {
+      video: {
+        width: 1280,
+        height: 720,
+      },
+    };
+    console.log("Using media constraints:", constraints);
+    await init(constraints);
+  }
 });

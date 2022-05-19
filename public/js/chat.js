@@ -81,6 +81,7 @@ sendVideoReaccionBtn.addEventListener("click", () => {
   }
 });
 
+let chatHeight = 0;
 // Añadir mensaje al chat del cliente (imprimir por frontend)
 function addMessage(msg, type) {
   var now = new Date();
@@ -106,8 +107,9 @@ function addMessage(msg, type) {
   if (type == "received") {
     audio.play();
   }
-
   chatBox.scrollTop = chatBox.scrollHeight;
+  chatHeight=chatHeight+21.5;
+  console.log("chat heigth "+chatHeight)
 
   if (document.getElementById("pop-chat").style.display == "none") {
     // si al recibir un mensaje no tenemos abierta la caja de mensajes, aparece una notificación
@@ -152,12 +154,21 @@ function addVideo(video, type) {
     audio.play();
   }
 
-  chatBox.scrollTop = chatBox.scrollTop; // Scroll hasta abajo del todo
-
+  chatHeight=chatHeight+21.5;
+  chatBox.scrollTop = document.getElementById("chat-list").scrollHeight-10;
+  console.log("Altura Offset " + document.getElementById("chat-list").offsetHeight);
+  console.log("Altura client" + document.getElementById("chat-list").clientHeight);
+  chatBox.scrollTop=300;
+  console.log("scroll top"+chatBox.scrollTop)
+  //chatBox.scrollTop = chatBox.scrollHeight; // Scroll hasta abajo del todo
+  console.log("scroll top "+chatBox.scrollTop)
+  console.log("scroll height "+chatBox.scrollHeight)
+  
   // Si el chat no está abierto, aumentamos el contador de notificaciones
   if (document.getElementById("pop-chat").style.display == "none") {
     notification.style.display = "inline";
     nNotification++;
     notification.innerHTML = nNotification;
   }
+
 }

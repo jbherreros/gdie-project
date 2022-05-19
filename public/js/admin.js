@@ -16,8 +16,6 @@ window.onload = function () {
   const testBtn = document.getElementById("test-btn");
   const videoTest = document.getElementById("video-test");
   const deleteTable = document.getElementById("delete-table");
-  const videoReaccionCont = document.getElementById("video-reaccion");
-  const videoReaccionBtn = document.getElementById("videoReaccionBtn");
 
   startTimeBtn.addEventListener("click", startTime);
   endTimeBtn.addEventListener("click", endTime);
@@ -50,13 +48,11 @@ window.onload = function () {
       convertTimeToVttFormat(cues[i].startTime) +
       "</td><td>" +
       convertTimeToVttFormat(cues[i].endTime) +
-      '</td><td style="text-align: end;"><button id="editarCue-' +
+      '</td><td style="text-align: right;"><button id="editarCue-' +
       i +
-      '" class="btn-sm btn-success">Editar</button></td><td style="text-align: center;"><button id="eliminarCue-' +
+      '" class="btn-sm btn-success">Editar</button></td><td style="text-align: left;"><button id="eliminarCue-' +
       i +
-      '" class="btn-sm btn-danger">Eliminar</button></td><td><button id="videoReaccion-' +
-      i +
-      '" class="btn-sm btn-primary">Vídeo reacción</button></td>' +
+      '" class="btn-sm btn-danger">Eliminar</button></td>' +
       "</tr>";
   }
   document.getElementById("t-body").innerHTML = tableRow;
@@ -68,33 +64,6 @@ window.onload = function () {
     document
       .getElementById("editarCue-" + i)
       .addEventListener("click", editarForm);
-    document
-      .getElementById("videoReaccion-" + i)
-      .addEventListener("click", abrirVideoReaccion);
-  }
-
-  function hasGetUserMedia() {
-    return !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia);
-  }
-
-  function abrirVideoReaccion(e) {
-    if (hasGetUserMedia()) {
-      let cuePos = parseInt(e.target.id.split("-")[1]);
-      console.log(cuePos);
-      getTime.style.display = "none";
-      videoTest.style.display = "none";
-      myVideo.pause();
-      videoTest.pause();
-      myVideo.style.display = "none";
-      form.style.display = "none";
-      deleteTable.style.display = "none";
-      saveBtnForm.style.display = "none";
-      if (videoReaccionCont.classList.contains("d-none")) {
-        videoReaccionCont.classList.remove("d-none");
-      }
-    } else {
-      alert("getUserMedia() is not supported by your browser");
-    }
   }
 
   function eliminar(e) {

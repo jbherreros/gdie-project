@@ -42,10 +42,12 @@
         
                         <div class="up-controls dropdown">
                             <button class="up-controls-btn" type="button" id="settings-btn" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi-gear-wide-connected"></i></button>
-                            <ul class="dropdown-menu" aria-labelledby="settings-btn">
-                              <li><a class="dropdown-item" href="#">1080p</a></li>
-                              <li><a class="dropdown-item" href="#">720p</a></li>
-                              <li><a class="dropdown-item" href="#">360p</a></li>
+                            <ul id="quality-settings" class="dropdown-menu" aria-labelledby="settings-btn">
+                              <li><button id="1080p" class="dropdown-item">1080p</button></li>
+                              <li><button id="720p" class="dropdown-item">720p</button></li>
+                              <li><button id="480p" class="dropdown-item">480p</button></li>
+                              <li><button id="360p" class="dropdown-item">360p</button></li>
+                              <li><button id="manifest" class="dropdown-item disabled">Auto</button></li>
                             </ul>
                             <button class="up-controls-btn"  id="full-screen-btn"><i class="bi-fullscreen"></i></button> 
                         </div>
@@ -68,12 +70,12 @@
                         <h6>Selecciona el minuto de inicio:</h6>
                         <div class="row">
                             <div class="input-group mb-2">
-                                <input disabled type="text" id="s-time-value" class="form-control" placeholder="0.0000">
+                                <input disabled type="text" id="s-time-value" class="form-control" placeholder="00:00:00.000">
                                 <input id="h-start-value" type="hidden" >
                                 <button class="btn btn-primary" type="button" id="s-time">Inicio</button>
                             </div>
                             <div class="input-group mb-1">
-                                <input disabled type="text" id="e-time-value" class="form-control" placeholder="0.0000">
+                                <input disabled type="text" id="e-time-value" class="form-control" placeholder="00:00:00.000">
                                 <input id="h-end-value" type="hidden">
                                 <button class="btn btn-primary" type="button" id="e-time" style="width: 64px;">Final</button>
                             </div>
@@ -102,7 +104,7 @@
                               <th scope="col">Jugador</th>
                               <th scope="col">Inicio</th>
                               <th scope="col">Final</th>
-                              <th scope="col" colspan="3" style="text-align: center;">Acciones</th>
+                              <th scope="col" colspan="2" style="text-align: center;">Acciones</th>
                           </tr>
                       </thead>
                       <tbody id="t-body">
@@ -244,19 +246,6 @@
                 <div class="padding-2"></div>
                 <div class="col-lg-2"></div>
             </div>
-            <div id="video-reaccion" class="d-none">
-                <h1>Graba tu vídeo reacción</h1>
-                <video id="gum" class="vr-style" playsinline autoplay muted></video>
-                <video id="recorded" class="vr-style" playsinline loop></video>
-                <div>
-                    <ul class="vr-btn-style list-group list-group-horizontal-sm">
-                        <li class="list-group-item"><button id="start" class="btn btn-secondary btn-sm">Activar cámara</button></li>
-                        <li class="list-group-item"><button id="record" class="btn btn-secondary btn-sm" disabled>Grabar</button></li>
-                        <li class="list-group-item"><button id="play" class="btn btn-secondary btn-sm" disabled>Play</button></li>
-                        <li class="list-group-item"><button id="download" class="btn btn-secondary btn-sm" disabled>Guardar</button></li>
-                      </ul>
-                </div>
-            </div>
         </div>
     </main>
 
@@ -266,7 +255,9 @@
         </div>
     </footer>
 </body>
-
+<script src="http://cdn.dashjs.org/v4.4.0/dash.all.min.js"></script>
 <script src="js/videoControls.js"></script>
 <script src="js/admin.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 </html>
