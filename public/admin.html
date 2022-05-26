@@ -34,8 +34,10 @@
                 <!-- Vídeo -->
                 <div class="col-lg-8">
                     <div class="video-c">
-                        <video id="video">
-                            <source src="./resources/top10-video.mp4" type="video/mp4"/>
+                        <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+                        <video id="video" data-dashjs-player>
+                            <!--  src="./videos/dash/manifest.mpd"-->
+                            <source src="./videos/hls/manifest.m3u8" type="application/x-megURL"/>
                             Your browser does not support the current video format
                             <track label="plays" kind="chapters" srclang="es" src="./resources/plays.vtt" default>
                         </video>
@@ -255,7 +257,7 @@
         </div>
     </footer>
 </body>
-<script src="http://cdn.dashjs.org/v4.4.0/dash.all.min.js"></script>
+<script src="https://cdn.dashjs.org/v4.4.0/dash.all.min.js"></script>
 <script src="js/videoControls.js"></script>
 <script src="js/admin.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
